@@ -34,6 +34,8 @@ func main() {
 	var streamingThreshold int
 	var streamingSizeMB int
 	var countTotal bool
+	var dnsRate, dnsRatePerResolver, dnsJitter float64
+	var dnsBurst int
 
 	flag.StringVar(&input, "input", "domains.txt", "Path to target list")
 	flag.StringVar(&outDir, "out", ".", "Directory to output reports and cache")
@@ -55,6 +57,10 @@ func main() {
 	flag.IntVar(&streamingThreshold, "streaming-threshold", 50000, "Line count to trigger streaming")
 	flag.IntVar(&streamingSizeMB, "streaming-size-mb", 64, "File size (MB) to trigger streaming")
 	flag.BoolVar(&countTotal, "count-total", false, "Count total lines for progress (extra pass)")
+	flag.Float64Var(&dnsRate, "dns-rate", 0, "Max DNS queries per second for the whole scan (0 = unlimited; e.g. 3 where DNS above ~6/s is blocked)")
+	flag.Float64Var(&dnsRatePerResolver, "dns-rate-per-resolver", 0, "Max DNS queries per second to any one resolver (0 = unlimited)")
+	flag.IntVar(&dnsBurst, "dns-burst", 1, "DNS queries allowed back-to-back before spacing applies")
+	flag.Float64Var(&dnsJitter, "dns-jitter", 0, "Timing mask 0..1: randomly lengthen gaps between DNS queries")
 	flag.Parse()
 
 	cfg := engine.DefaultConfig()
@@ -88,6 +94,10 @@ func main() {
 	cfg.DnsTxtDomain = txtDomain
 	cfg.DnsTxtResolversRaw = txtResolversRaw
 	cfg.SpoofedSNI = spoofSNI
+	cfg.DnsRateLimitPerSecond = dnsRate
+	cfg.DnsRateLimitPerResolverPerSecond = dnsRatePerResolver
+	cfg.DnsRateLimitBurst = dnsBurst
+	cfg.DnsTimingJitter = dnsJitter
 
 	interactive := len(os.Args) == 1
 
@@ -305,6 +315,10 @@ func runInteractiveSetup(cfg *engine.ScanConfig) {
 		}
 	}
 
+	if cfg.DnsDiscoveryMode || cfg.DnsTxtMode {
+		promptDNSRateLimit(cfg)
+	}
+
 	fmt.Println()
 	if cfg.DnsTxtMode {
 		fmt.Printf("  ⚡ Mode: TXT RESOLVER PROBE (domain: %s)\n", cfg.DnsTxtDomain)
@@ -316,6 +330,30 @@ func runInteractiveSetup(cfg *engine.ScanConfig) {
 		fmt.Println("  ⚡ Mode: DEFAULT PORTS (443/80)")
 	}
 	fmt.Println()
+}
+
+// promptDNSRateLimit asks for the optional DNS query cap. Networks that block
+// DNS above a fixed rate drop most probes of an unlimited scan, so working
+// resolvers look dead.
+func promptDNSRateLimit(cfg *engine.ScanConfig) {
+	fmt.Println()
+	fmt.Println("  DNS query rate limit (for networks that block DNS above a fixed rate, e.g. 6/s):")
+	fmt.Printf("  Max queries per second, 0 = unlimited (Default: %g): ", cfg.DnsRateLimitPerSecond)
+	var rateInput string
+	fmt.Scanln(&rateInput)
+	if v, err := strconv.ParseFloat(strings.TrimSpace(rateInput), 64); err == nil && v >= 0 {
+		cfg.DnsRateLimitPerSecond = v
+	}
+	if cfg.DnsRateLimitPerSecond <= 0 {
+		return
+	}
+	fmt.Printf("  Timing mask 0..1, randomizes query gaps (Default: %g): ", cfg.DnsTimingJitter)
+	var jitterInput string
+	fmt.Scanln(&jitterInput)
+	if v, err := strconv.ParseFloat(strings.TrimSpace(jitterInput), 64); err == nil && v >= 0 && v <= 1 {
+		cfg.DnsTimingJitter = v
+	}
+	fmt.Printf("  ⏱ DNS queries capped at %g/s: a large resolver list takes longer, but results stay accurate.\n", cfg.DnsRateLimitPerSecond)
 }
 
 func openDir(dir string) {

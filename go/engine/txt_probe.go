@@ -62,6 +62,11 @@ func DnsProbeTXTUDPWithDialer(ctx context.Context, resolverIP string, queryName 
 // DnsProbeTXTTCPWithDialer sends a TXT query over TCP.
 func DnsProbeTXTTCPWithDialer(ctx context.Context, resolverIP string, queryName string, timeout time.Duration, dialer *net.Dialer, port int) DnsProbeResult {
 	result := DnsProbeResult{Protocol: fmt.Sprintf("TCP/%d", port)}
+
+	if !waitDNSQuery(ctx, resolverIP) {
+		result.Error = "CANCELED"
+		return result
+	}
 	query, txid := buildDnsQuery(queryName, 16, true)
 
 	addr := net.JoinHostPort(resolverIP, fmt.Sprintf("%d", port))
@@ -110,6 +115,11 @@ func DnsProbeTXTTCPWithDialer(ctx context.Context, resolverIP string, queryName 
 // DnsProbeTXTDoTWithDialer sends a TXT query over DNS-over-TLS.
 func DnsProbeTXTDoTWithDialer(ctx context.Context, resolverIP string, queryName string, timeout time.Duration, dialer *net.Dialer, port int) DnsProbeResult {
 	result := DnsProbeResult{Protocol: fmt.Sprintf("DoT/%d", port)}
+
+	if !waitDNSQuery(ctx, resolverIP) {
+		result.Error = "CANCELED"
+		return result
+	}
 	query, txid := buildDnsQuery(queryName, 16, true)
 
 	addr := net.JoinHostPort(resolverIP, fmt.Sprintf("%d", port))
@@ -158,6 +168,11 @@ func DnsProbeTXTDoTWithDialer(ctx context.Context, resolverIP string, queryName 
 // DnsProbeTXTDoHWithClient sends a TXT query over DNS-over-HTTPS.
 func DnsProbeTXTDoHWithClient(ctx context.Context, resolverIP string, queryName string, timeout time.Duration, client *http.Client, port int) DnsProbeResult {
 	result := DnsProbeResult{Protocol: fmt.Sprintf("DoH/%d", port)}
+
+	if !waitDNSQuery(ctx, resolverIP) {
+		result.Error = "CANCELED"
+		return result
+	}
 	url := fmt.Sprintf("https://%s:%d/dns-query?name=%s&type=TXT", resolverIP, port, queryName)
 
 	if client == nil {

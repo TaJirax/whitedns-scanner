@@ -58,6 +58,7 @@ func (e *Engine) Start() {
 
 	ctx, cancel := context.WithCancel(context.Background())
 	e.cancel = cancel
+	configureDNSRateLimit(e.config)
 
 	cachePath := filepath.Join(e.config.OutputDir, e.config.CacheFile)
 	inputPath := filepath.Join(e.config.OutputDir, e.config.InputFile)
