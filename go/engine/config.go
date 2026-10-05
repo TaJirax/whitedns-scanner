@@ -31,6 +31,12 @@ type ScanConfig struct {
 	DnsTxtMode         bool   // If true, probe resolvers with TXT queries against DnsTxtDomain
 	DnsTxtDomain       string // Base domain for TXT lookups (random label is prepended at runtime)
 	DnsTxtResolversRaw string // Optional inline resolver list for TXT mode, comma/newline separated
+	// DNS query rate limit (rate_limit.go), for networks that drop DNS above a
+	// fixed rate. 0 = off. A probe waits for its slot before its timeout starts.
+	DnsRateLimitPerSecond            float64 // total queries/second across the scan
+	DnsRateLimitPerResolverPerSecond float64 // queries/second to any one resolver
+	DnsRateLimitBurst                int     // queries allowed back-to-back (default 1 = evenly spaced)
+	DnsTimingJitter                  float64 // 0..1: randomly lengthen each gap so probes have no fixed rhythm
 	// Streaming mode: read targets from disk as a stream instead of loading into memory
 	Streaming bool
 	// If true, perform a fast line-count pass to get an accurate total for progress.
@@ -67,6 +73,7 @@ func DefaultConfig() *ScanConfig {
 		DnsTxtMode:         false,
 		DnsTxtDomain:       "",
 		DnsTxtResolversRaw: "",
+		DnsRateLimitBurst:  1,
 		Streaming:        false,
 		CountTotal:       false,
 		AutoConcurrency:  true,

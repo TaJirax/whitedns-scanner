@@ -50,6 +50,19 @@ This repository contains a scanner for checking Cloudflare-backed targets and re
    - `hijacked_dns_<timestamp>.txt`
    - `raw_ip_dump_<timestamp>.txt`
 
+## DNS query rate limit
+
+Some networks (Iran, for example) drop or block DNS above a fixed rate, about 6 queries per second. An unlimited resolver scan then loses most of its probes, and working resolvers look dead. DNS and TXT modes can cap the query rate. All settings are off by default.
+
+| Flag | Meaning |
+|---|---|
+| `-dns-rate 3` | Max DNS queries per second for the whole scan |
+| `-dns-rate-per-resolver 3` | Max queries per second to any one resolver |
+| `-dns-burst 1` | Queries allowed back-to-back (1 = evenly spaced, safest) |
+| `-dns-jitter 0.3` | Timing mask: randomly lengthen gaps (0..1) so probes have no fixed rhythm |
+
+The interactive menu asks for the rate after you pick a DNS or TXT mode. A probe waits for its slot before its timeout starts, so a capped scan is slower but still accurate. Each resolver takes several queries (UDP, TCP, DoT, DoH), so at 3 per second a scan covers roughly one resolver per second.
+
 ## Notes
 
 - The scanner performs active network probing, so only use it on targets you are authorized to test.

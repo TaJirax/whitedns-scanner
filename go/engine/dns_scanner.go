@@ -528,6 +528,11 @@ func probeUDPWithFallback(ctx context.Context, resolverIP string, name string, q
 	)
 	// EDNS0 first (large-payload detection); bare query second (compatibility).
 	for i, useEDNS := range []bool{true, false} {
+		// Wait for a rate-limit slot before the deadline starts, so waiting
+		// never counts against the resolver.
+		if !waitDNSQuery(ctx, resolverIP) {
+			return hdr, nil, false, ttfb, fmt.Errorf("CANCELED")
+		}
 		query, txid := buildDnsQuery(name, qtype, useEDNS)
 		conn.SetDeadline(time.Now().Add(timeout))
 		if _, werr := conn.Write(query); werr != nil {
@@ -573,6 +578,11 @@ func readUDPResponse(conn net.Conn, txid uint16, qtype uint16) (DnsHeader, []str
 // DnsProbeTCPWithDialer sends a TCP-wrapped DNS query on the specified port.
 func DnsProbeTCPWithDialer(ctx context.Context, resolverIP string, domain string, truth *TruthTable, timeout time.Duration, dialer *net.Dialer, port int) DnsProbeResult {
 	result := DnsProbeResult{Protocol: fmt.Sprintf("TCP/%d", port)}
+
+	if !waitDNSQuery(ctx, resolverIP) {
+		result.Error = "CANCELED"
+		return result
+	}
 
 	query, txid := buildDnsQuery(domain, 1, true)
 
@@ -645,6 +655,11 @@ func readTCPResponse(conn net.Conn) ([]byte, error) {
 func DnsProbeDoTWithDialer(ctx context.Context, resolverIP string, domain string, truth *TruthTable, timeout time.Duration, dialer *net.Dialer, port int) DnsProbeResult {
 	result := DnsProbeResult{Protocol: fmt.Sprintf("DoT/%d", port)}
 
+	if !waitDNSQuery(ctx, resolverIP) {
+		result.Error = "CANCELED"
+		return result
+	}
+
 	query, txid := buildDnsQuery(domain, 1, true)
 
 	addr := net.JoinHostPort(resolverIP, fmt.Sprintf("%d", port))
@@ -699,6 +714,11 @@ func DnsProbeDoTWithDialer(ctx context.Context, resolverIP string, domain string
 // DnsProbeDoHWithClient sends a DNS-over-HTTPS query using a shared HTTP client.
 func DnsProbeDoHWithClient(ctx context.Context, resolverIP string, domain string, truth *TruthTable, timeout time.Duration, client *http.Client, port int) DnsProbeResult {
 	result := DnsProbeResult{Protocol: fmt.Sprintf("DoH/%d", port)}
+
+	if !waitDNSQuery(ctx, resolverIP) {
+		result.Error = "CANCELED"
+		return result
+	}
 
 	url := fmt.Sprintf("https://%s:%d/dns-query?name=%s&type=A", resolverIP, port, domain)
 
