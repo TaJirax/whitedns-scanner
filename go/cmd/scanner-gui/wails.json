@@ -1,0 +1,11 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "WhiteDNS Scanner",
+  "outputfilename": "WhiteDNS-Scanner",
+  "frontend:install": "",
+  "frontend:build": "",
+  "author": {
+    "name": "WhiteDNS",
+    "email": ""
+  }
+}

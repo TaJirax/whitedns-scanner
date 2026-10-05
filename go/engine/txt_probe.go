@@ -17,28 +17,29 @@ import (
 // protocols. It mirrors the A-record path but does not compare answers against
 // the truth table.
 func DnsProbeTXT(ctx context.Context, resolverIP string, domain string, timeout time.Duration, dialer *net.Dialer, dohClient *http.Client, customPorts []int) []DnsProbeResult {
-	results := make([]DnsProbeResult, 0, 8)
+	var probes []func() DnsProbeResult
+	add := func(p func() DnsProbeResult) { probes = append(probes, p) }
 	queryName := buildTxtQueryName(domain)
 
 	if len(customPorts) > 0 {
 		for _, port := range customPorts {
-			results = append(results, DnsProbeTXTUDPWithDialer(ctx, resolverIP, queryName, timeout, dialer, port))
-			results = append(results, DnsProbeTXTTCPWithDialer(ctx, resolverIP, queryName, timeout, dialer, port))
+			add(func() DnsProbeResult { return DnsProbeTXTUDPWithDialer(ctx, resolverIP, queryName, timeout, dialer, port) })
+			add(func() DnsProbeResult { return DnsProbeTXTTCPWithDialer(ctx, resolverIP, queryName, timeout, dialer, port) })
 			if port == 853 {
-				results = append(results, DnsProbeTXTDoTWithDialer(ctx, resolverIP, queryName, timeout, dialer, port))
+				add(func() DnsProbeResult { return DnsProbeTXTDoTWithDialer(ctx, resolverIP, queryName, timeout, dialer, port) })
 			}
 			if port == 443 {
-				results = append(results, DnsProbeTXTDoHWithClient(ctx, resolverIP, queryName, timeout, dohClient, port))
+				add(func() DnsProbeResult { return DnsProbeTXTDoHWithClient(ctx, resolverIP, queryName, timeout, dohClient, port) })
 			}
 		}
-		return results
+		return runProbesConcurrently(probes)
 	}
 
-	results = append(results, DnsProbeTXTUDPWithDialer(ctx, resolverIP, queryName, timeout, dialer, 53))
-	results = append(results, DnsProbeTXTTCPWithDialer(ctx, resolverIP, queryName, timeout, dialer, 53))
-	results = append(results, DnsProbeTXTDoTWithDialer(ctx, resolverIP, queryName, timeout, dialer, 853))
-	results = append(results, DnsProbeTXTDoHWithClient(ctx, resolverIP, queryName, timeout, dohClient, 443))
-	return results
+	add(func() DnsProbeResult { return DnsProbeTXTUDPWithDialer(ctx, resolverIP, queryName, timeout, dialer, 53) })
+	add(func() DnsProbeResult { return DnsProbeTXTTCPWithDialer(ctx, resolverIP, queryName, timeout, dialer, 53) })
+	add(func() DnsProbeResult { return DnsProbeTXTDoTWithDialer(ctx, resolverIP, queryName, timeout, dialer, 853) })
+	add(func() DnsProbeResult { return DnsProbeTXTDoHWithClient(ctx, resolverIP, queryName, timeout, dohClient, 443) })
+	return runProbesConcurrently(probes)
 }
 
 // DnsProbeTXTUDPWithDialer sends a TXT query over UDP.

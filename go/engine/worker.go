@@ -72,6 +72,17 @@ func (e *Engine) scanWorker(ctx context.Context, jobs <-chan Target, results cha
 		}
 
 		// ── HTTPS → HTTP Fallback (Anti-Censorship / DPI bypass) ──
+		if probeResult.Status != "PASSED" && probeResult.Status != "TLS_FAILED" {
+			results <- ScanResult{
+				Label:      target.Label,
+				URL:        target.URL,
+				ResolvedIP: probeResult.ResolvedIP,
+				Port:       port,
+				LatencyMs:  int(time.Since(start).Milliseconds()),
+				Error:      probeResult.Status,
+			}
+			continue
+		}
 		if probeResult.Status != "PASSED" {
 			fallbackScheme := "http"
 			if scheme == "http" {
@@ -266,6 +277,17 @@ func (e *Engine) txtPassthroughCheck(ctx context.Context, resolverIP string, tim
 	return tp.Responded && len(tp.AnswerTXT) > 0
 }
 
+// udpResponded reports whether any UDP probe got an answer; the TXT
+// passthrough check also rides UDP, so it cannot succeed otherwise.
+func udpResponded(results []DnsProbeResult) bool {
+	for _, pr := range results {
+		if pr.Responded && strings.HasPrefix(pr.Protocol, "UDP") {
+			return true
+		}
+	}
+	return false
+}
+
 // dnsProtocolPort maps DNS protocol names to their canonical port numbers.
 func dnsProtocolPort(proto string) int {
 	if idx := strings.LastIndex(proto, "/"); idx != -1 && idx < len(proto)-1 {
@@ -333,7 +355,7 @@ func (e *Engine) dnsWorker(ctx context.Context, jobs <-chan Target, results chan
 		// query against a domain that actually has TXT records to find out.
 		// In TXT mode each probe already carries its own passthrough signal.
 		txtPassthrough := false
-		if !e.config.DnsTxtMode {
+		if !e.config.DnsTxtMode && udpResponded(probeResults) {
 			txtPassthrough = e.txtPassthroughCheck(ctx, resolverIP, timeout)
 		}
 

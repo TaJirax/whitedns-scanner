@@ -461,7 +461,7 @@ func WriteReports(outDir, openPath, fullPath, poisonedPath, hijackedPath, rawIPP
 	rawIPFile := filepath.Join(outDir, rawIPPath)
 	tunnelFile := filepath.Join(outDir, tunnelPath)
 	headerFile := filepath.Join(outDir, headerPath)
-	cacheFile := filepath.Join(outDir, cachePath)
+	cacheFile := resolvePath(outDir, cachePath)
 
 	hijackedResults := make([]ScanResult, 0)
 	// Collect hijacked entries from all DNS-related result buckets (open, dead, poisoned)

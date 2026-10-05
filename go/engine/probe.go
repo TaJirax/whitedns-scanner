@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net"
 	"net/http"
+	"sync"
 	"time"
 )
 
@@ -52,25 +53,24 @@ func PreFlightLayerCheck(ctx context.Context, host string, port int, scheme stri
 	if err != nil {
 		return ProbeResult{Status: "TCP_FAILED", ResolvedIP: resolvedIP}
 	}
-	conn.Close()
+	defer conn.Close()
 
 	// ──────────────────────────────────────────────
-	// 3. TLS Handshake — dial IP but spoof SNI to safe domain
+	// 3. TLS Handshake — on the same connection, spoofing SNI to a safe domain
 	// ──────────────────────────────────────────────
 	if scheme == "https" {
-		tlsDialer := &net.Dialer{Timeout: timeout}
-		tlsConn, err := tls.DialWithDialer(tlsDialer, "tcp", tcpAddr, &tls.Config{
+		_ = conn.SetDeadline(time.Now().Add(timeout))
+		tlsConn := tls.Client(conn, &tls.Config{
 			ServerName:         spoofedSNI, // SNI spoofing: send the clean domain in ClientHello
 			InsecureSkipVerify: true,
 		})
-		if err != nil {
+		if err := tlsConn.HandshakeContext(ctx); err != nil {
 			// Differentiate between TLS protocol errors and connection errors
 			if isSocketExhaustion(err) {
 				return ProbeResult{Status: "FATAL_ERR", ResolvedIP: resolvedIP}
 			}
 			return ProbeResult{Status: "TLS_FAILED", ResolvedIP: resolvedIP}
 		}
-		tlsConn.Close()
 	}
 
 	return ProbeResult{Status: "PASSED", ResolvedIP: resolvedIP}
@@ -139,31 +139,48 @@ func searchInsensitive(s, substr string) bool {
 // DnsProbe executes a layered DNS probe across all 4 protocols.
 // Each protocol is tested independently — no short-circuiting.
 func DnsProbe(ctx context.Context, resolverIP string, domain string, truth *TruthTable, timeout time.Duration, dialer *net.Dialer, dohClient *http.Client, customPorts []int, dnsUdpTcpOnly bool) []DnsProbeResult {
-	results := make([]DnsProbeResult, 0, 8)
+	var probes []func() DnsProbeResult
+	add := func(p func() DnsProbeResult) { probes = append(probes, p) }
 
 	if len(customPorts) > 0 {
 		for _, p := range customPorts {
-			results = append(results, DnsProbeUDPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, p))
-			results = append(results, DnsProbeTCPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, p))
+			add(func() DnsProbeResult { return DnsProbeUDPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, p) })
+			add(func() DnsProbeResult { return DnsProbeTCPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, p) })
 			if !dnsUdpTcpOnly {
 				if p == 853 {
-					results = append(results, DnsProbeDoTWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, p))
+					add(func() DnsProbeResult { return DnsProbeDoTWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, p) })
 				}
 				if p == 443 {
-					results = append(results, DnsProbeDoHWithClient(ctx, resolverIP, domain, truth, timeout, dohClient, p))
+					add(func() DnsProbeResult { return DnsProbeDoHWithClient(ctx, resolverIP, domain, truth, timeout, dohClient, p) })
 				}
 			}
 		}
-		return results
+		return runProbesConcurrently(probes)
 	}
 
 	// Default behaviour
-	results = append(results, DnsProbeUDPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, 53))
-	results = append(results, DnsProbeTCPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, 53))
+	add(func() DnsProbeResult { return DnsProbeUDPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, 53) })
+	add(func() DnsProbeResult { return DnsProbeTCPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, 53) })
 	if !dnsUdpTcpOnly {
-		results = append(results, DnsProbeDoTWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, 853))
-		results = append(results, DnsProbeDoHWithClient(ctx, resolverIP, domain, truth, timeout, dohClient, 443))
+		add(func() DnsProbeResult { return DnsProbeDoTWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, 853) })
+		add(func() DnsProbeResult { return DnsProbeDoHWithClient(ctx, resolverIP, domain, truth, timeout, dohClient, 443) })
 	}
+	return runProbesConcurrently(probes)
+}
 
+// runProbesConcurrently runs one resolver's protocol probes at the same time
+// and returns their results in order. A dead resolver then costs one timeout
+// instead of one per protocol.
+func runProbesConcurrently(probes []func() DnsProbeResult) []DnsProbeResult {
+	results := make([]DnsProbeResult, len(probes))
+	var wg sync.WaitGroup
+	for i, probe := range probes {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			results[i] = probe()
+		}()
+	}
+	wg.Wait()
 	return results
 }

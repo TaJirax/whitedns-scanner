@@ -60,8 +60,8 @@ func (e *Engine) Start() {
 	e.cancel = cancel
 	configureDNSRateLimit(e.config)
 
-	cachePath := filepath.Join(e.config.OutputDir, e.config.CacheFile)
-	inputPath := filepath.Join(e.config.OutputDir, e.config.InputFile)
+	cachePath := resolvePath(e.config.OutputDir, e.config.CacheFile)
+	inputPath := resolvePath(e.config.OutputDir, e.config.InputFile)
 	if e.config.DnsTxtMode {
 		txtTargets, err := loadTxtResolverTargets(inputPath, e.config.DnsTxtResolversRaw)
 		if err != nil {
@@ -198,6 +198,14 @@ func (e *Engine) Start() {
 
 	// ── Standard HTTP Reachability Scan ──
 	e.startHttpScan(ctx, targets)
+}
+
+// resolvePath joins a relative path onto dir; an absolute path is kept as is.
+func resolvePath(dir, p string) string {
+	if filepath.IsAbs(p) {
+		return p
+	}
+	return filepath.Join(dir, p)
 }
 
 // configuredDialer returns the engine's shared DNS dialer or a default one.
