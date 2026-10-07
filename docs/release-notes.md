@@ -1,19 +1,31 @@
-WhiteDNS Scanner desktop app: find clean Cloudflare IPs, check DNS resolvers and turn the results into ready-to-use configs.
+WhiteDNS: the desktop app (WhiteDNS Scanner v0.2.0), the Android app (WhiteDNS IP Scanner v1.4.6) and the terminal app, all in one place. Find clean Cloudflare IPs, check DNS resolvers and turn the results into ready-to-use configs.
 
 ## Downloads
 
-| System | File |
-|---|---|
-| Windows 10/11 (64-bit) | `WhiteDNS-Scanner-windows-amd64.zip` |
-| macOS (Intel and Apple silicon) | `WhiteDNS-Scanner-darwin-universal.zip` |
-| Linux x64 | `WhiteDNS-Scanner-linux-amd64.tar.gz` |
-| Linux ARM64 | `WhiteDNS-Scanner-linux-arm64.tar.gz` |
+| App | System | File |
+|---|---|---|
+| Desktop | Windows 10/11 (64-bit) | `WhiteDNS-Scanner-windows-amd64.zip` |
+| Desktop | macOS (Intel and Apple silicon) | `WhiteDNS-Scanner-darwin-universal.zip` |
+| Desktop | Linux x64 | `WhiteDNS-Scanner-linux-amd64.tar.gz` |
+| Desktop | Linux ARM64 | `WhiteDNS-Scanner-linux-arm64.tar.gz` |
+| Android | Most phones (64-bit) | `WhiteDNS-IP-Scanner-arm64-v8a-release.apk` |
+| Android | Older 32-bit phones | `WhiteDNS-IP-Scanner-armeabi-v7a-release.apk` |
+| Android | Not sure which | `WhiteDNS-IP-Scanner-universal-release.apk` (larger, works everywhere) |
+| Android | Emulators / x86 devices | `WhiteDNS-IP-Scanner-x86_64-release.apk`, `WhiteDNS-IP-Scanner-x86-release.apk` |
+| Android | Google Play upload | `WhiteDNS-IP-Scanner-release.aab` |
+| Terminal | Windows | `whitedns-windows-amd64.exe` |
+| Terminal | Linux | `whitedns-linux-amd64`, `whitedns-linux-arm64` |
+| Terminal | macOS | `whitedns-macos-arm64` (Apple silicon), `whitedns-macos-amd64` (Intel) |
+| Terminal | Android (Termux) | `whitedns-termux-arm64` |
 
-Unpack and run `WhiteDNS-Scanner`. Checksums are in `SHA256SUMS.txt`.
+Checksums for every file are in `SHA256SUMS.txt`.
 
-- **Windows:** needs WebView2, which Windows 10 and 11 already include.
-- **macOS:** the app is not signed. The first time, right-click **WhiteDNS Scanner** and choose **Open**.
-- **Linux:** needs GTK 3 and WebKitGTK 4.1.
+- **Desktop on Windows:** needs WebView2, which Windows 10 and 11 already include.
+- **Desktop on macOS:** the app is not signed. The first time, right-click **WhiteDNS Scanner** and choose **Open**.
+- **Desktop on Linux:** needs GTK 3 and WebKitGTK 4.1.
+- **Android:** the APKs are signed with the same key as earlier releases, so they install over your current version.
+
+# Desktop app: WhiteDNS Scanner v0.2.0
 
 ## Finding clean IPs
 
@@ -52,3 +64,24 @@ Paste your vless, vmess, trojan, ss, hysteria2, WireGuard or AmneziaWG configs a
   - Each dead resolver costs one timeout instead of two.
   - The tunnel-ready check runs over every protocol that answered.
 - **SNI scans need one connection per IP instead of two.**
+
+# Android app: WhiteDNS IP Scanner v1.4.6
+
+- **A new look**, matching the desktop app: its colours, icons, light and dark themes, and accent colours. Forms are easier to scan and the progress bar shows real progress.
+- **Faster everywhere.**
+  - The app starts about three times faster.
+  - The APK is much smaller: 9 MB for arm64, down from 32 MB.
+  - ASN search answers each keystroke about 20 times faster.
+  - Exporting ASN IPs is about 5 times faster.
+- **Saved results:** reopen past scans from the home screen, and search inside results.
+- **"Cloudflare all (13)" port preset:** scan every Cloudflare HTTPS and HTTP port in one go.
+- **Speed test through a found IP:** measure download speed through the endpoint itself.
+- **Anti-DPI:** optional ClientHello fragmentation for IP and proxy scans.
+- **DNS rate limit:** an optional query rate, per resolver or overall, with timing jitter, for networks that drop DNS above a fixed rate.
+- Works better on large screens and in landscape, keyboard handling is fixed, and changing the font size no longer resets your place.
+
+# Android and terminal scanning engine
+
+- **Overlapping ranges are scanned once.** ASN exports and scans merge overlapping ranges, so every IP appears exactly once. Tests check every one of the 159.6 million IPv4 addresses in the bundled ASN data.
+- **The ASN tables are built in;** no data files are needed.
+- Domain targets are supported in IP scans.
