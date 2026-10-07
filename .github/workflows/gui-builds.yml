@@ -1,0 +1,77 @@
+name: Desktop GUI builds
+
+on:
+  workflow_dispatch:
+  workflow_call: # release.yml builds every platform through this workflow
+  push:
+    paths:
+      - 'go/**'
+      - 'scripts/build-gui.*'
+      - '.github/workflows/gui-builds.yml'
+      - 'README.md'
+  pull_request:
+    paths:
+      - 'go/**'
+      - 'scripts/build-gui.*'
+      - '.github/workflows/gui-builds.yml'
+      - 'README.md'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gui-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: ${{ matrix.target }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: windows-2022
+            target: windows/amd64
+            artifact: windows-amd64
+          - runner: ubuntu-24.04
+            target: linux/amd64
+            artifact: linux-amd64
+          - runner: ubuntu-24.04-arm
+            target: linux/arm64
+            artifact: linux-arm64
+          - runner: macos-15
+            target: darwin/universal
+            artifact: darwin-universal
+    defaults:
+      run:
+        working-directory: go
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go/go.mod
+          cache-dependency-path: go/go.sum
+      - name: Install Linux build dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends build-essential pkg-config libgtk-3-dev libwebkit2gtk-4.1-dev
+      - name: Install Wails
+        run: go install github.com/wailsapp/wails/v2/cmd/wails@v2.12.0
+      - name: Check and build Windows GUI
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ../scripts/build-gui.ps1
+      - name: Check and build Linux or macOS GUI
+        if: runner.os != 'Windows'
+        shell: bash
+        run: bash ../scripts/build-gui.sh '${{ matrix.target }}'
+      - name: Upload desktop package and checksum
+        uses: actions/upload-artifact@v4
+        with:
+          name: WhiteDNS-Scanner-${{ matrix.artifact }}
+          path: build/gui/${{ matrix.artifact }}/
+          if-no-files-found: error
+          retention-days: 14
