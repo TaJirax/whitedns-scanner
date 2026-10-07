@@ -52,7 +52,7 @@ case "$native_os" in
     darwin)
         app="$gui_dir/build/bin/WhiteDNS Scanner.app"
         if [[ "$target" == darwin/universal ]]; then
-            lipo -verify_arch x86_64 arm64 "$app/Contents/MacOS/WhiteDNS-Scanner"
+            lipo "$app/Contents/MacOS/WhiteDNS-Scanner" -verify_arch x86_64 arm64
         fi
         archive="WhiteDNS-Scanner-${target//\//-}.zip"
         ditto -c -k --sequesterRsrc --keepParent "$app" "$output_dir/$archive"
