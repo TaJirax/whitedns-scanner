@@ -35,10 +35,10 @@ case "$target" in
 esac
 
 cd "$repo_root/go"
-go test "${tag_args[@]}" ./...
-go vet "${tag_args[@]}" ./...
+go test ${tag_args[@]+"${tag_args[@]}"} ./...
+go vet ${tag_args[@]+"${tag_args[@]}"} ./...
 cd "$gui_dir"
-wails build -platform "$target" "${tag_args[@]}" -trimpath -ldflags '-s -w' -skipbindings
+wails build -platform "$target" ${tag_args[@]+"${tag_args[@]}"} -trimpath -ldflags '-s -w' -skipbindings
 
 output_dir="$repo_root/build/gui/${target//\//-}"
 mkdir -p "$output_dir"
