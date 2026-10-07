@@ -9,7 +9,11 @@ WhiteDNS Scanner desktop app: find clean Cloudflare IPs, check DNS resolvers and
 | Linux x64 | `WhiteDNS-Scanner-linux-amd64.tar.gz` |
 | Linux ARM64 | `WhiteDNS-Scanner-linux-arm64.tar.gz` |
 
-Unpack and run `WhiteDNS-Scanner`. Checksums are in `SHA256SUMS.txt`. On Linux the app needs GTK 3 and WebKitGTK 4.1.
+Unpack and run `WhiteDNS-Scanner`. Checksums are in `SHA256SUMS.txt`.
+
+- **Windows:** needs WebView2, which Windows 10 and 11 already include.
+- **macOS:** the app is not signed. The first time, right-click **WhiteDNS Scanner** and choose **Open**.
+- **Linux:** needs GTK 3 and WebKitGTK 4.1.
 
 ## Finding clean IPs
 

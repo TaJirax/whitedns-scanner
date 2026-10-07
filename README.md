@@ -67,7 +67,6 @@ The interactive menu asks for the rate after you pick a DNS or TXT mode. A probe
 
 - The scanner performs active network probing, so only use it on targets you are authorized to test.
 - Some build outputs are intentionally ignored by git, but the two packaged executables are kept trackable in the repository root.
-are we there yet ?
 ## Desktop GUI scan modes
 
 The desktop and terminal menus share the same mode names. Clean IP scans include Default Ports (443/80 only), All Cloudflare Ports (13 ports), and Custom ports. Dedicated modes provide SNI scan, HTTP proxy, SOCKS proxy, DNS Resolver Discovery, DNS UDP/TCP only, and TXT Resolver Probe.
@@ -80,7 +79,7 @@ To measure download performance, open Results and use the speed action on a succ
 
 Appearance settings include Taro purple, Teal tea and Milk tea palettes. Dark mode uses quiet surfaces without the left-side glow.
 
-Streaming scans no longer block on an expanded-target counting pass. Exact counting is optional background work; progress stays indeterminate until the total is known. Automatic concurrency reacts to local socket exhaustion within your minimum/maximum; manual concurrency stays fixed. Original probes, retry rules, timeouts and service/DNS validation are retained.
+The total is worked out before the first probe, so progress is real from the start. Overlapping ranges count once, matching how they are scanned. **Live activity** shows a scan log by default (setup steps, every result with its reason, a line at each 10%) next to the list of passed results. Automatic concurrency reacts to local socket exhaustion within your minimum/maximum; manual concurrency stays fixed.
 
 IP and proxy pages include optional **Anti-DPI / fragment ClientHello**, disabled by default. Configure 1–1024 bytes per fragment and 0–20 ms between writes (defaults: 64 bytes, 1 ms). It preserves TLS bytes and original hostname policy; it does not affect SNI or DNS modes. TCP writes may be coalesced by the operating system, so circumvention depends on the network. CLI equivalents: `-anti-dpi -dpi-fragment-size 64 -dpi-fragment-delay-ms 1`.
 
@@ -94,13 +93,38 @@ go run ./cmd/scanner -mode http-proxy -input proxies.txt -ports 8080,3128 -proxy
 go run ./cmd/scanner -mode socks-proxy -input proxies.txt -ports 1080 -proxy-test-url https://example.com/
 ```
 Choose **Clean IP finder** in the menu for IPs/CIDRs, or **Edge domains** for hostnames and domain URLs. Each choice keeps its own target text, file and ports; passed-target caches are separated by `ip-` and `domain-` filename prefixes. The backend checks that the input matches the chosen type, and live results and saved reports retain that choice. Existing mixed pasted lists are split into separate drafts when the GUI loads them.
+### Clean IPs for IP fronting
+
+A clean IP is one your Worker or CDN domains can be reached through, so it can be used as the address in your configs. **Default Ports** checks HTTPS on 443 and plain HTTP on 80, **All Cloudflare Ports** covers all 13 ports, and **Custom ports** takes your own list.
+
+- **Fronting domains:** enter the Worker / Pages hostnames from your configs, for example `my-worker.me.workers.dev`. They are tested through each IP as both SNI and Host, together with the shared service domains. An IP is clean when **any** tested domain answers through it; Results lists which domains passed.
+- **Quick check:** with service checks off, each IP is checked once through the first fronting domain. A server error (5xx) from that domain counts as a failure.
+- **Clean IP list:** each run saves `clean_ips.txt` (`ip:port`, fastest first), and **Copy clean IPs** in Results copies the same list.
+- **Re-checks:** IPs that passed before are re-checked first on the next scan, once each.
+
+### ASN list
+
+**ASN list** on every scan page offers the same 1,782 networks as the Android app (built into the app; no data files). Search by name or AS number, and choose IPv4, IPv6 or both. Added networks appear as entries under the target list and are expanded only when the scan starts, so large networks such as Cloudflare (26,000 ranges) keep the page responsive. **Export IPs** writes every address of the selected networks to a file; IPv6 prefixes wider than /120 are sampled (256 addresses each). The **IP version** setting limits a scan to IPv4 or IPv6. Pasted IP lists and added ASNs are not saved: closing the app clears them.
+
+### Config maker
+
+**Config maker** (Workspace) is the terminal version's config maker. Paste or load vless, vmess, trojan, ss, hysteria2, WireGuard or AmneziaWG configs and a list of `IP:port` targets, or press **Use clean IPs from Results**. You get one config per target with only the address and port replaced; UUIDs, SNI, Host and paths are kept. WireGuard and AmneziaWG tunnels are also written as importable `.conf` files. **Extract IP:port** does the reverse. Output is saved under `Config maker` in the output folder.
+
+### Results
+
+Results are paged, filterable and exportable as CSV. Delete a single row, or use **Delete shown** (with a confirmation) to delete everything matching the current tab, search and protocol filter; the run's `results.csv` and tallies are rewritten so deleted rows stay deleted. Deleting is disabled while a scan runs.
+
+### DNS scans
+
+A resolver answer is judged on evidence rather than an exact IP match, because CDN domains return different IPs per region. An answer is clean when an IP matches the trusted lookup or serves a valid certificate for the domain. It is poisoned when it points to a private or reserved address (block pages such as `10.10.34.35`) or answers TLS with a certificate for another name; an unreachable IP is not called poisoned. DoH uses the standard RFC 8484 format, a dead resolver costs one timeout, and TXT passthrough (tunnel readiness) is tested over every protocol that answered.
+
 ### Edge domains and preserved service checks
 
 Navigation groups scans into Clean IP finder, Edge domains, SNI scan, Proxy scan and DNS scan. Choose provider and scan variant inside the page; narrow windows use a single navigation dropdown.
 
 The original Cloudflare service set is preserved exactly: `workers.dev`, `pages.dev`, `gemini.google.com`, `notebooklm.google.com`, `instagram.com`, `chatgpt.com`, `web.telegram.org`, `reddit.com`, and `claude.ai`. Cloudflare stays the default. Other providers replace the Workers/Pages slots with their platform domains while retaining the seven common service checks. Per-domain requests stay pinned to the selected candidate IP; normal domain Host/TLS names are used, and forged SNI remains confined to SNI scan. Results and CSV reports retain passed domains and per-domain outcomes.
 
-Provider seed/probe mappings are reused from the existing `WhiteDNS-cleanip-finder/internal/config/edge.go`: Cloudflare, Cloudflare Pages, Render, Fly.io, Railway, Vercel, Netlify, Koyeb and Glitch. Fastly, Akamai and a custom profile are also available. Each provider and scan option retains independent targets, ports and request settings. For a non-Cloudflare provider, a shared-service success alone cannot qualify the endpoint as serving that platform.
+Provider seed/probe mappings are reused from the existing `WhiteDNS-cleanip-finder/internal/config/edge.go`: Cloudflare, Cloudflare Pages, Render, Fly.io, Railway, Vercel, Netlify, Koyeb and Glitch. Fastly, Akamai and a custom profile are also available. Each provider and scan option retains independent targets, ports and request settings.
 
 Only Cloudflare profiles offer the 13-port Cloudflare strategy. Standard HTTP/HTTPS and custom ports are available for the other profiles. These profiles select tests and configuration; provider labels are not automatic ownership claims.
 
@@ -133,7 +157,7 @@ sudo apt-get install build-essential pkg-config libgtk-3-dev libwebkit2gtk-4.1-d
 
 The Linux script detects WebKitGTK 4.1 and applies `webkit2_41`; 4.0 is also supported when available. The resulting Linux app needs the matching GTK/WebKit runtime libraries and `xdg-utils` for opening report folders. Run it in a graphical desktop session. macOS packages are unsigned; signing and notarization require the distributor's Apple credentials.
 
-The **Desktop GUI builds** GitHub Actions workflow builds all four packages on native runners for pushes, pull requests, or manual runs. Download the packages from the run's Artifacts section. The workflow uploads build artifacts without publishing a release.
+The **Desktop GUI builds** GitHub Actions workflow builds all four packages on native runners for pushes, pull requests, or manual runs; download them from the run's Artifacts section. Pushing a version tag (for example `v0.2.0`) runs the **Release** workflow, which builds every package and publishes a GitHub release with `SHA256SUMS.txt` and the notes in `docs/release-notes.md`.
 
 ### UI audit fixes and verification
 
