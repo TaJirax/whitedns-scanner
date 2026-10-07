@@ -93,11 +93,12 @@ type Settings struct {
 	OutputDir string `json:"outputDir"`
 	CacheFile string `json:"cacheFile"`
 
-	TimeoutSecs  int    `json:"timeoutSecs"`
-	RetryCount   int    `json:"retryCount"`
-	UserAgent    string `json:"userAgent"`
-	SpoofedSNI   string `json:"spoofedSni"`
-	ProxyTestURL string `json:"proxyTestUrl"`
+	TimeoutSecs    int    `json:"timeoutSecs"`
+	RetryCount     int    `json:"retryCount"`
+	LimitedNetwork bool   `json:"limitedNetwork"`
+	UserAgent      string `json:"userAgent"`
+	SpoofedSNI     string `json:"spoofedSni"`
+	ProxyTestURL   string `json:"proxyTestUrl"`
 
 	AutoConcurrency    bool `json:"autoConcurrency"`
 	MaxConcurrent      int  `json:"maxConcurrent"`
@@ -313,6 +314,7 @@ func (s Settings) toScanConfig(mode, runDir string) (*engine.ScanConfig, error) 
 	cfg.CacheFile = filepath.Join(filepath.Dir(runDir), cacheName)
 	cfg.TimeoutSecs = positive(s.TimeoutSecs, cfg.TimeoutSecs)
 	cfg.RetryCount = max(s.RetryCount, 0)
+	cfg.LimitedNetwork = s.LimitedNetwork
 	cfg.AntiDPI = s.AntiDPI && (isCleanMode(mode) || mode == ModeHTTPProxy || mode == ModeSOCKSProxy)
 	cfg.DPIFragmentSize = positive(s.DPIFragmentSize, 64)
 	cfg.DPIFragmentDelayMs = s.DPIFragmentDelayMs

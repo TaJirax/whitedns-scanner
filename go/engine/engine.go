@@ -212,6 +212,9 @@ func (e *Engine) Start() {
 	if len(e.config.ProbeDomains) > 0 && !e.config.SNIScan && e.config.ProxyMode == "" {
 		e.logf("Each reachable endpoint is checked against %d service domains", len(e.config.ProbeDomains))
 	}
+	if e.config.LimitedNetwork {
+		e.logf("Limited network mode: timeouts are retried up to %d times, and service checks run 3 domains at a time", e.config.RetryCount)
+	}
 	if maxConns < 100 {
 		maxConns = 100
 	}

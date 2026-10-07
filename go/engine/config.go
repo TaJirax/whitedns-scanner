@@ -30,6 +30,10 @@ type ScanConfig struct {
 	ProxyTestURL         string   // URL fetched through each proxy
 	SpoofedSNI           string   // The fake SNI to use for bypassing DPI filtering
 	FrontingHost         string   // SNI and Host for bare-IP targets outside SNI scan (default speed.cloudflare.com)
+	// LimitedNetwork trades speed for patience on slow or lossy networks:
+	// timeouts are retried, service checks skip the quick TCP check and run 3
+	// domains at a time, and DNS fallback queries get their own full timeout.
+	LimitedNetwork bool
 
 	// Custom ports list (if non-empty, expand each host using these ports)
 	CustomPorts []int

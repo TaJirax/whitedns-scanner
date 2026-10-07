@@ -54,7 +54,8 @@ func (e *Engine) scanWorker(ctx context.Context, jobs <-chan Target, results cha
 					break
 				}
 				status, resolvedIP, scheme, errText = e.probeEndpoint(ctx, target, scheme, layerTimeout, timeout)
-				if errText != "HTTP_TIMEOUT" { // a refused or filtered handshake fails the same way again
+				retry := errText == "HTTP_TIMEOUT" || e.config.LimitedNetwork && errText == "TLS_FAILED: timeout"
+				if !retry { // a refused or filtered handshake fails the same way again
 					break
 				}
 				time.Sleep(300 * time.Millisecond)

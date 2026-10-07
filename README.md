@@ -102,6 +102,21 @@ A clean IP is one your Worker or CDN domains can be reached through, so it can b
 - **Clean IP list:** each run saves `clean_ips.txt` (`ip:port`, fastest first), and **Copy clean IPs** in Results copies the same list.
 - **Re-checks:** IPs that passed before are re-checked first on the next scan, once each.
 
+### Limited network mode
+
+Scans are tuned for speed by default:
+- With service checks on, a dead IP fails after one quick connection check.
+- A domain that times out is not retried.
+- All service domains are checked at once.
+
+On a slow or lossy connection, turn on **Settings → Requests → Limited network mode** (CLI: `-limited-network`). It brings back the earlier, more patient behaviour. Scans take longer but miss fewer IPs when connections drop at random:
+- Service checks skip the quick connection check and run 3 domains at a time.
+- Timeouts are retried up to your **Retries** setting.
+- The quick check also retries TLS timeouts.
+- The DNS plain-query fallback gets its own full timeout.
+
+It never brings back answers that were wrong: IP checks always send a real hostname, and a blocked TLS connection never counts as clean.
+
 ### ASN list
 
 **ASN list** on every scan page offers the same 1,782 networks as the Android app (built into the app; no data files). Search by name or AS number, and choose IPv4, IPv6 or both. Added networks appear as entries under the target list and are expanded only when the scan starts, so large networks such as Cloudflare (26,000 ranges) keep the page responsive. **Export IPs** writes every address of the selected networks to a file; IPv6 prefixes wider than /120 are sampled (256 addresses each). The **IP version** setting limits a scan to IPv4 or IPv6. Pasted IP lists and added ASNs are not saved: closing the app clears them.

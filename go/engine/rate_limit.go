@@ -36,7 +36,13 @@ func configureDNSRateLimit(cfg *ScanConfig) {
 	activeDNSRateLimiter.Store(newDNSRateLimiter(
 		cfg.DnsRateLimitPerSecond, cfg.DnsRateLimitPerResolverPerSecond,
 		cfg.DnsRateLimitBurst, cfg.DnsTimingJitter))
+	limitedNetwork.Store(cfg.LimitedNetwork)
 }
+
+// limitedNetwork is the running scan's ScanConfig.LimitedNetwork, for the
+// DNS probe functions, which take no config (one scan runs at a time, as
+// with the rate limiter).
+var limitedNetwork atomic.Bool
 
 func newDNSRateLimiter(perSecond, perResolverPerSecond float64, burst int, jitter float64) *dnsRateLimiter {
 	if perSecond <= 0 && perResolverPerSecond <= 0 {

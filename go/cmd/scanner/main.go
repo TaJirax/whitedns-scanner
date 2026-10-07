@@ -53,6 +53,7 @@ func main() {
 	flag.IntVar(&concurrent, "concurrent", -1, "Worker pool size (<=0 for auto)")
 	flag.IntVar(&timeout, "timeout", 10, "Per-request timeout limit (seconds)")
 	flag.IntVar(&retry, "retry", 2, "HTTP retry count")
+	limited := flag.Bool("limited-network", false, "Slow or lossy network: retry timeouts and pace service checks (slower, more patient)")
 	flag.BoolVar(&allPorts, "allports", false, "Scan all 13 Cloudflare ports per host")
 	flag.BoolVar(&dnsMode, "dns", false, "DNS Discovery Mode: probe resolver IPs across UDP/TCP/DoT/DoH")
 	flag.BoolVar(&txtMode, "txt", false, "TXT Resolver Mode: probe resolvers with TXT lookups")
@@ -95,6 +96,7 @@ func main() {
 	}
 	cfg.TimeoutSecs = timeout
 	cfg.RetryCount = retry
+	cfg.LimitedNetwork = *limited
 	cfg.ScanAllPorts = allPorts
 	if portsFlag != "" {
 		ports, err := parsePortsString(portsFlag)

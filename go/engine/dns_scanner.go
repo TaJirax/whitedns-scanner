@@ -619,7 +619,11 @@ func probeUDPWithFallback(ctx context.Context, resolverIP string, name string, q
 	if _, err := conn.Write(query); err != nil {
 		return DnsHeader{}, nil, false, 0, fmt.Errorf("WRITE: %s", truncErr(err))
 	}
-	conn.SetReadDeadline(start.Add(timeout / 2))
+	firstWait := timeout / 2
+	if limitedNetwork.Load() {
+		firstWait = timeout // as before: each query gets a full timeout of its own
+	}
+	conn.SetReadDeadline(start.Add(firstWait))
 	hdr, answers, edns, _, firstErr := readUDPResponse(conn, qtype, ednsID)
 	if firstErr == nil {
 		return hdr, answers, edns, time.Since(start), nil
@@ -634,7 +638,11 @@ func probeUDPWithFallback(ctx context.Context, resolverIP string, name string, q
 	if _, err := conn.Write(bare); err != nil {
 		return hdr, nil, false, firstPhase, fmt.Errorf("WRITE: %s", truncErr(err))
 	}
-	conn.SetReadDeadline(sent.Add(timeout - firstPhase))
+	if limitedNetwork.Load() {
+		conn.SetReadDeadline(sent.Add(timeout))
+	} else {
+		conn.SetReadDeadline(sent.Add(timeout - firstPhase))
+	}
 	h, answers, edns, id, err := readUDPResponse(conn, qtype, ednsID, bareID)
 	if err == nil {
 		ttfb := time.Since(sent)

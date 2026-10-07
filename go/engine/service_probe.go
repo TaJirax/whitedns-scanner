@@ -50,33 +50,48 @@ func (e *Engine) serviceWorker(ctx context.Context, jobs <-chan Target, results 
 		// One TCP connect first, like the plain worker's pre-flight: a port that
 		// refuses or ignores connections fails every service domain the same
 		// way, so a dead endpoint costs one connect timeout instead of every
-		// domain's timeouts and retries.
-		if !e.acquireProbe(ctx) {
-			row.Error = "ABORTED"
-			results <- row
-			continue
-		}
-		conn, err := (&net.Dialer{Timeout: max(time.Duration(e.config.TimeoutSecs)*time.Second/2, 3*time.Second)}).DialContext(ctx, "tcp", address)
-		e.releaseProbe()
-		if err != nil {
-			e.reportResourceError(err)
-			row.Error, row.LatencyMs = "TCP_FAILED", int(time.Since(start).Milliseconds())
-			if ctx.Err() != nil {
+		// domain's timeouts and retries. Limited network skips it, so a slow or
+		// lossy path gets every domain's own attempts and retries, as before.
+		if !e.config.LimitedNetwork {
+			if !e.acquireProbe(ctx) {
 				row.Error = "ABORTED"
+				results <- row
+				continue
 			}
-			results <- row
-			continue
+			conn, err := (&net.Dialer{Timeout: max(time.Duration(e.config.TimeoutSecs)*time.Second/2, 3*time.Second)}).DialContext(ctx, "tcp", address)
+			e.releaseProbe()
+			if err != nil {
+				e.reportResourceError(err)
+				row.Error, row.LatencyMs = "TCP_FAILED", int(time.Since(start).Milliseconds())
+				if ctx.Err() != nil {
+					row.Error = "ABORTED"
+				}
+				results <- row
+				continue
+			}
+			conn.Close()
 		}
-		conn.Close()
 		outcomes := make([]serviceOutcome, len(e.config.ProbeDomains))
 		// All domains at once: a reachable IP whose blocked domains each time
 		// out then costs one timeout, not one per batch. serviceSlots and the
-		// probe limiter still bound the total.
+		// probe limiter still bound the total. Limited network keeps the old
+		// pace of 3 at a time, so a weak link is not flooded.
+		parallel := len(e.config.ProbeDomains)
+		if e.config.LimitedNetwork {
+			parallel = 3
+		}
+		batch := make(chan struct{}, max(parallel, 1))
 		var wg sync.WaitGroup
 		for i, domain := range e.config.ProbeDomains {
 			wg.Add(1)
 			go func(i int, domain string) {
 				defer wg.Done()
+				select {
+				case batch <- struct{}{}:
+				case <-ctx.Done():
+					return
+				}
+				defer func() { <-batch }()
 				select {
 				case e.serviceSlots <- struct{}{}:
 				case <-ctx.Done():
@@ -170,7 +185,7 @@ func (e *Engine) checkService(ctx context.Context, address, scheme, domain strin
 			cancel()
 			out.error = err.Error()
 			var ne net.Error
-			if errors.As(err, &ne) && ne.Timeout() {
+			if errors.As(err, &ne) && ne.Timeout() && !e.config.LimitedNetwork {
 				return out // the TCP check passed, so a timeout is this domain being filtered: retrying waits again for nothing
 			}
 			continue

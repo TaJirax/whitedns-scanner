@@ -43,3 +43,14 @@ func TestCleanIPsAreFastestFirstAndUnique(t *testing.T) {
 		t.Fatalf("clean IPs:\n%s", got)
 	}
 }
+
+func TestLimitedNetworkReachesTheScan(t *testing.T) {
+	s := defaultSettings()
+	s.Targets[ModeDNS] = ModeTargets{TargetsText: "1.1.1.1"}
+	for _, on := range []bool{true, false} {
+		s.LimitedNetwork = on
+		if cfg, err := s.toScanConfig(ModeDNS, t.TempDir()); err != nil || cfg.LimitedNetwork != on {
+			t.Fatalf("limited network %v: %v %+v", on, err, cfg)
+		}
+	}
+}

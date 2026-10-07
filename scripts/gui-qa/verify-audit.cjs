@@ -178,6 +178,11 @@ async function run() {
     await page.waitForSelector('#asnPicker',{state:'hidden'});
     assert.match(await page.locator('#asnChips').innerText(),/AS58224/);
     assert.equal(await page.locator('#nav [data-workspace=clean-ip]').getAttribute('aria-current'),'page');
+    // Limited network mode: a Settings switch that is saved and named on every scan page.
+    await go('settings');await page.locator('label.switch-row:has([data-setting=limitedNetwork])').click();
+    await page.waitForTimeout(500);assert.equal(await page.evaluate(()=>mock.settings.limitedNetwork),true);
+    await go('http');assert.match(await page.locator('#performanceSummary').innerText(),/Limited network mode\./);
+    await go('settings');await page.locator('label.switch-row:has([data-setting=limitedNetwork])').click();await page.waitForTimeout(500);
     // Config maker: configs + clean IPs from Results -> one config per IP; extract mode.
     await go('config');await page.waitForSelector('#cmConfigs');
     assert.equal(await page.locator('#cmRun').isDisabled(),true);
