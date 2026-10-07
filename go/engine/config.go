@@ -9,15 +9,27 @@ var (
 // ScanConfig holds all tunable parameters for the scanner.
 // Exported to allow gomobile bindings for the mobile app.
 type ScanConfig struct {
-	InputFile     string // Path to target list (e.g., "domains.txt")
-	CacheFile     string // Path to last_passed.txt
-	OutputDir     string // Output directory for reports and cache (mobile: Context.getFilesDir())
-	TimeoutSecs   int    // Per-request timeout limit (default 10)
-	MaxConcurrent int    // Worker pool size (default 80)
-	RetryCount    int    // HTTP retry count (default 2)
-	UserAgent     string // Custom User-Agent header
-	ScanAllPorts  bool   // If true, expand each target across all 13 Cloudflare ports
-	SpoofedSNI    string // The fake SNI to use for bypassing DPI filtering
+	AntiDPI              bool // optional TCP fragmentation, IP and proxy scans only
+	DPIFragmentSize      int
+	DPIFragmentDelayMs   int
+	ProbeDomains         []string // Service checks pinned to each candidate IP
+	RequiredProbeDomains []string // Platform-specific checks needed for other providers
+	EdgeProvider         string   // selected CDN profile; does not change SNI policy
+	TargetType           string   // empty (legacy mixed), ip, or domain
+	IPFamily             string   // "" (both), "ipv4" or "ipv6": keeps only that family's IP targets
+	InputFile            string   // Path to target list (e.g., "domains.txt")
+	CacheFile            string   // Path to last_passed.txt
+	OutputDir            string   // Output directory for reports and cache (mobile: Context.getFilesDir())
+	TimeoutSecs          int      // Per-request timeout limit (default 10)
+	MaxConcurrent        int      // Worker pool size (default 5000)
+	RetryCount           int      // HTTP retry count (default 2)
+	UserAgent            string   // Custom User-Agent header
+	ScanAllPorts         bool     // If true, expand each target across all 13 Cloudflare ports
+	SNIScan              bool     // Only this mode uses forged SNI.
+	ProxyMode            string   // empty, http, or socks5
+	ProxyTestURL         string   // URL fetched through each proxy
+	SpoofedSNI           string   // The fake SNI to use for bypassing DPI filtering
+	FrontingHost         string   // SNI and Host for bare-IP targets outside SNI scan (default speed.cloudflare.com)
 
 	// Custom ports list (if non-empty, expand each host using these ports)
 	CustomPorts []int
@@ -56,30 +68,32 @@ type ScanConfig struct {
 // DefaultConfig returns a pre-configured config mimicking the original Python settings.
 func DefaultConfig() *ScanConfig {
 	return &ScanConfig{
-		InputFile:        "domains.txt",
-		CacheFile:        "last_passed.txt",
-		OutputDir:        ".",
-		TimeoutSecs:      10,
-		MaxConcurrent:    5000,
-		RetryCount:       2,
-		UserAgent:        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-		ScanAllPorts:     false,
-		SpoofedSNI:       "www.speedtest.net",
-		CustomPorts:      []int{},
-		DnsDiscoveryMode: false,
-		TargetDomain:     "google.com",
-		DnsUdpTcpOnly:    false,
-		DnsMaxPingMs:     20000,
+		DPIFragmentSize:    64,
+		DPIFragmentDelayMs: 1,
+		InputFile:          "domains.txt",
+		CacheFile:          "last_passed.txt",
+		OutputDir:          ".",
+		TimeoutSecs:        10,
+		MaxConcurrent:      5000,
+		RetryCount:         2,
+		UserAgent:          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+		ScanAllPorts:       false,
+		SpoofedSNI:         "www.speedtest.net",
+		CustomPorts:        []int{},
+		DnsDiscoveryMode:   false,
+		TargetDomain:       "google.com",
+		DnsUdpTcpOnly:      false,
+		DnsMaxPingMs:       20000,
 		DnsTxtMode:         false,
 		DnsTxtDomain:       "",
 		DnsTxtResolversRaw: "",
 		DnsRateLimitBurst:  1,
-		Streaming:        false,
-		CountTotal:       false,
-		AutoConcurrency:  true,
-		MinConcurrent:    200,
-		StreamingAuto:    true,
+		Streaming:          false,
+		CountTotal:         false,
+		AutoConcurrency:    true,
+		MinConcurrent:      200,
+		StreamingAuto:      true,
 		StreamingThreshold: 50000,
-		StreamingSizeMB:  64,
+		StreamingSizeMB:    64,
 	}
 }

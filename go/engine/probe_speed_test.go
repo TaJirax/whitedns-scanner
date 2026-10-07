@@ -9,8 +9,8 @@ import (
 )
 
 // A resolver that accepts packets/connections but never answers must cost
-// about one probe timeout, not one per protocol: UDP (2 attempts) and TCP run
-// at the same time, so ~2 timeouts total instead of ~3 in sequence.
+// about one probe timeout: the protocols run at the same time, and UDP's bare
+// fallback query shares the EDNS query's deadline instead of adding its own.
 func TestDeadResolverProbesRunConcurrently(t *testing.T) {
 	udp, err := net.ListenUDP("udp", &net.UDPAddr{IP: net.IPv4(127, 0, 0, 1)})
 	if err != nil {
@@ -47,7 +47,7 @@ func TestDeadResolverProbesRunConcurrently(t *testing.T) {
 			t.Fatalf("%s responded from a silent resolver", r.Protocol)
 		}
 	}
-	if elapsed > 2*timeout+250*time.Millisecond {
+	if elapsed > timeout+250*time.Millisecond {
 		t.Fatalf("dead resolver took %v; probes are not running concurrently", elapsed)
 	}
 }

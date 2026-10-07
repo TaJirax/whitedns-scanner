@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WhiteDNS Scanner</title>
+  <link rel="icon" type="image/png" href="app-icon.png">
   <link rel="stylesheet" href="style.css">
   <script>
     // Apply the saved theme before first paint so the window never flashes.
     try {
+      document.documentElement.dataset.accent = localStorage.getItem("accent") || "purple";
       var t = localStorage.getItem("theme") || "system";
       if (t === "system") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       document.documentElement.dataset.theme = t;
@@ -15,255 +17,100 @@
   </script>
 </head>
 <body>
-<div class="app">
-  <!-- Navigation rail -->
-  <nav class="rail">
-    <div class="brand" title="WhiteDNS Scanner">
-      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-13a5 5 0 1 0 5 5h-2a3 3 0 1 1-3-3zm0 3.5a1.5 1.5 0 1 0 1.5 1.5L18 7.6 16.6 6.2l-4.2 4.36A1.5 1.5 0 0 0 12 10.5z"/></svg>
+  <!-- Soft tea-coloured blobs behind the frosted glass -->
+  <div class="backdrop" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i></div>
+
+  <div class="app">
+    <aside class="sidebar glass">
+      <div class="brand">
+        <span class="brand-mark"><img src="logo.png" alt="WhiteDNS logo" width="40" height="40"></span>
+        <div><b>WhiteDNS</b><span>Scanner</span></div>
+      </div>
+      <nav id="nav"></nav>
+      <div class="sidebar-foot">
+        <div class="theme-switch" id="themeSwitch" role="group" aria-label="Theme">
+          <button data-theme-opt="light" title="Day"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM2 13h2a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2zm18 0h2a1 1 0 0 0 0-2h-2a1 1 0 0 0 0 2zM11 2v2a1 1 0 0 0 2 0V2a1 1 0 0 0-2 0zm0 18v2a1 1 0 0 0 2 0v-2a1 1 0 0 0-2 0zM5.99 4.58a1 1 0 0 0-1.41 1.41l1.06 1.06a1 1 0 0 0 1.41-1.41L5.99 4.58zm12.37 12.37a1 1 0 0 0-1.41 1.41l1.06 1.06a1 1 0 0 0 1.41-1.41l-1.06-1.06zm1.06-10.96a1 1 0 0 0-1.41-1.41l-1.06 1.06a1 1 0 0 0 1.41 1.41l1.06-1.06zM7.05 18.36a1 1 0 0 0-1.41-1.41l-1.06 1.06a1 1 0 0 0 1.41 1.41l1.06-1.06z"/></svg></button>
+          <button data-theme-opt="system" title="Follow device appearance"><svg viewBox="0 0 24 24"><path d="M20 3H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h6v2H8v2h8v-2h-2v-2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 13H4V5h16v11z"/></svg></button>
+          <button data-theme-opt="dark" title="Night"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg></button>
+        </div>
+        <button class="help-btn" id="helpBtn" title="Keyboard shortcuts (H)"><svg viewBox="0 0 24 24"><path d="M11 18h2v-2h-2v2zm1-16a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-14a4 4 0 0 0-4 4h2a2 2 0 1 1 4 0c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5a4 4 0 0 0-4-4z"/></svg>Shortcuts</button>
+        <p class="credit">Developed by whisper the heaven &amp; ashentajir</p>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div>
+          <div class="title-row"><h1 id="pageTitle"></h1><span class="mode-badge" id="modeBadge" hidden></span></div>
+          <p class="subtitle" id="pageSubtitle"></p>
+        </div>
+        <span class="state-chip" id="stateChip" data-state="IDLE"><i></i><span>Idle</span></span>
+      </header>
+      <section class="content" id="content"></section>
+    </main>
+
+    <aside class="drawer glass" id="drawer" hidden>
+      <header><h2>Details</h2><button class="icon-btn" id="closeDrawer" title="Close (Esc)"><svg viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button></header>
+      <dl id="detailList"></dl>
+      <button type="button" class="btn filled" id="drawerSpeed" data-action="speed-detail" hidden>Test download speed</button>
+      <button class="btn tonal" id="copyDetail"><svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>Copy</button>
+    </aside>
+  </div>
+
+  <!-- Report viewer -->
+  <div class="scrim" id="viewer" hidden>
+    <div class="modal glass">
+      <header><div><h2 id="viewerTitle"></h2><p class="subtitle" id="viewerSub"></p></div>
+        <div class="row-gap">
+          <button class="btn tonal" id="viewerCopy">Copy</button>
+          <button class="btn outlined" id="viewerOpen">Open file</button>
+          <button class="icon-btn" id="viewerClose" title="Close (Esc)"><svg viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+        </div>
+      </header>
+      <pre id="viewerBody"></pre>
     </div>
-    <button class="rail-item active" data-page="scan">
-      <span class="rail-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
-      <span>Scan</span>
-    </button>
-    <button class="rail-item" data-page="results">
-      <span class="rail-icon"><svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg><b class="rail-badge" id="railBadge" hidden></b></span>
-      <span>Results</span>
-    </button>
-    <button class="rail-item" data-page="settings">
-      <span class="rail-icon"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.48.48 0 0 0-.59.22L2.74 8.87a.47.47 0 0 0 .12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.48.48 0 0 0-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 15.6 12 3.6 3.6 0 0 1 12 15.6z"/></svg></span>
-      <span>Settings</span>
-    </button>
-    <div class="rail-spacer"></div>
-    <button class="icon-btn" id="themeToggle" title="Switch day / night">
-      <svg class="sun" viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM2 13h2a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2zm18 0h2a1 1 0 0 0 0-2h-2a1 1 0 0 0 0 2zM11 2v2a1 1 0 0 0 2 0V2a1 1 0 0 0-2 0zm0 18v2a1 1 0 0 0 2 0v-2a1 1 0 0 0-2 0zM5.99 4.58a1 1 0 0 0-1.41 1.41l1.06 1.06a1 1 0 0 0 1.41-1.41L5.99 4.58zm12.37 12.37a1 1 0 0 0-1.41 1.41l1.06 1.06a1 1 0 0 0 1.41-1.41l-1.06-1.06zm1.06-10.96a1 1 0 0 0-1.41-1.41l-1.06 1.06a1 1 0 0 0 1.41 1.41l1.06-1.06zM7.05 18.36a1 1 0 0 0-1.41-1.41l-1.06 1.06a1 1 0 0 0 1.41 1.41l1.06-1.06z"/></svg>
-      <svg class="moon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
-    </button>
-  </nav>
+  </div>
 
-  <main>
-    <header class="topbar">
-      <h1 id="pageTitle">Scan</h1>
-      <span class="chip state" id="stateChip" data-state="IDLE">Idle</span>
-    </header>
-
-    <!-- ================= SCAN ================= -->
-    <section class="page" id="page-scan">
-      <div class="grid-2">
-        <div class="col">
-          <div class="card">
-            <h2>Mode</h2>
-            <div class="modes" id="modes">
-              <label class="mode"><input type="radio" name="mode" value="http"><b>Default ports</b><span>HTTPS 443 / HTTP 80 — fast</span></label>
-              <label class="mode"><input type="radio" name="mode" value="http-all"><b>All Cloudflare ports</b><span>13 ports per host — deep scan</span></label>
-              <label class="mode"><input type="radio" name="mode" value="custom"><b>Custom ports</b><span>Your own list or ranges</span></label>
-              <label class="mode"><input type="radio" name="mode" value="dns"><b>DNS resolvers</b><span>UDP, TCP, DoT and DoH</span></label>
-              <label class="mode"><input type="radio" name="mode" value="dns-udptcp"><b>DNS UDP/TCP only</b><span>Faster, no DoT/DoH</span></label>
-              <label class="mode"><input type="radio" name="mode" value="txt"><b>TXT resolver probe</b><span>TXT lookups on your domain</span></label>
-            </div>
-          </div>
-
-          <div class="card">
-            <h2>Targets</h2>
-            <div class="field-row">
-              <div class="field grow">
-                <label>Targets file <small class="hint-dns">resolver IPs, one per line</small><small class="hint-http">domains, IPs or CIDRs, one per line</small></label>
-                <input type="text" data-key="inputFile" placeholder="No file chosen" readonly>
-              </div>
-              <button class="btn tonal" id="pickInput">Browse</button>
-              <button class="btn text" id="clearInput">Clear</button>
-            </div>
-            <div class="field">
-              <label>Or paste targets <small>(used instead of the file)</small></label>
-              <textarea data-key="targetsText" rows="4" placeholder="example.com&#10;104.16.0.0/24&#10;8.8.8.8"></textarea>
-            </div>
-            <div class="field-row">
-              <div class="field grow" data-show="dns,dns-udptcp">
-                <label>Integrity check domain</label>
-                <input type="text" data-key="targetDomain" placeholder="google.com">
-              </div>
-              <div class="field grow" data-show="txt">
-                <label>TXT base domain</label>
-                <input type="text" data-key="dnsTxtDomain" placeholder="t.example.com">
-              </div>
-              <div class="field grow" data-show="custom,dns,dns-udptcp,txt">
-                <label>Custom ports <small data-show="dns,dns-udptcp,txt">(optional)</small></label>
-                <input type="text" data-key="customPorts" placeholder="80,443,8000-8010">
-              </div>
-            </div>
-          </div>
-
-          <div class="card" data-show="dns,dns-udptcp,txt">
-            <h2>DNS query rate limit</h2>
-            <p class="muted">For networks that block DNS above a fixed rate (e.g. 6/s). Probes wait for their turn, so results stay accurate. 0 = unlimited.</p>
-            <div class="field-row">
-              <div class="field"><label>Queries / second</label><input type="number" min="0" step="0.5" data-key="dnsRate"></div>
-              <div class="field"><label>Per resolver / second</label><input type="number" min="0" step="0.5" data-key="dnsRatePerResolver"></div>
-              <div class="field grow">
-                <label>Timing mask <output data-out="dnsJitter"></output></label>
-                <input type="range" min="0" max="1" step="0.05" data-key="dnsJitter">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card">
-            <div class="actions">
-              <button class="btn filled" id="startBtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Start scan</button>
-              <button class="btn tonal" id="pauseBtn" disabled><svg viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg><span>Pause</span></button>
-              <button class="btn outlined" id="stopBtn" disabled><svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg>Stop</button>
-              <span class="grow"></span>
-              <button class="icon-btn" id="openDir" title="Open output folder"><svg viewBox="0 0 24 24"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg></button>
-            </div>
-            <div class="progress"><div class="bar" id="progressBar"></div></div>
-            <div class="progress-text"><span id="progressText">Ready</span><span id="etaText"></span></div>
-            <div class="message" id="scanMessage" hidden></div>
-          </div>
-
-          <div class="stats">
-            <div class="stat"><span>Done</span><b id="sDone">0</b><small id="sTotal">of 0</small></div>
-            <div class="stat ok"><span id="sOkLabel">Reachable</span><b id="sOk">0</b></div>
-            <div class="stat bad"><span>Failed</span><b id="sDead">0</b></div>
-            <div class="stat warn" data-show="dns,dns-udptcp"><span>Poisoned</span><b id="sPoisoned">0</b></div>
-            <div class="stat accent" data-show="dns,dns-udptcp,txt"><span>Tunnel-ready</span><b id="sTunnel">0</b></div>
-            <div class="stat"><span>Speed</span><b id="sRate">0</b><small>per second</small></div>
-            <div class="stat"><span>Elapsed</span><b id="sElapsed">0:00</b></div>
-          </div>
-
-          <div class="card feed-card">
-            <h2>Live results</h2>
-            <ul class="feed" id="feed"><li class="empty">Results appear here while scanning.</li></ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= RESULTS ================= -->
-    <section class="page" id="page-results" hidden>
-      <div class="tabs" id="tabs">
-        <button class="tab active" data-tab="all">All <b data-count="all">0</b></button>
-        <button class="tab" data-tab="ok"><span id="tabOkLabel">Reachable</span> <b data-count="ok">0</b></button>
-        <button class="tab" data-tab="dead">Failed <b data-count="dead">0</b></button>
-        <button class="tab" data-tab="poisoned" data-show="dns,dns-udptcp">Poisoned <b data-count="poisoned">0</b></button>
-        <button class="tab" data-tab="tunnel" data-show="dns,dns-udptcp,txt">Tunnel-ready <b data-count="tunnel">0</b></button>
-      </div>
+  <!-- ASN picker: the same networks the Android app offers -->
+  <div class="scrim" id="asnPicker" hidden>
+    <div class="modal glass asn-modal" role="dialog" aria-modal="true" aria-labelledby="asnTitle">
+      <header><div><h2 id="asnTitle">ASN list</h2><p class="subtitle">Pick networks to scan. Their IP ranges are expanded when the scan starts. The same ASNs as the WhiteDNS Android app.</p></div>
+        <button class="icon-btn" id="asnClose" data-close="asn" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+      </header>
       <div class="toolbar">
-        <div class="search">
-          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-          <input type="search" id="search" placeholder="Search target, IP, answer, error…">
-        </div>
-        <select id="protoFilter" data-show="dns,dns-udptcp,txt">
-          <option value="">All protocols</option><option>UDP</option><option>TCP</option><option>DoT</option><option>DoH</option>
-        </select>
-        <select id="sortBy">
-          <option value="seq">Order found</option>
-          <option value="latency">Latency</option>
-          <option value="target">Target</option>
-          <option value="port">Port</option>
-          <option value="status">Status</option>
-        </select>
-        <button class="icon-btn" id="sortDir" title="Sort direction"><svg viewBox="0 0 24 24"><path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/></svg></button>
-        <label class="switch-inline"><input type="checkbox" id="liveRefresh" checked><span class="switch"></span>Live</label>
-        <span class="grow"></span>
-        <button class="btn tonal" id="exportBtn"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>Export CSV</button>
-      </div>
-      <div class="table-wrap card flush">
-        <table class="data">
-          <thead id="thead"></thead>
-          <tbody id="tbody"></tbody>
-        </table>
-        <div class="table-empty" id="tableEmpty">No results yet. Start a scan.</div>
-      </div>
-      <div class="pager">
-        <span id="pageInfo">0 rows</span>
-        <span class="grow"></span>
-        <select id="pageSize"><option>50</option><option selected>100</option><option>250</option><option>500</option></select>
-        <button class="icon-btn" id="prevPage" title="Previous page"><svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
-        <button class="icon-btn" id="nextPage" title="Next page"><svg viewBox="0 0 24 24"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></button>
-      </div>
-    </section>
-
-    <!-- ================= SETTINGS ================= -->
-    <section class="page" id="page-settings" hidden>
-      <div class="settings">
-        <div class="card">
-          <h2>Appearance</h2>
-          <div class="segmented" id="themeSeg">
-            <button data-theme-opt="system">System</button><button data-theme-opt="light">Day</button><button data-theme-opt="dark">Night</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>Output</h2>
-          <div class="field-row">
-            <div class="field grow"><label>Output folder <small>reports and the cache of passed targets</small></label><input type="text" data-key="outputDir" readonly></div>
-            <button class="btn tonal" id="pickOutput">Browse</button>
-          </div>
-          <div class="field"><label>Cache file <small>targets that passed last time are scanned first</small></label><input type="text" data-key="cacheFile"></div>
-        </div>
-
-        <div class="card">
-          <h2>Requests</h2>
-          <div class="field-row">
-            <div class="field"><label>Timeout (seconds)</label><input type="number" min="1" data-key="timeoutSecs"></div>
-            <div class="field"><label>HTTP retries</label><input type="number" min="0" data-key="retryCount"></div>
-            <div class="field grow"><label>Spoofed SNI <small>DPI bypass</small></label><input type="text" data-key="spoofedSni"></div>
-          </div>
-          <div class="field"><label>User-Agent</label><input type="text" data-key="userAgent"></div>
-        </div>
-
-        <div class="card">
-          <h2>Performance</h2>
-          <label class="switch-row"><span><b>Auto concurrency</b><small>Pick the worker count from the CPU count</small></span><input type="checkbox" data-key="autoConcurrency"><span class="switch"></span></label>
-          <div class="field-row">
-            <div class="field"><label>Max workers</label><input type="number" min="1" data-key="maxConcurrent"></div>
-            <div class="field"><label>Min workers (auto)</label><input type="number" min="1" data-key="minConcurrent"></div>
-          </div>
-          <label class="switch-row"><span><b>Auto streaming</b><small>Read huge target lists from disk instead of memory</small></span><input type="checkbox" data-key="streamingAuto"><span class="switch"></span></label>
-          <label class="switch-row"><span><b>Always stream</b></span><input type="checkbox" data-key="streaming"><span class="switch"></span></label>
-          <div class="field-row">
-            <div class="field"><label>Stream above (lines)</label><input type="number" min="1" data-key="streamingThreshold"></div>
-            <div class="field"><label>Stream above (MB)</label><input type="number" min="1" data-key="streamingSizeMb"></div>
-          </div>
-          <label class="switch-row"><span><b>Count total first</b><small>Extra pass over the list for an exact progress bar</small></span><input type="checkbox" data-key="countTotal"><span class="switch"></span></label>
-        </div>
-
-        <div class="card">
-          <h2>DNS</h2>
-          <div class="field-row">
-            <div class="field grow"><label>Integrity check domain</label><input type="text" data-key="targetDomain"></div>
-            <div class="field"><label>Max ping (ms)</label><input type="number" min="100" step="100" data-key="dnsMaxPingMs"></div>
-          </div>
-          <div class="field"><label>TXT base domain</label><input type="text" data-key="dnsTxtDomain"></div>
-        </div>
-
-        <div class="card">
-          <h2>DNS query rate limit</h2>
-          <p class="muted">Caps DNS probes for networks that block DNS above a fixed rate. 0 = unlimited.</p>
-          <div class="field-row">
-            <div class="field"><label>Queries / second</label><input type="number" min="0" step="0.5" data-key="dnsRate"></div>
-            <div class="field"><label>Per resolver / second</label><input type="number" min="0" step="0.5" data-key="dnsRatePerResolver"></div>
-            <div class="field"><label>Burst</label><input type="number" min="1" data-key="dnsBurst"></div>
-          </div>
-          <div class="field"><label>Timing mask <output data-out="dnsJitter"></output> <small>randomly lengthens gaps so probes have no fixed rhythm</small></label><input type="range" min="0" max="1" step="0.05" data-key="dnsJitter"></div>
-        </div>
-
-        <div class="settings-actions">
-          <button class="btn text" id="resetSettings">Reset to defaults</button>
+        <div class="search"><svg viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg><input type="search" id="asnSearch" aria-label="Search ASNs" placeholder="Name or AS number"></div>
+        <div class="segmented" role="group" aria-label="Ranges to add">
+          <button type="button" data-action="asn-family" data-family="ipv4">IPv4</button>
+          <button type="button" data-action="asn-family" data-family="ipv6">IPv6</button>
+          <button type="button" data-action="asn-family" data-family="both">Both</button>
         </div>
       </div>
-    </section>
-  </main>
+      <ul class="asn-list" id="asnList" aria-label="ASNs"></ul>
+      <div class="asn-foot"><span id="asnCount" role="status"></span><span class="grow"></span>
+        <button type="button" class="btn text" data-action="asn-clear">Clear selection</button>
+        <button type="button" class="btn outlined" data-action="asn-export" id="asnExport" disabled title="Save every IP of the selected ASNs to a text file">Export IPs</button>
+        <button type="button" class="btn filled" data-action="asn-add" id="asnAdd" disabled>Add ASNs</button>
+      </div>
+    </div>
+  </div>
 
-  <!-- Result details -->
-  <aside class="drawer" id="drawer" hidden>
-    <header><h2>Details</h2><button class="icon-btn" id="closeDrawer" title="Close"><svg viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button></header>
-    <dl id="detailList"></dl>
-    <button class="btn tonal" id="copyDetail"><svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>Copy target</button>
-  </aside>
+  <!-- Keyboard help, like the TUI's H overlay -->
+  <div class="scrim" id="help" hidden>
+    <div class="modal glass narrow">
+      <header><h2>Keyboard shortcuts</h2><button class="icon-btn" data-close="help" title="Close"><svg viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button></header>
+      <ul class="keys">
+        <li><kbd>P</kbd><kbd class="fa">ح</kbd><span>Pause scanning</span></li>
+        <li><kbd>R</kbd><kbd class="fa">ق</kbd><span>Resume scanning</span></li>
+        <li><kbd>Q</kbd><kbd class="fa">ض</kbd><span>Stop &amp; save results</span></li>
+        <li><kbd>H</kbd><kbd class="fa">؟</kbd><span>Show or hide this help</span></li>
+        <li><kbd>Ctrl</kbd><kbd>Enter</kbd><span>Start the scan on this page</span></li>
+        <li><kbd>Esc</kbd><span>Close panels</span></li>
+      </ul>
+      <p class="subtitle">Shortcuts work in English and Persian keyboard layouts, as in the terminal version.</p>
+    </div>
+  </div>
 
   <div class="snackbar" id="snack"></div>
-</div>
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

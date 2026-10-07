@@ -412,6 +412,10 @@ func SaveTunnelReport(path string, buckets ...[]ScanResult) error {
 	return writer.Flush()
 }
 
+// IsHijackedIP reports whether a DNS answer points into a private or reserved
+// range: the same test that decides what hijacked_dns_*.txt lists.
+func IsHijackedIP(ip string) bool { return isHijackedIP(ip) }
+
 func isHijackedIP(ipStr string) bool {
 	ip := net.ParseIP(ipStr)
 	if ip == nil {

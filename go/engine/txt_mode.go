@@ -5,6 +5,7 @@ import (
 	"encoding/hex"
 	"net"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -35,29 +36,40 @@ func loadTxtResolverTargets(filePath, raw string) ([]Target, error) {
 		text = string(data)
 	}
 
-	tokens := strings.FieldsFunc(text, func(r rune) bool {
-		switch r {
-		case ',', '\n', '\r', '\t', ' ', ';':
-			return true
-		default:
-			return false
-		}
-	})
-
-	seen := make(map[string]struct{})
-	targets := make([]Target, 0, len(tokens))
-	for _, token := range tokens {
-		target, ok := parseTxtResolverToken(token)
-		if !ok {
+	lines := strings.FieldsFunc(text, func(r rune) bool { return r == ',' || r == '\n' || r == '\r' || r == ';' })
+	seen := map[string]struct{}{}
+	var targets []Target
+	for _, line := range lines {
+		line = strings.TrimSpace(line)
+		if line == "" || strings.HasPrefix(line, "#") {
 			continue
 		}
-		if _, exists := seen[target.Host]; exists {
-			continue
+		tokens := []string{line}
+		if !strings.Contains(line, "|") {
+			tokens = strings.Fields(line)
 		}
-		seen[target.Host] = struct{}{}
-		targets = append(targets, target)
+		for _, token := range tokens {
+			for _, prefix := range []string{"dns://", "dns-txt://", "udp://", "tcp://"} {
+				token = strings.Replace(token, prefix, "https://", 1)
+			}
+			parsed, err := parseBaseTargetsFromLine(token)
+			if err != nil {
+				continue
+			}
+			for _, target := range parsed {
+				if !target.ExplicitPort {
+					target.Port = 53
+				}
+				target.Scheme = "dns"
+				target.URL = "dns-txt://" + net.JoinHostPort(target.Host, strconv.Itoa(target.Port))
+				if _, ok := seen[target.URL]; ok {
+					continue
+				}
+				seen[target.URL] = struct{}{}
+				targets = append(targets, target)
+			}
+		}
 	}
-
 	return targets, nil
 }
 

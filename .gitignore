@@ -1,68 +1,66 @@
-# Logs
-full_log_*.txt
-hijacked_dns_*.txt
-poisoned_dns_*.txt
-raw_ip_dump_*.txt
-reachable_*.txt
-last_passed.txt
-undead.txt
+# Generated scan output and personal target lists
+*.txt
+*.csv
+# The ASN tables the scanner embeds (same data as the Android app).
+!go/engine/asndata/*.csv
+*.log
+*.bat
 
-# Personal files
-domains.txt
-cidrs.txt
+# Local audit notes and extra Markdown; keep project documentation and notices
+*.md
+!README.md
+!LICENSE.md
+!NOTICE.md
+!docs/release-notes.md
 
-# Archives
-*.zip
-
-# Build artifacts
+# Compiled applications, libraries, packages and archives
 *.exe
-!scanner.exe
-!scanner_py.exe
+*.bin
+*.aar
+*.jar
 *.spec
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
 build/
-scanner_py.exe.spec
+/dist/
+/python/dist/
+go/scanner-*
+build_matrix.ps1
+build_matrix.sh
+package/
+standalone/
+
+# Test output, temporary files and language/tool caches
+coverage.out
+*.prof
+*.test
+*.tmp
+*.part
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+.venv_linux/
+
+# Local agent state and machine-specific configuration
+.claude/
+.codex/
+.agents/
+.impeccable/
+.aws/
+*.env
+.env.*
+!.env.example
+*.key
+*.pem
 
 # OS files
 .DS_Store
 Thumbs.db
-
-# Cross-platform build outputs
-go/build/
-go/build/cross/
-
-# Ignore all text and batch files (user requested)
-*.txt
-*.bat
-
-# Ignore generated logs and reports (explicit)
-full_log_*.txt
-hijacked_dns_*.txt
-poisoned_dns_*.txt
-raw_ip_dump_*.txt
-reachable_*.txt
-last_passed.txt
-undead.txt
-
-# Platform-specific builds and archives
-# Android, macOS, Linux builds
-go/scanner-*
-go/scanner*.exe
-scanner.exe
-
-# Build matrix scripts and logs
-build_matrix.ps1
-build_matrix.sh
-*.log
-
-# Personal / packaging
-package/
-standalone/
-*.rar
-*.7z
-*.zip
-
-# Virtualenvs and local config
-.venv/
-*.env
-*.key
-*.pem

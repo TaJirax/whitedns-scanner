@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/charmbracelet/bubbles/key"
@@ -33,7 +34,9 @@ type tickMsg time.Time
 
 // bridge interface allowing Engine to talk to UI
 type teaBridge struct {
-	p *tea.Program
+	p         *tea.Program
+	started   chan struct{}
+	startOnce sync.Once
 }
 
 func (b *teaBridge) OnResult(r *engine.ScanResult) {
@@ -43,6 +46,9 @@ func (b *teaBridge) OnProgress(done, total int) {
 	b.p.Send(progressMsg{done: done, total: total})
 }
 func (b *teaBridge) OnStateChange(state string) {
+	if state == "RUNNING" && b.started != nil {
+		b.startOnce.Do(func() { close(b.started) })
+	}
 	b.p.Send(stateMsg{state: state})
 }
 func (b *teaBridge) OnComplete(openCount, deadCount, totalCount int) {
@@ -66,18 +72,20 @@ type DnsDisplayEntry struct {
 
 // Model is the Bubbletea TUI state
 type Model struct {
+	modeName string
 	engine   *engine.Engine
 	keys     KeyMap
 	progress progress.Model
 
-	state     string
-	done      int
-	total     int
-	openCount int
-	deadCount int
-	startTime time.Time
-	width     int
-	height    int
+	state      string
+	fatalError string
+	done       int
+	total      int
+	openCount  int
+	deadCount  int
+	startTime  time.Time
+	width      int
+	height     int
 
 	// Standard HTTP mode — recent hits ring buffer
 	recentHits [128]*engine.ScanResult
@@ -104,6 +112,7 @@ type Model struct {
 func NewModel(cfg *engine.ScanConfig) *Model {
 	prog := progress.New(progress.WithDefaultGradient())
 	return &Model{
+		modeName:  cfg.ModeName(),
 		keys:      DefaultKeyMap,
 		progress:  prog,
 		state:     "STARTING",
@@ -116,12 +125,20 @@ func NewModel(cfg *engine.ScanConfig) *Model {
 // Run configures the engine, sets up the bridge, and starts the TUI
 func (m *Model) Run(cfg *engine.ScanConfig) error {
 	p := tea.NewProgram(m, tea.WithAltScreen())
-	bridge := &teaBridge{p: p}
+	ready := make(chan struct{})
+	bridge := &teaBridge{p: p, started: ready}
 	m.engine = engine.NewEngine(cfg, bridge)
 
-	go m.engine.Start()
+	done := make(chan struct{})
+	go func() { defer close(done); m.engine.Start() }()
+	<-ready
 
 	_, err := p.Run()
+	m.engine.Stop()
+	<-done
+	if err == nil && m.fatalError != "" {
+		err = fmt.Errorf("%s", m.fatalError)
+	}
 	return err
 }
 
@@ -182,6 +199,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 	case stateMsg:
 		m.state = msg.state
+		if strings.HasPrefix(msg.state, "FATAL") || strings.HasPrefix(msg.state, "ERROR") {
+			m.fatalError = msg.state
+		}
 
 	case completeMsg:
 		m.finished = true
@@ -200,7 +220,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 // handleHttpResult processes a standard HTTP scan result.
 func (m *Model) handleHttpResult(r *engine.ScanResult) {
-	if r.Status > 0 {
+	if r.Status > 0 && r.Error == "" {
 		m.openCount++
 		m.recentHits[m.hitIndex] = r
 		m.hitIndex++
@@ -221,7 +241,7 @@ func (m *Model) handleDnsResult(r *engine.ScanResult) {
 		return // Skip non-DNS results
 	}
 
-	if r.Status > 0 {
+	if r.Status > 0 && r.Error == "" {
 		m.openCount++
 		if r.IsPoisoned {
 			m.dnsPoisoned++
@@ -297,6 +317,9 @@ func (m *Model) handleTxtResult(r *engine.ScanResult) {
 
 func (m *Model) View() string {
 	if m.quitting && m.finished {
+		if m.fatalError != "" {
+			return "\n  Scan failed: " + m.fatalError + "\n"
+		}
 		if m.txtMode {
 			return fmt.Sprintf("\n  TXT probe complete! Answered: %d, Failed: %d\n", m.openCount, m.deadCount)
 		}
@@ -314,7 +337,7 @@ func (m *Model) View() string {
 	if frameWidth <= 0 {
 		frameWidth = 76
 	}
-	innerWidth := frameWidth - 4  // Border 2 + padding 2
+	innerWidth := frameWidth - 4 // Border 2 + padding 2
 	if innerWidth < 20 {
 		innerWidth = maxInt(frameWidth-4, 10)
 	}
@@ -331,20 +354,10 @@ func (m *Model) View() string {
 	metricLabel := lipgloss.NewStyle().Foreground(lipgloss.Color("#cbd5e1")).Bold(true)
 	headerLine := titleStyle.Width(innerWidth).Render("WHITEDNS SCANNER")
 	subtitle := dimStyle.Width(innerWidth).Align(lipgloss.Center).Render("Interactive network scanner — live resolver & endpoint insights")
-	modeText := "HTTP SCAN"
-	if m.dnsMode {
-		modeText = "DNS DISCOVERY"
-	} else if m.txtMode {
-		modeText = "TXT RESOLVER PROBE"
-	}
+	modeText := m.modeName
 	modeBadge := pill(modeText, "#0b1020", "#7bdff2")
 	modeLine := lipgloss.NewStyle().Width(innerWidth).Align(lipgloss.Center).Render(modeBadge)
-	modeLabelText := "HTTP MODE ACTIVE"
-	if m.dnsMode {
-		modeLabelText = "DNS MODE ACTIVE"
-	} else if m.txtMode {
-		modeLabelText = "TXT MODE ACTIVE"
-	}
+	modeLabelText := m.modeName + " ACTIVE"
 	modeLabel := dimStyle.Width(innerWidth).Align(lipgloss.Center).Render(modeLabelText)
 	controls := renderControls(innerWidth)
 

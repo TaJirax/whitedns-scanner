@@ -4,12 +4,18 @@ import (
 	"context"
 	"crypto/rand"
 	"crypto/tls"
+	"crypto/x509"
+	"encoding/base64"
 	"encoding/binary"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"net"
 	"net/http"
+	neturl "net/url"
+	"os"
+	"slices"
 	"strings"
 	"sync"
 	"time"
@@ -112,8 +118,8 @@ type trustedDoHProvider struct {
 // Cloudflare first, then Google, then Quad9.
 var trustedProviders = []trustedDoHProvider{
 	{Name: "Cloudflare", URL: "https://cloudflare-dns.com/dns-query?name=%s&type=A"},
-	{Name: "Google", URL: "https://dns.google/dns-query?name=%s&type=A"},
-	{Name: "Quad9", URL: "https://dns.quad9.net/dns-query?name=%s&type=A"},
+	{Name: "Google", URL: "https://dns.google/resolve?name=%s&type=A"},          // Google's JSON API is /resolve
+	{Name: "Quad9", URL: "https://dns.quad9.net:5053/dns-query?name=%s&type=A"}, // Quad9 serves JSON on 5053
 }
 
 // dohJSONResponse models the JSON wire format returned by DoH providers
@@ -137,6 +143,9 @@ type TruthTable struct {
 	TruthIPs map[string]bool // Set of known-correct A-record IPs
 	mu       sync.RWMutex
 	Provider string // Which DoH provider succeeded
+
+	certs     sync.Map                        // answer IP -> *certCheck
+	checkCert func(ip string) certVerdictKind // tests replace the TLS check
 }
 
 // NewTruthTable creates an empty truth table for a given domain.
@@ -151,6 +160,12 @@ func NewTruthTable(domain string) *TruthTable {
 // Tries each provider in order; stops on first success.
 // Falls back to hardcoded well-known IPs if all providers fail.
 func (t *TruthTable) FetchTruth() error {
+	return t.FetchTruthContext(context.Background())
+}
+
+// FetchTruthContext allows Stop to interrupt trusted-provider setup as well as
+// resolver probes. FetchTruth remains available to existing callers.
+func (t *TruthTable) FetchTruthContext(ctx context.Context) error {
 	t.mu.Lock()
 	defer t.mu.Unlock()
 
@@ -161,11 +176,15 @@ func (t *TruthTable) FetchTruth() error {
 			ForceAttemptHTTP2: true,
 		},
 	}
+	defer client.CloseIdleConnections()
 
 	for _, provider := range trustedProviders {
-		url := fmt.Sprintf(provider.URL, t.Domain)
+		if err := ctx.Err(); err != nil {
+			return err
+		}
+		url := fmt.Sprintf(provider.URL, neturl.QueryEscape(t.Domain))
 
-		req, err := http.NewRequest("GET", url, nil)
+		req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 		if err != nil {
 			continue
 		}
@@ -205,6 +224,9 @@ func (t *TruthTable) FetchTruth() error {
 			return nil
 		}
 	}
+	if err := ctx.Err(); err != nil {
+		return err
+	}
 
 	// ── Hardcoded fallback for well-known domains ──
 	// If all DoH providers are blocked (deep censorship), use known IPs
@@ -226,24 +248,89 @@ func (t *TruthTable) FetchTruth() error {
 	return fmt.Errorf("truth table: all DoH providers failed and no hardcoded fallback for %q", t.Domain)
 }
 
-// Verify checks if any of the given IPs match the truth table.
-// Returns true if at least one IP is in the trusted set (clean).
-// Returns false (poisoned) if none match.
+// Verify reports whether a resolver's answer is genuine (true) or poisoned.
+//
+// An exact match with the truth table is not enough to call an answer
+// poisoned: CDN domains such as google.com answer with different IPs per
+// region and per resolver, so a clean resolver usually returns IPs the
+// trusted provider did not. An answer is therefore:
+//   - clean when any IP is in the truth table;
+//   - poisoned when any IP is private or reserved (block pages such as
+//     10.10.34.35);
+//   - otherwise judged by the IP itself: clean if it serves a certificate
+//     valid for the domain, which only the real operator can, and poisoned if
+//     it completes TLS with a certificate that is not. An IP that cannot be
+//     reached proves nothing either way and is not called poisoned.
+//
+// Certificate checks are cached per IP, so each distinct answer is checked once.
 func (t *TruthTable) Verify(ips []string) bool {
 	t.mu.RLock()
-	defer t.mu.RUnlock()
-
-	if len(t.TruthIPs) == 0 {
-		// If we have no truth data, we can't verify — assume clean
-		return true
-	}
-
 	for _, ip := range ips {
 		if t.TruthIPs[ip] {
+			t.mu.RUnlock()
 			return true
 		}
 	}
-	return false
+	t.mu.RUnlock()
+	for _, ip := range ips {
+		if isHijackedIP(ip) {
+			return false
+		}
+	}
+	if t.Domain == "" || len(ips) == 0 {
+		return true
+	}
+	unproven := false
+	for _, ip := range ips[:min(len(ips), 3)] {
+		switch t.certVerdict(ip) {
+		case certValid:
+			return true
+		case certUnknown:
+			unproven = true
+		}
+	}
+	return unproven
+}
+
+type certVerdictKind int
+
+const (
+	certUnknown certVerdictKind = iota // unreachable, or TLS failed before a certificate: no evidence
+	certValid
+	certInvalid
+)
+
+type certCheck struct {
+	once    sync.Once
+	verdict certVerdictKind
+}
+
+func (t *TruthTable) certVerdict(ip string) certVerdictKind {
+	v, _ := t.certs.LoadOrStore(ip, &certCheck{})
+	c := v.(*certCheck)
+	c.once.Do(func() {
+		if t.checkCert != nil {
+			c.verdict = t.checkCert(ip)
+		} else {
+			c.verdict = verifyDomainCert(t.Domain, net.JoinHostPort(ip, "443"), nil)
+		}
+	})
+	return c.verdict
+}
+
+// verifyDomainCert connects to address with the domain as SNI and verifies
+// the certificate chain and name (roots nil = the system's).
+func verifyDomainCert(domain, address string, roots *x509.CertPool) certVerdictKind {
+	conn, err := tls.DialWithDialer(&net.Dialer{Timeout: 5 * time.Second}, "tcp", address, &tls.Config{ServerName: domain, RootCAs: roots})
+	if err == nil {
+		conn.Close()
+		return certValid
+	}
+	var bad *tls.CertificateVerificationError
+	if errors.As(err, &bad) {
+		return certInvalid
+	}
+	return certUnknown
 }
 
 // ════════════════════════════════════════════════════════════════════════════════
@@ -254,6 +341,8 @@ func (t *TruthTable) Verify(ips []string) bool {
 // resolver return large answers in a single UDP datagram — both a robustness win
 // (fewer truncations) and the signal we use to gauge tunnel bandwidth.
 const ednsUDPPayloadSize = 4096
+
+var udpResponseBuffers = sync.Pool{New: func() any { return new([ednsUDPPayloadSize]byte) }}
 
 // buildDnsQuery constructs a raw DNS query for the given domain and record type.
 // Returns the wire-format bytes and the randomized transaction ID.
@@ -302,8 +391,8 @@ func buildDnsQuery(domain string, qtype uint16, edns bool) ([]byte, uint16) {
 // extended-rcode/flags/version, and empty RDATA.
 func encodeEDNSOpt() []byte {
 	return []byte{
-		0x00,                                             // Root domain name
-		0x00, 0x29,                                       // TYPE: OPT (41)
+		0x00,       // Root domain name
+		0x00, 0x29, // TYPE: OPT (41)
 		byte(ednsUDPPayloadSize >> 8), byte(ednsUDPPayloadSize & 0xFF), // CLASS: UDP payload size
 		0x00,       // Extended RCODE
 		0x00,       // EDNS version 0
@@ -503,73 +592,110 @@ func DnsProbeUDPWithDialer(ctx context.Context, resolverIP string, domain string
 	return result
 }
 
-// probeUDPWithFallback dials the resolver and sends an EDNS0 query, then — if
-// that gets no usable answer — retries once with a bare (non-EDNS) query on the
-// same socket. This defeats censoring middleboxes that silently drop or FORMERR
-// EDNS traffic, so poisoned/broken resolvers are still observed rather than
-// timing out. Returns the response header, answers, whether EDNS0 is usable, the
-// time-to-first-byte, and an error if both attempts fail.
+// probeUDPWithFallback sends an EDNS0 query and, if that gets no usable answer
+// within half the timeout (or is refused outright), a bare query on the same
+// socket. This defeats censoring middleboxes that silently drop or FORMERR
+// EDNS traffic. Both queries stay valid until the one deadline, so a dead
+// resolver costs one timeout, not two. Returns the response header, answers,
+// whether EDNS0 is usable, the time-to-first-byte, and an error if no genuine
+// answer arrived.
 func probeUDPWithFallback(ctx context.Context, resolverIP string, name string, qtype uint16, timeout time.Duration, dialer *net.Dialer, port int) (DnsHeader, []string, bool, time.Duration, error) {
 	addr := net.JoinHostPort(resolverIP, fmt.Sprintf("%d", port))
-	if dialer == nil {
-		dialer = &net.Dialer{Timeout: timeout}
-	}
-
-	conn, err := dialer.DialContext(ctx, "udp", addr)
+	conn, err := probeDialer(dialer, timeout).DialContext(ctx, "udp", addr)
 	if err != nil {
 		return DnsHeader{}, nil, false, 0, fmt.Errorf("DIAL: %s", truncErr(err))
 	}
 	defer conn.Close()
+	stopCancel := context.AfterFunc(ctx, func() { _ = conn.Close() })
+	defer stopCancel()
 
-	var (
-		hdr     DnsHeader
-		ttfb    time.Duration
-		lastErr error
-	)
-	// EDNS0 first (large-payload detection); bare query second (compatibility).
-	for i, useEDNS := range []bool{true, false} {
-		// Wait for a rate-limit slot before the deadline starts, so waiting
-		// never counts against the resolver.
-		if !waitDNSQuery(ctx, resolverIP) {
-			return hdr, nil, false, ttfb, fmt.Errorf("CANCELED")
-		}
-		query, txid := buildDnsQuery(name, qtype, useEDNS)
-		conn.SetDeadline(time.Now().Add(timeout))
-		if _, werr := conn.Write(query); werr != nil {
-			lastErr = fmt.Errorf("WRITE: %s", truncErr(werr))
-			continue
-		}
-		start := time.Now()
-		h, answers, edns, perr := readUDPResponse(conn, txid, qtype)
-		attemptTTFB := time.Since(start)
-		if i == 0 || ttfb == 0 {
-			ttfb = attemptTTFB
-		}
-		if perr == nil {
-			return h, answers, edns, attemptTTFB, nil
-		}
-		hdr, lastErr = h, fmt.Errorf("PARSE: %s", perr.Error())
+	// Wait for a rate-limit slot before each send, so waiting never counts
+	// against the resolver.
+	if !waitDNSQuery(ctx, resolverIP) {
+		return DnsHeader{}, nil, false, 0, fmt.Errorf("CANCELED")
 	}
-	return hdr, nil, false, ttfb, lastErr
+	query, ednsID := buildDnsQuery(name, qtype, true)
+	start := time.Now()
+	if _, err := conn.Write(query); err != nil {
+		return DnsHeader{}, nil, false, 0, fmt.Errorf("WRITE: %s", truncErr(err))
+	}
+	conn.SetReadDeadline(start.Add(timeout / 2))
+	hdr, answers, edns, _, firstErr := readUDPResponse(conn, qtype, ednsID)
+	if firstErr == nil {
+		return hdr, answers, edns, time.Since(start), nil
+	}
+	firstPhase := time.Since(start)
+
+	if !waitDNSQuery(ctx, resolverIP) {
+		return hdr, nil, false, firstPhase, fmt.Errorf("CANCELED")
+	}
+	bare, bareID := buildDnsQuery(name, qtype, false)
+	sent := time.Now()
+	if _, err := conn.Write(bare); err != nil {
+		return hdr, nil, false, firstPhase, fmt.Errorf("WRITE: %s", truncErr(err))
+	}
+	conn.SetReadDeadline(sent.Add(timeout - firstPhase))
+	h, answers, edns, id, err := readUDPResponse(conn, qtype, ednsID, bareID)
+	if err == nil {
+		ttfb := time.Since(sent)
+		if id == ednsID { // the EDNS answer was only late
+			ttfb += firstPhase
+		}
+		return h, answers, edns, ttfb, nil
+	}
+	if h.QR {
+		hdr = h
+	}
+	if err == errUDPTimeout && firstErr != errUDPTimeout {
+		err = firstErr // the resolver did answer the first query; report what was wrong with it
+	}
+	return hdr, nil, false, firstPhase, err
 }
 
-// readUDPResponse reads datagrams until one is a genuine response to our query
-// (matching TXID + QR set) or the connection deadline fires. Datagrams whose
-// TXID does not match ours are off-path spoofs / stragglers and are skipped —
-// this is the core anti-injection guard for hostile networks.
-func readUDPResponse(conn net.Conn, txid uint16, qtype uint16) (DnsHeader, []string, bool, error) {
-	buf := make([]byte, ednsUDPPayloadSize)
+var errUDPTimeout = errors.New("TIMEOUT")
+
+// readUDPResponse reads datagrams until one is a genuine response to one of
+// our queries (matching TXID) or the read deadline fires. Datagrams with any
+// other TXID are off-path spoofs or stragglers and are skipped: this is the
+// core anti-injection guard for hostile networks. It returns the TXID that
+// matched.
+func readUDPResponse(conn net.Conn, qtype uint16, ids ...uint16) (DnsHeader, []string, bool, uint16, error) {
+	buffer := udpResponseBuffers.Get().(*[ednsUDPPayloadSize]byte)
+	defer udpResponseBuffers.Put(buffer)
+	buf := buffer[:]
 	for {
 		n, err := conn.Read(buf)
 		if err != nil {
-			return DnsHeader{}, nil, false, err
+			var ne net.Error
+			if errors.As(err, &ne) && ne.Timeout() {
+				return DnsHeader{}, nil, false, 0, errUDPTimeout
+			}
+			return DnsHeader{}, nil, false, 0, fmt.Errorf("READ: %s", truncErr(err))
 		}
-		hdr, answers, edns, perr := parseDnsMessage(buf[:n], qtype, txid, true)
-		if perr != nil && strings.Contains(perr.Error(), "txid mismatch") {
-			continue // not our answer — keep waiting for the real one
+		if n < 2 || !slices.Contains(ids, binary.BigEndian.Uint16(buf[:2])) {
+			continue // not our answer: keep waiting for the real one
 		}
-		return hdr, answers, edns, perr
+		id := binary.BigEndian.Uint16(buf[:2])
+		hdr, answers, edns, perr := parseDnsMessage(buf[:n], qtype, id, true)
+		if perr != nil {
+			return hdr, nil, false, id, fmt.Errorf("PARSE: %s", perr.Error())
+		}
+		return hdr, answers, edns, id, nil
 	}
+}
+
+// probeDialer caps the shared dialer's connect timeout at the probe timeout,
+// so a short DNS timeout is not stretched by the engine-wide one.
+func probeDialer(d *net.Dialer, timeout time.Duration) *net.Dialer {
+	if d == nil {
+		return &net.Dialer{Timeout: timeout}
+	}
+	if d.Timeout > 0 && d.Timeout <= timeout {
+		return d
+	}
+	bounded := *d
+	bounded.Timeout = timeout
+	return &bounded
 }
 
 // DnsProbeTCP sends a DNS query over TCP/53.
@@ -587,16 +713,14 @@ func DnsProbeTCPWithDialer(ctx context.Context, resolverIP string, domain string
 	query, txid := buildDnsQuery(domain, 1, true)
 
 	addr := net.JoinHostPort(resolverIP, fmt.Sprintf("%d", port))
-	if dialer == nil {
-		dialer = &net.Dialer{Timeout: timeout}
-	}
-
-	conn, err := dialer.DialContext(ctx, "tcp", addr)
+	conn, err := probeDialer(dialer, timeout).DialContext(ctx, "tcp", addr)
 	if err != nil {
 		result.Error = "TCP_DIAL: " + truncErr(err)
 		return result
 	}
 	defer conn.Close()
+	stopCancel := context.AfterFunc(ctx, func() { _ = conn.Close() })
+	defer stopCancel()
 
 	conn.SetDeadline(time.Now().Add(timeout))
 
@@ -639,7 +763,9 @@ func readTCPResponse(conn net.Conn) ([]byte, error) {
 		return nil, err
 	}
 	respLen := binary.BigEndian.Uint16(lenBuf[:])
-	if respLen == 0 || respLen > ednsUDPPayloadSize {
+	// TCP/DoT frames are bounded by their uint16 prefix, not the UDP EDNS
+	// payload size. Large legitimate TXT answers can exceed 4096 bytes.
+	if respLen == 0 {
 		return nil, fmt.Errorf("bad length %d", respLen)
 	}
 	respBuf := make([]byte, respLen)
@@ -663,18 +789,15 @@ func DnsProbeDoTWithDialer(ctx context.Context, resolverIP string, domain string
 	query, txid := buildDnsQuery(domain, 1, true)
 
 	addr := net.JoinHostPort(resolverIP, fmt.Sprintf("%d", port))
-	if dialer == nil {
-		dialer = &net.Dialer{Timeout: timeout}
-	}
-
-	tlsConn, err := tls.DialWithDialer(dialer, "tcp", addr, &tls.Config{
-		InsecureSkipVerify: true,
-	})
+	tlsDialer := &tls.Dialer{NetDialer: probeDialer(dialer, timeout), Config: &tls.Config{InsecureSkipVerify: true}}
+	tlsConn, err := tlsDialer.DialContext(ctx, "tcp", addr)
 	if err != nil {
 		result.Error = "DoT_TLS: " + truncErr(err)
 		return result
 	}
 	defer tlsConn.Close()
+	stopCancel := context.AfterFunc(ctx, func() { _ = tlsConn.Close() })
+	defer stopCancel()
 
 	tlsConn.SetDeadline(time.Now().Add(timeout))
 
@@ -720,85 +843,80 @@ func DnsProbeDoHWithClient(ctx context.Context, resolverIP string, domain string
 		return result
 	}
 
-	url := fmt.Sprintf("https://%s:%d/dns-query?name=%s&type=A", resolverIP, port, domain)
-
-	if client == nil {
-		client = &http.Client{Timeout: timeout}
-	}
-
-	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
+	hdr, ips, edns, ttfb, err := dohExchange(ctx, client, resolverIP, port, domain, 1, timeout)
+	result.TTFB = ttfb
 	if err != nil {
-		result.Error = "DoH_REQ: " + truncErr(err)
+		result.Error = "DoH_" + err.Error()
+		result.Header, result.HeaderOK = hdr, hdr.QR
 		return result
 	}
-	req.Header.Set("Accept", "application/dns-json")
-
-	start := time.Now()
-	resp, err := client.Do(req)
-	result.TTFB = time.Since(start)
-
-	if err != nil {
-		result.Error = "DoH_HTTP: " + truncErr(err)
-		return result
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != 200 {
-		result.Error = fmt.Sprintf("DoH_STATUS: %d", resp.StatusCode)
-		return result
-	}
-
-	body, err := io.ReadAll(io.LimitReader(resp.Body, 8192))
-	if err != nil {
-		result.Error = "DoH_READ: " + truncErr(err)
-		return result
-	}
-
-	var dohResp dohJSONResponse
-	if err := json.Unmarshal(body, &dohResp); err != nil {
-		result.Error = "DoH_JSON: " + truncErr(err)
-		return result
-	}
-
-	if dohResp.Status != 0 {
-		result.Error = fmt.Sprintf("DoH_RCODE: %d", dohResp.Status)
-		return result
-	}
-
-	var ips []string
-	for _, ans := range dohResp.Answer {
-		if ans.Type == 1 {
-			ip := strings.TrimSpace(ans.Data)
-			if net.ParseIP(ip) != nil {
-				ips = append(ips, ip)
-			}
-		}
-	}
-
-	if len(ips) == 0 {
-		result.Error = "DoH_NO_A"
-		return result
-	}
-
 	result.Responded = true
 	result.AnswerIPs = ips
-	result.Header, result.HeaderOK = dohHeader(dohResp), true
+	result.Header, result.HeaderOK, result.EDNS = hdr, true, edns
 	result.IsPoisoned = !truth.Verify(ips)
 	return result
 }
 
-// dohHeader synthesizes a DnsHeader from the flags exposed by the DoH JSON API.
-// The JSON format carries QR implicitly (it's always a response) plus TC/RD/RA
-// and Status (rcode); the wire-only fields (ID, AA, counts) are left zero.
-func dohHeader(r dohJSONResponse) DnsHeader {
-	return DnsHeader{QR: true, TC: r.TC, RD: r.RD, RA: r.RA, Rcode: uint8(r.Status)}
+// dohExchange sends one RFC 8484 query (GET ?dns=, application/dns-message):
+// the format every DoH server speaks. The JSON API is a Google/Cloudflare
+// extra that standard servers (Quad9, OpenDNS, AdGuard, ...) reject with 400.
+// The wire answer also carries the real header and EDNS0 support.
+func dohExchange(ctx context.Context, client *http.Client, resolverIP string, port int, name string, qtype uint16, timeout time.Duration) (DnsHeader, []string, bool, time.Duration, error) {
+	query, _ := buildDnsQuery(name, qtype, true)
+	query[0], query[1] = 0, 0 // RFC 8484 4.1: ID 0 keeps answers cacheable
+	url := (&neturl.URL{Scheme: "https", Host: net.JoinHostPort(resolverIP, fmt.Sprint(port)), Path: "/dns-query",
+		RawQuery: "dns=" + base64.RawURLEncoding.EncodeToString(query)}).String()
+	if client == nil {
+		client = &http.Client{Timeout: timeout}
+	}
+	reqCtx, cancel := context.WithTimeout(ctx, timeout) // the shared client uses the engine-wide timeout
+	defer cancel()
+	req, err := http.NewRequestWithContext(reqCtx, "GET", url, nil)
+	if err != nil {
+		return DnsHeader{}, nil, false, 0, fmt.Errorf("REQ: %s", truncErr(err))
+	}
+	req.Header.Set("Accept", "application/dns-message")
+	start := time.Now()
+	resp, err := client.Do(req)
+	ttfb := time.Since(start)
+	if err != nil {
+		return DnsHeader{}, nil, false, ttfb, fmt.Errorf("HTTP: %s", truncErr(err))
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		return DnsHeader{}, nil, false, ttfb, fmt.Errorf("STATUS: %d", resp.StatusCode)
+	}
+	body, err := io.ReadAll(io.LimitReader(resp.Body, 65535))
+	if err != nil {
+		return DnsHeader{}, nil, false, ttfb, fmt.Errorf("READ: %s", truncErr(err))
+	}
+	hdr, answers, edns, err := parseDnsMessage(body, qtype, 0, true)
+	if err != nil {
+		return hdr, nil, false, ttfb, fmt.Errorf("PARSE: %s", err.Error())
+	}
+	return hdr, answers, edns, ttfb, nil
 }
 
-// truncErr truncates an error message to keep logs clean.
+// truncErr keeps an error's cause short for logs and reports. Go's wrappers
+// put the operation and full address (a DoH URL with its base64 query) first,
+// which used to fill the whole limit and cut the cause off.
 func truncErr(err error) string {
+	var urlErr *neturl.Error
+	if errors.As(err, &urlErr) {
+		err = urlErr.Err
+	}
+	var opErr *net.OpError
+	if errors.As(err, &opErr) {
+		cause := opErr.Err
+		var sysErr *os.SyscallError
+		if errors.As(cause, &sysErr) {
+			cause = sysErr.Err
+		}
+		err = fmt.Errorf("%s: %w", opErr.Op, cause)
+	}
 	s := err.Error()
-	if len(s) > 60 {
-		return s[:57] + "..."
+	if len(s) > 120 {
+		return s[:117] + "..."
 	}
 	return s
 }

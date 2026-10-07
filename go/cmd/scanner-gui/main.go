@@ -1,5 +1,5 @@
-// WhiteDNS Scanner: a Windows GUI for the reachability / DNS resolver scanner.
-// Build: cd go/cmd/scanner-gui && wails build -platform windows/amd64
+// WhiteDNS Scanner: a cross-platform GUI for the reachability / DNS resolver scanner.
+// Build from the repository root with scripts/build-gui.ps1 or scripts/build-gui.sh.
 package main
 
 import (
@@ -21,8 +21,8 @@ func main() {
 		Title:            "WhiteDNS Scanner",
 		Width:            1240,
 		Height:           800,
-		MinWidth:         980,
-		MinHeight:        640,
+		MinWidth:         640,
+		MinHeight:        560,
 		AssetServer:      &assetserver.Options{Assets: assets},
 		BackgroundColour: &options.RGBA{R: 14, G: 17, B: 22, A: 1},
 		OnStartup:        app.startup,

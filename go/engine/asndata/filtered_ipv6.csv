@@ -1,0 +1,1820 @@
+network,country,country_code,continent,continent_code,asn,as_name,as_domain,type
+2001:470:d:10b3::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:d:12d9::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:19:4::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:19:a43::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:19:cc7::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:19:1133::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:24:c9::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:24:49f::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:24:4c5::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:24:510::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:36:22d::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:36:1043::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:36:125e::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:36:12f8::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:1f0b:265::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:1f29:21a::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:482d::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:72e3::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:8325::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:8825::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:f39a:980::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:f5b7:980::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:f674::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:f700::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:f802::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:f873:980::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:f87e::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:f8f9:980::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:fc9b::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:fcce:980::/64,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:fe94::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:feb7::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:470:fecd::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2001:678:119c::/48,United Kingdom,GB,Europe,EU,AS213565,Badonde Networks,icloud.com,unknown
+2001:67c:a38:f098::/64,Iran,IR,Asia,AS,AS204186,BILLY Remi,billysworld.fr,global_cdn_edge
+2001:df1:f40::/48,Japan,JP,Asia,AS,AS62184,Michal Nowak,pm.me,unknown
+2001:16c0:6::/47,Iran,IR,Asia,AS,AS31732,Parsun Network Solutions PTY LTD,parsun.com,global_cdn_edge
+2001:16c0:8::/48,Iran,IR,Asia,AS,AS31732,Parsun Network Solutions PTY LTD,parsun.com,global_cdn_edge
+2001:16c0:53::/48,Iran,IR,Asia,AS,AS31732,Parsun Network Solutions PTY LTD,parsun.com,global_cdn_edge
+2001:16c0:1235::/48,Iran,IR,Asia,AS,AS31732,Parsun Network Solutions PTY LTD,parsun.com,global_cdn_edge
+2001:16c0:5000::/48,Iran,IR,Asia,AS,AS31732,Parsun Network Solutions PTY LTD,parsun.com,global_cdn_edge
+2001:16c0:fefc::/47,Iran,IR,Asia,AS,AS31732,Parsun Network Solutions PTY LTD,parsun.com,global_cdn_edge
+2001:3786:5006:500::/56,Iran,IR,Asia,AS,AS205563,zGato Global Network,zgato.dev,global_cdn_edge
+2001:3786:5007:500::/56,Iran,IR,Asia,AS,AS205563,zGato Global Network,zgato.dev,global_cdn_edge
+2001:3786:bb02:400::/56,Iran,IR,Asia,AS,AS205563,zGato Global Network,zgato.dev,global_cdn_edge
+2001:4188::/48,Iran,IR,Asia,AS,AS12880,Iran Information Technology Company PJSC,tic.ir,business
+2001:4188:1b::/48,Iran,IR,Asia,AS,AS49666,Telecommunication Infrastructure Company,tic.ir,isp
+2001:4860:7:214::/64,Iran,IR,Asia,AS,AS15169,Google LLC,google.com,global_cdn_edge
+2001:4860:7:614::/64,Iran,IR,Asia,AS,AS15169,Google LLC,google.com,global_cdn_edge
+2001:4860:7:1414::/64,Iran,IR,Asia,AS,AS15169,Google LLC,google.com,global_cdn_edge
+2001:4860:7:1514::/64,Iran,IR,Asia,AS,AS15169,Google LLC,google.com,global_cdn_edge
+2001:4860:7:1614::/64,Iran,IR,Asia,AS,AS15169,Google LLC,google.com,global_cdn_edge
+2001:4860:7:1714::/64,Iran,IR,Asia,AS,AS15169,Google LLC,google.com,global_cdn_edge
+2001:4b08:4:4::/64,Iran,IR,Asia,AS,AS29452,Secura Hosting Ltd,node4.co.uk,global_cdn_edge
+2001:4b28:6100::/40,Iran,IR,Asia,AS,AS6775,Andreas Fink trading as Fink Telecom Services GmbH,fink-telecom.com,global_cdn_edge
+2401:f1e0:ffff:5e69::/64,Iran,IR,Asia,AS,AS38136,Akari Networks,akari.hk,global_cdn_edge
+2405:2300:ff00::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff02::/48,India,IN,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff03::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff04::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff06::/47,Australia,AU,Oceania,OC,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff08::/48,Singapore,SG,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff09::/48,Hong Kong,HK,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff0a::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff0c::/48,India,IN,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff0d::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff0e::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff10::/48,Japan,JP,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff11::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff12::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff14::/46,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff18::/45,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff20::/43,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff40::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42::/49,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:8000::/50,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:c000::/51,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e000::/64,India,IN,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e001::/64,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e002::/63,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e004::/62,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e008::/63,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e00a::/64,India,IN,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e00b::/64,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e00c::/62,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e010::/60,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e020::/59,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e040::/58,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e080::/57,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e100::/56,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e200::/55,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e400::/54,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:e800::/53,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff42:f000::/52,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff43::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff44::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff46::/48,Japan,JP,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff47::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff48::/45,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff50::/44,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff60::/44,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff70::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72::/61,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:8::/64,India,IN,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:9::/64,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:a::/63,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:c::/62,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:10::/60,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:20::/59,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:40::/58,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:80::/57,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:100::/56,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:200::/55,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:400::/54,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:800::/53,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:1000::/52,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:2000::/51,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:4000::/50,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff72:8000::/49,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff73::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff74::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff75::/48,Singapore,SG,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff76::/48,Japan,JP,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff77::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff78::/45,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ff80::/42,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ffc0::/45,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ffc8::/46,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ffcc::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ffcd::/48,China,CN,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ffce::/48,Singapore,SG,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ffcf::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ffd0::/44,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:2300:ffe0::/43,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2405:b500:3800::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2405:b500:3800:10::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2405:b500:3800:18::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2405:b500:3820::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2405:b500:3820:10::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2405:b500:3820:18::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2405:b500:3840::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2405:b500:3840:10::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2405:b500:3840:18::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2405:b500:3860::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2405:b500:3860:10::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2405:b500:3860:18::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2406:840:fed8::/48,China,CN,Asia,AS,AS142642,Atonal System,icloud.com,unknown
+2600:70ff:a6de::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2600:70ff:a7a2::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2600:70ff:a88b::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2600:70ff:abc6::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2600:70ff:d0b6::/48,Iran,IR,Asia,AS,AS6939,Hurricane Electric LLC,he.net,global_cdn_edge
+2602:f54e:1::/48,China,CN,Asia,AS,AS402004,"Rui Sun, Sole Proprietorship",icloud.com,unknown
+2602:f54e:2::/48,United States,US,North America,NA,AS402004,"Rui Sun, Sole Proprietorship",icloud.com,unknown
+2602:f92a:1314::/48,China,CN,Asia,AS,AS204518,Shiyu Zhou,icloud.com,unknown
+2602:f9a9:102::/48,Japan,JP,Asia,AS,AS63008,SIMPLE CLOUD SOLUTION LLC,haeimalan.com,unknown
+2602:f9a9:103::/48,Taiwan,TW,Asia,AS,AS63008,SIMPLE CLOUD SOLUTION LLC,haeimalan.com,unknown
+2602:f9a9:201::/48,United States,US,North America,NA,AS63008,SIMPLE CLOUD SOLUTION LLC,haeimalan.com,unknown
+2602:f9a9:301::/48,United States,US,North America,NA,AS397968,SIMPLE CLOUD SOLUTION LLC,icloud.com,unknown
+2602:fafd:f04::/64,United States,US,North America,NA,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:1::/64,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:2::/63,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:4::/62,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:8::/61,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:10::/60,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:20::/59,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:40::/58,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:80::/57,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:100::/56,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:200::/55,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:400::/54,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:800::/53,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:1000::/52,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:2000::/51,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:4000::/50,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2602:fafd:f04:8000::/49,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2606:54c0:4130::/44,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2606:54c0:4140::/45,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2606:54c3:0:7c6::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2606:54c3:0:1754::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2606:54c3:0:1847::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2620:109:c001::/48,United States,US,North America,NA,AS14413,LinkedIn Corporation,linkedin.com,unknown
+2620:109:c002::/48,United States,US,North America,NA,AS14413,LinkedIn Corporation,linkedin.com,unknown
+2620:109:c003::/48,United States,US,North America,NA,AS40793,LinkedIn Corporation,linkedin.com,unknown
+2620:109:c006::/48,United States,US,North America,NA,AS55163,LinkedIn Corporation,linkedin.com,unknown
+2620:109:c00a::/48,United States,US,North America,NA,AS14413,LinkedIn Corporation,linkedin.com,unknown
+2620:119:5000::/42,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2620:119:5041::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2620:119:5043::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2620:119:5044::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2620:119:5053::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2620:119:5070::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2620:119:5073::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2620:119:5074::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2620:119:50c0::/48,United States,US,North America,NA,AS14413,LinkedIn Corporation,linkedin.com,unknown
+2620:119:50d2::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2620:119:50e5::/48,United States,US,North America,NA,AS14413,LinkedIn Corporation,linkedin.com,unknown
+2620:119:50e6::/47,United States,US,North America,NA,AS14413,LinkedIn Corporation,linkedin.com,unknown
+2620:119:50e8::/48,United States,US,North America,NA,AS14413,LinkedIn Corporation,linkedin.com,unknown
+2620:119:50ea::/48,United States,US,North America,NA,AS14413,LinkedIn Corporation,linkedin.com,unknown
+2804:1b84::/32,Brazil,BR,South America,SA,AS61732,PRECISA INTERNET E COMUNICAÇÃO LTDA,icloud.com,unknown
+2804:2e30::/32,Brazil,BR,South America,SA,AS265330,Ponto a Ponto Telecomunicaçoes,ptptelecom.com.br,unknown
+2804:6524::/32,Brazil,BR,South America,SA,AS269471,LEHMKUHLL e ANTONELLI LTDA-ME,icloud.com,unknown
+2804:7060::/32,Brazil,BR,South America,SA,AS270723,Poecom Telecom LTDA.,icloud.com,unknown
+2804:78f4::/32,Brazil,BR,South America,SA,AS271276,K C C MATIAS-ME,icloud.com,unknown
+2804:8758::/32,Brazil,BR,South America,SA,AS272703,MYLINK SERVICO DE COMUNICACAO MULTIMIDIA EIRELI,icloud.com,unknown
+2804:8c00::/32,Brazil,BR,South America,SA,AS273773,UP TELECOMUNICAÇÕES,icloud.com,unknown
+2804:8f80::/32,Brazil,BR,South America,SA,AS273494,"ROCHA, VIEIRA E CAMINHA LTDA",icloud.com,unknown
+2804:958c::/32,Brazil,BR,South America,SA,AS274529,M.O. SERVICOS DE TELECOMUNICACOES LTDA,icloud.com,unknown
+2a00:5540:1::/48,Iran,IR,Asia,AS,AS50763,MCKAYCOM Wireless,as50763.net,global_cdn_edge
+2a01:130:10::/48,Iran,IR,Asia,AS,AS8495,INTERNET AG Global Network,inet.de,global_cdn_edge
+2a01:528:6100::/40,Iran,IR,Asia,AS,AS6775,Andreas Fink trading as Fink Telecom Services GmbH,fink-telecom.com,global_cdn_edge
+2a01:e140::/64,The Netherlands,NL,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:1::/64,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:2::/63,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:4::/62,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:8::/61,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:10::/60,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:20::/59,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:40::/58,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:80::/57,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:100::/56,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:200::/55,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:400::/54,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:800::/53,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:1000::/52,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:2000::/51,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:4000::/50,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:0:8000::/49,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10::/64,The Netherlands,NL,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:1::/64,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:2::/63,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:4::/62,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:8::/61,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:10::/64,The Netherlands,NL,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:11::/64,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:12::/63,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:14::/62,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:18::/61,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:20::/59,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:40::/58,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:80::/57,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:100::/56,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:200::/55,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:400::/54,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:800::/53,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:1000::/52,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:2000::/51,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:4000::/50,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:10:8000::/49,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:11::/48,Switzerland,CH,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12::/63,The Netherlands,NL,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:2::/63,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:4::/62,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:8::/61,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:10::/60,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:20::/59,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:40::/58,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:80::/57,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:100::/56,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:200::/55,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:400::/54,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:800::/53,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:1000::/52,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:2000::/51,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:4000::/50,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:12:8000::/49,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:13::/48,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:14::/46,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:e140:18::/45,Germany,DE,Europe,EU,AS214145,Seyed Pouria Mousavizadeh Tehrani,spmzt.net,hosting
+2a01:ffc7:301::/48,Norway,NO,Europe,EU,AS213839,FRANK SOLLI,icloud.com,unknown
+2a02:26f7:e300::/50,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:4000::/54,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:4400::/55,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:4600::/56,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:4700::/57,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:4780::/59,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:47a0::/60,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:47b0::/62,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:47b4::/63,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:47b6::/64,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:47b8::/61,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:47c0::/58,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:4800::/53,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:5000::/52,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:6000::/51,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e300:8000::/49,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e301::/48,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302::/50,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:4000::/54,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:4400::/55,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:4600::/56,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:4700::/57,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:4780::/59,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:47a0::/60,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:47b0::/62,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:47b4::/63,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:47b6::/64,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:47b8::/61,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:47c0::/58,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:4800::/53,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:5000::/52,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:6000::/51,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e302:8000::/49,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e303::/48,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304::/50,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:4000::/54,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:4400::/55,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:4600::/56,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:4700::/57,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:4780::/59,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:47a0::/60,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:47b0::/62,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:47b4::/63,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:47b6::/64,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:47b8::/61,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:47c0::/58,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:4800::/53,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:5000::/52,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:6000::/51,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e304:8000::/49,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e305::/48,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e306::/47,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308::/50,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:4000::/54,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:4400::/55,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:4600::/56,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:4700::/57,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:4780::/59,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:47a0::/60,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:47b0::/62,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:47b4::/63,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:47b6::/64,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:47b8::/61,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:47c0::/58,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:4800::/53,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:5000::/52,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:6000::/51,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e308:8000::/49,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e309::/48,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e30a::/47,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e30c::/46,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e310::/44,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a02:26f7:e320::/43,Iran,IR,Asia,AS,AS20940,Akamai International B.V.,akamai.com,global_cdn_edge
+2a03:5840:13e::/48,Iran,IR,Asia,AS,AS200116,VAHIX INFRASTRUCTURE,,isp
+2a04:1d41:6100::/40,Iran,IR,Asia,AS,AS60728,Andreas Fink trading as Fink Telecom Services GmbH,fink.org,global_cdn_edge
+2a04:1d42:6100::/40,Iran,IR,Asia,AS,AS60728,Andreas Fink trading as Fink Telecom Services GmbH,fink.org,global_cdn_edge
+2a04:1d43:6100::/40,Iran,IR,Asia,AS,AS60728,Andreas Fink trading as Fink Telecom Services GmbH,fink.org,global_cdn_edge
+2a04:1d44:6100::/40,Iran,IR,Asia,AS,AS60728,Andreas Fink trading as Fink Telecom Services GmbH,fink.org,global_cdn_edge
+2a04:1d45:6100::/40,Iran,IR,Asia,AS,AS60728,Andreas Fink trading as Fink Telecom Services GmbH,fink.org,global_cdn_edge
+2a04:1d46:6100::/40,Iran,IR,Asia,AS,AS60728,Andreas Fink trading as Fink Telecom Services GmbH,fink.org,global_cdn_edge
+2a04:1d47:6100::/40,Iran,IR,Asia,AS,AS60728,Andreas Fink trading as Fink Telecom Services GmbH,fink.org,global_cdn_edge
+2a04:2f00:d::/48,Iran,IR,Asia,AS,AS60423,E-Money Net Developers 24 Company Private Joint Stock,derak.cloud,hosting
+2a04:2f00:e::/48,Iran,IR,Asia,AS,AS60423,E-Money Net Developers 24 Company Private Joint Stock,derak.cloud,hosting
+2a04:4e41:20:12::/63,Iran,IR,Asia,AS,AS54113,"Fastly, Inc.",fastly.com,global_cdn_edge
+2a04:4e41:4e:40::/63,Iran,IR,Asia,AS,AS54113,"Fastly, Inc.",fastly.com,global_cdn_edge
+2a04:4e41:65:40::/63,Iran,IR,Asia,AS,AS54113,"Fastly, Inc.",fastly.com,global_cdn_edge
+2a04:4e41:66:49::/64,Iran,IR,Asia,AS,AS54113,"Fastly, Inc.",fastly.com,global_cdn_edge
+2a04:4e41:66:4a::/64,Iran,IR,Asia,AS,AS54113,"Fastly, Inc.",fastly.com,global_cdn_edge
+2a04:5040:6003::/48,Iran,IR,Asia,AS,AS216417,Mahdi Dehestani,pm.me,business
+2a04:aa00::/32,Germany,DE,Europe,EU,AS215767,Mizban Pardazesh Pouyan LLC,,hosting
+2a05:541:140::/48,Iran,IR,Asia,AS,AS8342,JSC RTComm.RU,rtcomm.ru,global_cdn_edge
+2a05:5440::/48,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1::/64,The Netherlands,NL,Europe,EU,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:1::/64,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:2::/63,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:4::/62,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:8::/61,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:10::/60,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:20::/59,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:40::/58,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:80::/57,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:100::/56,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:200::/55,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:400::/54,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:800::/53,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:1000::/52,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:2000::/51,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:4000::/50,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1:8000::/49,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:2::/47,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:4::/46,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:8::/45,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:10::/44,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:20::/43,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:40::/42,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:80::/41,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:100::/40,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:200::/39,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:400::/38,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:800::/37,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:1000::/36,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:2000::/35,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:4000::/34,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:5440:8000::/33,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,kptbam.com,business
+2a05:9080:14::/64,Germany,DE,Europe,EU,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:1::/64,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:2::/63,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:4::/62,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:8::/61,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:10::/60,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:20::/59,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:40::/58,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:80::/57,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:100::/56,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:200::/55,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:400::/54,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:800::/53,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:1000::/52,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:2000::/51,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:4000::/50,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:9080:14:8000::/49,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,isp
+2a05:a380::/29,United Kingdom,GB,Europe,EU,AS61008,"MIHAN COMMUNICATION SYSTEMS CO.,LTD",skydsl.ir,business
+2a05:cd00::/64,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:1::/64,Sweden,SE,Europe,EU,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:2::/63,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:4::/62,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:8::/61,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:10::/60,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:20::/59,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:40::/58,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:80::/57,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:100::/56,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:200::/55,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:400::/54,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:800::/53,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:1000::/52,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:2000::/51,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:4000::/50,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:0:8000::/49,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:1::/48,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:2::/47,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:4::/46,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:8::/45,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:10::/44,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:20::/43,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:40::/42,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:80::/41,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:100::/40,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:200::/39,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:400::/38,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:800::/37,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:1000::/36,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:2000::/35,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:4000::/34,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd00:8000::/33,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,ratinpardazesh.com,hosting
+2a05:cd02::/32,Iran,IR,Asia,AS,AS216415,AMIRMOHAMMAD FATEH,ratin.se,unknown
+2a05:f500:30::/46,United States,US,North America,NA,AS14413,LinkedIn Corporation,linkedin.com,unknown
+2a05:f500:40::/46,United States,US,North America,NA,AS14413,LinkedIn Corporation,linkedin.com,unknown
+2a05:f506::/48,United States,US,North America,NA,AS14413,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507::/48,Austria,AT,Europe,EU,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:1::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:2::/48,Germany,DE,Europe,EU,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:3::/48,Spain,ES,Europe,EU,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:4::/48,Sweden,SE,Europe,EU,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:5::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:6::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:7::/48,United Arab Emirates,AE,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:8::/48,Italy,IT,Europe,EU,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:9::/48,France,FR,Europe,EU,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:a::/48,Austria,AT,Europe,EU,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:b::/48,Ireland,IE,Europe,EU,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:c::/48,United Kingdom,GB,Europe,EU,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:d::/48,Israel,IL,Asia,AS,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:e::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:10::/44,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:20::/43,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:40::/43,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:60::/44,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:70::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:72::/48,Germany,DE,Europe,EU,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:73::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:74::/48,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:75::/48,The Netherlands,NL,Europe,EU,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:76::/47,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a05:f507:78::/45,United States,US,North America,NA,AS13443,LinkedIn Corporation,linkedin.com,unknown
+2a06:1286::/40,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100::/64,Norway,NO,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:1::/64,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:2::/63,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:4::/62,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:8::/61,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:10::/60,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:20::/59,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:40::/58,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:80::/57,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:100::/56,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:200::/55,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:400::/54,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:800::/53,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:1000::/52,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:2000::/51,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:4000::/50,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:100:8000::/49,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:101::/48,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:102::/47,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:104::/46,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:108::/45,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:110::/44,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:120::/43,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:140::/42,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:180::/41,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200::/64,United States,US,North America,NA,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:1::/64,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:2::/63,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:4::/62,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:8::/61,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:10::/60,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:20::/59,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:40::/58,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:80::/57,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:100::/56,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:200::/55,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:400::/54,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:800::/53,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:1000::/52,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:2000::/51,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:4000::/50,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:200:8000::/49,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:201::/48,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:202::/47,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:204::/46,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:208::/45,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:210::/44,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:220::/43,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:240::/42,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:280::/41,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300::/64,United States,US,North America,NA,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:1::/64,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:2::/63,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:4::/62,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:8::/61,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:10::/60,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:20::/59,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:40::/58,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:80::/57,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:100::/56,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:200::/55,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:400::/54,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:800::/53,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:1000::/52,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:2000::/51,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:4000::/50,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:300:8000::/49,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:301::/48,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:302::/47,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:304::/46,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:308::/45,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:310::/44,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:320::/43,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:340::/42,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:380::/41,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400::/64,The Netherlands,NL,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:1::/64,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:2::/63,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:4::/62,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:8::/61,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:10::/60,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:20::/59,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:40::/58,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:80::/57,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:100::/56,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:200::/55,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:400::/54,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:800::/53,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:1000::/52,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:2000::/51,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:4000::/50,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:400:8000::/49,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:401::/48,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:402::/47,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:404::/46,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:408::/45,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:410::/44,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:420::/43,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:440::/42,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:480::/41,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500::/64,Switzerland,CH,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:1::/64,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:2::/63,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:4::/62,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:8::/61,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:10::/60,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:20::/59,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:40::/58,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:80::/57,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:100::/56,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:200::/55,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:400::/54,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:800::/53,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:1000::/52,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:2000::/51,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:4000::/50,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:500:8000::/49,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:501::/48,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:502::/47,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:504::/46,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:508::/45,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:510::/44,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:520::/43,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:540::/42,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:580::/41,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:600::/40,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:700::/50,Singapore,SG,Asia,AS,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:700:4000::/50,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:700:8000::/49,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:701::/48,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:702::/47,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:704::/46,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:708::/45,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:710::/44,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:720::/43,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:740::/42,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:780::/41,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:800::/40,New Zealand,NZ,Oceania,OC,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900::/64,The Netherlands,NL,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:1::/64,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:2::/63,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:4::/62,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:8::/61,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:10::/60,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:20::/59,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:40::/58,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:80::/57,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:100::/56,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:200::/55,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:400::/54,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:800::/53,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:1000::/52,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:2000::/51,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:4000::/50,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:900:8000::/49,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:901::/48,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:902::/47,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:904::/46,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:908::/45,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:910::/44,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:920::/43,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:940::/42,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:980::/41,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:a00::/39,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:c00::/38,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1000::/39,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200::/64,Norway,NO,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:1::/64,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:2::/63,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:4::/62,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:8::/61,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:10::/60,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:20::/59,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:40::/58,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:80::/57,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:100::/56,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:200::/55,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:400::/54,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:800::/53,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:1000::/52,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:2000::/51,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:4000::/50,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1200:8000::/49,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1201::/48,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1202::/47,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1204::/46,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1208::/45,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1210::/44,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1220::/43,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1240::/42,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1280::/41,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1300::/40,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1400::/40,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1500::/40,Sweden,SE,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1600::/39,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:1800::/37,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:2000::/35,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:4000::/34,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:8000::/35,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:a000::/36,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b000::/45,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b008::/47,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00a::/48,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b::/64,United States,US,North America,NA,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:1::/64,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:2::/63,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:4::/62,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:8::/61,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:10::/60,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:20::/59,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:40::/58,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:80::/57,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:100::/56,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:200::/55,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:400::/54,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:800::/53,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:1000::/52,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:2000::/51,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:4000::/50,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00b:8000::/49,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b00c::/46,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b010::/44,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b020::/43,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b040::/42,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b080::/41,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b100::/40,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b200::/39,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b400::/38,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:b800::/37,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:1286:c000::/34,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:a001:a0b0::/44,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:a005:1db0::/44,United Kingdom,GB,Europe,EU,AS204789,BIZBETA LTD,pm.me,unknown
+2a06:de06:385::/48,Curacao,CW,North America,NA,AS212080,Karafarini va FANAVARIHAYEH Novin Negin Pars Co PJS,neginpars.com,business
+2a07:d887:6b00::/40,Iran,IR,Asia,AS,AS43357,Owl Limited,owl.net,global_cdn_edge
+2a09:4c0:0:6d::/64,Iran,IR,Asia,AS,AS58057,Securebit AG,securebit.ch,global_cdn_edge
+2a09:bac1:3800::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac1:3800:10::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac1:3800:18::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac1:3820::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac1:3820:10::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac1:3820:18::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac1:3840::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac1:3840:10::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac1:3840:18::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac1:3860::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac1:3860:10::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac1:3860:18::/64,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac2:4130::/44,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac2:4140::/45,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac3:4130::/44,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac3:4140::/45,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac4:358::/45,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac4:1358::/45,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac5:41c8::/45,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac5:41d0::/44,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac6:41c8::/45,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a09:bac6:41d0::/44,Iran,IR,Asia,AS,AS13335,"Cloudflare, Inc.",cloudflare.com,global_cdn_edge
+2a0a:3e45:200::/40,Norway,NO,Europe,EU,AS213839,FRANK SOLLI,icloud.com,unknown
+2a0a:6040:f97::/48,Iran,IR,Asia,AS,AS212532,XIAO YANG WEN RUI,acesheep.cn,global_cdn_edge
+2a0a:6044:77fe:6b::/64,Iran,IR,Asia,AS,AS214242,Jiaxing Xing,wlms.dev,global_cdn_edge
+2a0b:4e07:3:3640::/60,Iran,IR,Asia,AS,AS11967,Hop179 OU,hop179.net,global_cdn_edge
+2a0c:9a40:95b6:8000::/52,Iran,IR,Asia,AS,AS203314,HATS NETWORK INC.,hatsnet.io,global_cdn_edge
+2a0c:9a46:3fe:6b::/64,Iran,IR,Asia,AS,AS214242,Jiaxing Xing,wlms.dev,global_cdn_edge
+2a0c:a7c6:2b::/48,Iran,IR,Asia,AS,AS205585,Noyan Abr Arvan Co. ( Private Joint Stock),arvancloud.ir,hosting
+2a0c:a7c6:1000::/36,Iran,IR,Asia,AS,AS205585,Noyan Abr Arvan Co. ( Private Joint Stock),arvancloud.ir,hosting
+2a0c:a7c7::/40,France,FR,Europe,EU,AS205585,Noyan Abr Arvan Co. ( Private Joint Stock),arvancloud.ir,hosting
+2a0c:b641:450::/44,Brazil,BR,South America,SA,AS203731,Blazehosting LTDA,icloud.com,unknown
+2a0d:2406:11ea::/48,The Netherlands,NL,Europe,EU,AS212025,Cukman Kresimir,potenting.com,unknown
+2a0d:48c0::/29,Russia,RU,Europe,EU,AS204968,Volkov Andrey Vladimirovich,icloud.com,unknown
+2a0d:4ac0::/40,France,FR,Europe,EU,AS205585,Noyan Abr Arvan Co. ( Private Joint Stock),arvancloud.ir,hosting
+2a0d:6ec0::/29,Russia,RU,Europe,EU,AS204968,Volkov Andrey Vladimirovich,icloud.com,unknown
+2a0d:9740::/29,Russia,RU,Europe,EU,AS204968,Volkov Andrey Vladimirovich,icloud.com,unknown
+2a0d:b540::/29,Russia,RU,Europe,EU,AS204968,Volkov Andrey Vladimirovich,icloud.com,unknown
+2a0d:b845::/32,Russia,RU,Europe,EU,AS204968,Volkov Andrey Vladimirovich,icloud.com,unknown
+2a0e:19c2::/32,Russia,RU,Europe,EU,AS204968,Volkov Andrey Vladimirovich,icloud.com,unknown
+2a0f:1cc5:20::/44,China,CN,Asia,AS,AS204518,Shiyu Zhou,icloud.com,unknown
+2a0f:1cc5:1f97::/48,Iran,IR,Asia,AS,AS212532,XIAO YANG WEN RUI,acesheep.cn,global_cdn_edge
+2a0f:9403:710::/44,Iran,IR,Asia,AS,AS214669,"STARLIGHT TECH TRADING CO., LIMITED",starshine.cloud,global_cdn_edge
+2a0f:94c0:200::/48,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201::/64,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:1::/64,Germany,DE,Europe,EU,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:2::/63,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:4::/62,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:8::/61,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:10::/60,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:20::/59,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:40::/58,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:80::/57,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:100::/56,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:200::/55,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:400::/54,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:800::/53,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:1000::/52,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:2000::/51,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:4000::/50,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:201:8000::/49,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:202::/47,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:204::/46,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:208::/45,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:210::/44,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:220::/43,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:240::/42,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a0f:94c0:280::/41,United Arab Emirates,AE,Asia,AS,AS57568,ARVANCLOUD GLOBAL TECHNOLOGIES L.L.C,arvancloud.ae,unknown
+2a11:a580:3e00::/40,Iran,IR,Asia,AS,AS200927,ProxyOmega LTD,proxyomega.com,global_cdn_edge
+2a12:6600::/29,Russia,RU,Europe,EU,AS204968,Volkov Andrey Vladimirovich,icloud.com,unknown
+2a12:9e00::/29,Russia,RU,Europe,EU,AS204968,Volkov Andrey Vladimirovich,icloud.com,unknown
+2a12:a504::/32,Russia,RU,Europe,EU,AS204968,Volkov Andrey Vladimirovich,icloud.com,unknown
+2a12:bec4:12a6:24c1::/64,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:24c2::/63,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:24c4::/62,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:24c8::/61,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:24d0::/60,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:24e0::/59,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2500::/59,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2520::/61,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2528::/62,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:252c::/63,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:252f::/64,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2530::/60,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2540::/58,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2580::/57,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2600::/55,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2800::/56,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2900::/61,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2908::/62,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:290c::/63,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:290f::/64,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2910::/62,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2914::/63,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2917::/64,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2918::/61,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2920::/59,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2940::/58,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2980::/57,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2a00::/57,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2a80::/59,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2aa0::/60,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2ab0::/63,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2ab2::/64,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2ab4::/62,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2ab8::/61,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2ac0::/58,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2b00::/57,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2b80::/59,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2ba0::/60,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bb0::/61,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bb8::/62,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bbc::/64,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bbe::/63,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bc0::/61,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bc8::/62,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bcd::/64,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bce::/63,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bd0::/60,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2be0::/62,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2be4::/63,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2be7::/64,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2be8::/63,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bea::/64,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bec::/62,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bf0::/61,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bf8::/62,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bfc::/63,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a6:2bfe::/64,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:bec4:12a8:7100::/56,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a12:f001:2000::/36,Iran,IR,Asia,AS,AS207432,CoreStream LLC,corestream.network,global_cdn_edge
+2a12:f381:6100::/40,Iran,IR,Asia,AS,AS6775,Andreas Fink trading as Fink Telecom Services GmbH,fink-telecom.com,global_cdn_edge
+2a12:f382:6100::/40,Iran,IR,Asia,AS,AS6775,Andreas Fink trading as Fink Telecom Services GmbH,fink-telecom.com,global_cdn_edge
+2a12:f8c3:1:6d74::/64,Iran,IR,Asia,AS,AS38136,Akari Networks,akari.hk,global_cdn_edge
+2a12:f8c3:1:6d94::/64,Iran,IR,Asia,AS,AS38136,Akari Networks,akari.hk,global_cdn_edge
+2a13:6bc3::/32,Iran,IR,Asia,AS,AS8772,NLineLLC,netassist.ua,global_cdn_edge
+2a13:a5c7:256c::/48,Iran,IR,Asia,AS,AS203314,HATS NETWORK INC.,hatsnet.io,global_cdn_edge
+2a13:a5c7:25ff:6b00::/56,Iran,IR,Asia,AS,AS203314,HATS NETWORK INC.,hatsnet.io,global_cdn_edge
+2a14:1c2:e000::/37,Iran,IR,Asia,AS,AS212238,Datacamp Limited,datacamp.co.uk,global_cdn_edge
+2a14:7c0:6000::/40,The Netherlands,NL,Europe,EU,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:5ac0::/32,United States,US,North America,NA,AS205415,Hossein Ashraf Semnani,linkedin.com,business
+2a14:67c2:850:1::/64,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:2::/63,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:4::/62,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:8::/61,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:10::/60,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:20::/59,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:40::/58,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:80::/57,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:100::/56,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:200::/55,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:400::/54,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:800::/53,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:1000::/52,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:2000::/51,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:4000::/50,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:850:8000::/49,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:1::/64,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:2::/63,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:4::/62,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:8::/61,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:10::/60,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:20::/59,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:40::/58,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:80::/57,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:100::/56,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:200::/55,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:400::/54,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:800::/53,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:1000::/52,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:2000::/51,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:4000::/50,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:67c2:8f5:8000::/49,Iran,IR,Asia,AS,AS214848,"Tianjin Compatible Network Technology Co., Ltd.",phantasy.life,global_cdn_edge
+2a14:7580:cf6b::/48,Iran,IR,Asia,AS,AS210464,AVS ISP,avsisp.com,global_cdn_edge
+2a14:7581:b13:6900::/56,Iran,IR,Asia,AS,AS214575,"Curious Universe (Chongqing) Technology Co., Ltd",haoqiyuzhou.com,global_cdn_edge
+2a14:7581:3b70::/48,Iran,IR,Asia,AS,AS20473,"The Constant Company, LLC",constant.com,global_cdn_edge
+2a14:9e00:200::/64,The Netherlands,NL,Europe,EU,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:1::/64,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:2::/63,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:4::/62,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:8::/61,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:10::/60,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:20::/59,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:40::/58,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:80::/57,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:100::/56,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:200::/55,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:400::/54,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:800::/53,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:1000::/52,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:2000::/51,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:4000::/50,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:200:8000::/49,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:201::/48,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:202::/47,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:204::/46,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:208::/45,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:210::/44,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:220::/43,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:240::/42,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:9e00:280::/41,Iran,IR,Asia,AS,AS214515,Amir Mohammad Masoudi,nahor.io,hosting
+2a14:a902::/32,United Kingdom,GB,Europe,EU,AS213565,Badonde Networks,icloud.com,unknown
+2a14:c380:7a6::/48,Iran,IR,Asia,AS,AS200950,Calibour Limited,calibour.com,global_cdn_edge
+2c0f:5140::/32,Mauritius,MU,Africa,AF,AS328728,Outremer Telecom Digital Solutions Ltd,linkedin.com,unknown
+2603:1000::/28,United States,US,North America,NA,AS8075,Microsoft Corporation,,hosting
+2600:1400::/28,United States,US,North America,NA,AS20940,Akamai Technologies,,global_cdn_edge
+2a04:4e40::/32,United States,US,North America,NA,AS54113,"Fastly, Inc.",,global_cdn_edge
+2a01:4f8::/32,Germany,DE,Europe,EU,AS24940,Hetzner Online GmbH,,hosting
+2001:41d0::/32,France,FR,Europe,EU,AS16276,OVH SAS,,hosting
+2604:a880::/32,United States,US,North America,NA,AS14061,"DigitalOcean, LLC",,hosting
+2600:3c00::/32,United States,US,North America,NA,AS63949,Linode / Akamai Connected Cloud,,hosting
+2001:19f0::/32,United States,US,North America,NA,AS20473,"Choopa, LLC / Vultr",,hosting
+2a03:2880::/32,United States,US,North America,NA,AS32934,"Meta Platforms, Inc.",,business
+2001:67c:4e8::/48,Netherlands,NL,Europe,EU,AS62041,Telegram Messenger Inc.,,business
+2001:b28:f23d::/48,Netherlands,NL,Europe,EU,AS62041,Telegram Messenger Inc.,,business
+2a01:3c8::/32,Iran,IR,Asia,AS,AS25124,Datak Company LLC,,isp
+2a01:5ec0:1000::/36,Iran,IR,Asia,AS,AS44244,Iran Cell Service and Communication Company,,isp
+2a01:5ec0:2000::/35,Iran,IR,Asia,AS,AS44244,Iran Cell Service and Communication Company,,isp
+2a01:5ec0:5000::/36,Iran,IR,Asia,AS,AS44244,Iran Cell Service and Communication Company,,isp
+2a01:5ec0:7000::/36,Iran,IR,Asia,AS,AS44244,Iran Cell Service and Communication Company,,isp
+2a01:5ec0:8000::/35,Iran,IR,Asia,AS,AS44244,Iran Cell Service and Communication Company,,isp
+2a01:5ec0:b000::/36,Iran,IR,Asia,AS,AS44244,Iran Cell Service and Communication Company,,isp
+2a01:5ec0:c000::/35,Iran,IR,Asia,AS,AS44244,Iran Cell Service and Communication Company,,isp
+2a01:5ec0:e000::/36,Iran,IR,Asia,AS,AS44244,Iran Cell Service and Communication Company,,isp
+2a03:ef42::/32,Iran,IR,Asia,AS,AS57218,Rightel Communication Service Company PJS,,isp
+2a03:ef43::/34,Iran,IR,Asia,AS,AS57218,Rightel Communication Service Company PJS,,isp
+2a03:ef43:c000::/48,Iran,IR,Asia,AS,AS57218,Rightel Communication Service Company PJS,,isp
+2a03:ef44::/34,Iran,IR,Asia,AS,AS57218,Rightel Communication Service Company PJS,,isp
+2a05:5440::/32,Iran,IR,Asia,AS,AS58331,Rayaneh Asr-e Ertebat Bam Technology and Engineering Cooperative Co,,hosting
+2a02:dfc0:1::/48,Iran,IR,Asia,AS,AS61055,Roshangar Rayaneh Tehran Co. Ltd.,,business
+2a02:dfc0:2::/47,Iran,IR,Asia,AS,AS61055,Roshangar Rayaneh Tehran Co. Ltd.,,business
+2a02:dfc0:4::/48,Iran,IR,Asia,AS,AS61055,Roshangar Rayaneh Tehran Co. Ltd.,,business
+2a02:4540::/41,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:80::/42,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:c0::/43,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:f8::/45,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:108::/45,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:138::/45,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:140::/43,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:5000::/41,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:5080::/43,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:50c0::/42,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:7000::/41,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:9000::/41,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:9080::/42,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:9100::/42,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:c000::/41,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:e000::/41,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:e080::/48,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:e0c0::/42,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:ffc0::/45,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a02:4540:ffd0::/45,Iran,IR,Asia,AS,AS197207,Mobile Communication Company of Iran PLC,,isp
+2a05:cd00::/32,Iran,IR,Asia,AS,AS201691,Fannavari Etelaate Samane Kavoshgar Ide Ltd.,,isp
+2a05:9080:14::/48,Iran,IR,Asia,AS,AS205899,Khadamat Ertebati Pishkhan Arvin Chenaran Co.LLC,,hosting
+2a14:ec80::/47,Iran,IR,Asia,AS,AS210503,Mohammadhasan Jafarzadeh,,hosting
+2a14:ec80:2::/48,Iran,IR,Asia,AS,AS210503,Mohammadhasan Jafarzadeh,,hosting
+2a01:e140::/32,Iran,IR,Asia,AS,AS214145,Seyed Pouria Mousavizadeh Tehrani,,business
+2001:a98:30::/48,Turkiye,TR,Asia,AS,AS1967,Middle East Technical University,,education
+2a03:a5a0:1::/48,Turkiye,TR,Asia,AS,AS6205,HizliNet Teknoloji A.S.,,hosting
+2a03:a5a0:2::/48,Turkiye,TR,Asia,AS,AS6205,HizliNet Teknoloji A.S.,,hosting
+2a01:6be0::/32,Turkiye,TR,Asia,AS,AS6823,3C1B Telekomunikasyon ve Internet Hiz. San. ve Tic. A.S.,,isp
+2001:930:102::/48,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:107::/48,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:108::/48,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:110::/48,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:114::/47,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:119::/48,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:11a::/47,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:11c::/48,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:122::/48,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:124::/48,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:126::/47,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:130::/48,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:149::/48,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:154::/47,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:157::/48,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:930:15a::/48,Turkiye,TR,Asia,AS,AS8386,Vodafone Net Iletisim Hizmetler AS,,isp
+2001:a98::/32,Turkiye,TR,Asia,AS,AS8517,National Academic Network and Information Center,,hosting
+2a02:480::/32,Turkiye,TR,Asia,AS,AS8685,Doruk Iletisim ve Otomasyon Sanayi ve Ticaret A.S.,,isp
+2a00:1f90::/32,Turkiye,TR,Asia,AS,AS9021,Is Net Elektonik Bilgi Uretim Dagitim Ticaret ve Iletisim Hizmetleri A.S.,,isp
+2001:a98:8000::/48,Turkiye,TR,Asia,AS,AS9095,Istanbul Teknik Universitesi,,education
+2a00:1d32::/31,Turkiye,TR,Asia,AS,AS9121,Turk Telekomunikasyon Anonim Sirketi,,isp
+2a00:1d34::/32,Turkiye,TR,Asia,AS,AS9121,Turk Telekomunikasyon Anonim Sirketi,,isp
+2a00:1d36::/31,Turkiye,TR,Asia,AS,AS9121,Turk Telekomunikasyon Anonim Sirketi,,isp
+2a01:358::/32,Turkiye,TR,Asia,AS,AS9121,Turk Telekomunikasyon Anonim Sirketi,,isp
+2a02:26f0:c700::/48,Turkiye,TR,Asia,AS,AS9121,Turk Telekomunikasyon Anonim Sirketi,,isp
+2a02:26f0:cb00::/48,Turkiye,TR,Asia,AS,AS9121,Turk Telekomunikasyon Anonim Sirketi,,isp
+2a02:26f0:d100::/48,Turkiye,TR,Asia,AS,AS9121,Turk Telekomunikasyon Anonim Sirketi,,isp
+2a02:ff0:2::/48,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:4::/48,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:6::/48,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:200::/39,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:500::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:600::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:800::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:c00::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:e00::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:1000::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:1200::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:1400::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:1600::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:1800::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:1a00::/46,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:1a04::/47,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:1c00::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:1e00::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:2000::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:2200::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:2500::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:2600::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:2a00::/39,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:2c00::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:3000::/46,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:3004::/47,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:3200::/39,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:3400::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:3600::/46,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:3604::/47,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:3800::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:3d00::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:3f00::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:4000::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:4200::/40,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a02:ff0:ffff::/48,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a0c:bec0::/29,Turkiye,TR,Asia,AS,AS12735,TurkNet Iletisim Hizmetleri A.S.,,isp
+2a00:6280::/32,Turkiye,TR,Asia,AS,AS12978,ANDROMEDA TV DIGITAL PLATFORM ISLETMECILIGI A.S.,,isp
+2a00:1880::/32,Turkiye,TR,Asia,AS,AS15897,Vodafone Telekomunikasyon A.S.,,isp
+2001:930::/32,Turkiye,TR,Asia,AS,AS15924,Vodafone Net Iletisim Hizmetler AS,,isp
+2a03:c00:3::/48,Turkiye,TR,Asia,AS,AS15924,Vodafone Net Iletisim Hizmetler AS,,isp
+2a03:c00:6::/48,Turkiye,TR,Asia,AS,AS15924,Vodafone Net Iletisim Hizmetler AS,,isp
+2a02:4e0:2::/47,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:4::/47,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:6::/48,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:10::/48,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2000::/41,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2100::/41,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2200::/41,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2300::/41,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2400::/41,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2480::/43,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2500::/41,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2600::/42,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2640::/43,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2700::/41,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2800::/42,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2840::/43,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2900::/41,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2a00::/41,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2b00::/41,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2d00::/41,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2d80::/45,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2d88::/46,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2d9c::/46,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2da0::/43,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2dc0::/44,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2dd0::/45,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2dd8::/46,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:2e00::/41,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:fe02::/47,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:4e0:fe04::/48,Turkiye,TR,Asia,AS,AS16135,TURKCELL ILETISIM HIZMETLERI A.S.,,isp
+2a02:2010:1020::/47,Turkiye,TR,Asia,AS,AS20978,TT Mobil Iletisim Hizmetleri A.S,,isp
+2a02:2010:2000::/37,Turkiye,TR,Asia,AS,AS20978,TT Mobil Iletisim Hizmetleri A.S,,isp
+2a02:2010:2800::/39,Turkiye,TR,Asia,AS,AS20978,TT Mobil Iletisim Hizmetleri A.S,,isp
+2a02:2010:2a00::/43,Turkiye,TR,Asia,AS,AS20978,TT Mobil Iletisim Hizmetleri A.S,,isp
+2a02:2010:2b00::/43,Turkiye,TR,Asia,AS,AS20978,TT Mobil Iletisim Hizmetleri A.S,,isp
+2a02:2010:6002::/48,Turkiye,TR,Asia,AS,AS20978,TT Mobil Iletisim Hizmetleri A.S,,isp
+2a02:2010:9020::/45,Turkiye,TR,Asia,AS,AS20978,TT Mobil Iletisim Hizmetleri A.S,,isp
+2a02:2010:9028::/46,Turkiye,TR,Asia,AS,AS20978,TT Mobil Iletisim Hizmetleri A.S,,isp
+2a02:2010:902c::/47,Turkiye,TR,Asia,AS,AS20978,TT Mobil Iletisim Hizmetleri A.S,,isp
+2a03:3f00::/47,Turkiye,TR,Asia,AS,AS21245,MEDIANOVA INTERNET HIZMETLERI VE TICARET ANONIM SIRKETI,,hosting
+2a03:3f00:3::/48,Turkiye,TR,Asia,AS,AS21245,MEDIANOVA INTERNET HIZMETLERI VE TICARET ANONIM SIRKETI,,hosting
+2a03:3f00:6::/47,Turkiye,TR,Asia,AS,AS21245,MEDIANOVA INTERNET HIZMETLERI VE TICARET ANONIM SIRKETI,,hosting
+2a03:3f00:19::/48,Turkiye,TR,Asia,AS,AS21245,MEDIANOVA INTERNET HIZMETLERI VE TICARET ANONIM SIRKETI,,hosting
+2a03:3f00:d8::/48,Turkiye,TR,Asia,AS,AS21245,MEDIANOVA INTERNET HIZMETLERI VE TICARET ANONIM SIRKETI,,hosting
+2a03:3f00:161::/48,Turkiye,TR,Asia,AS,AS21245,MEDIANOVA INTERNET HIZMETLERI VE TICARET ANONIM SIRKETI,,hosting
+2a03:3f00:180::/47,Turkiye,TR,Asia,AS,AS21245,MEDIANOVA INTERNET HIZMETLERI VE TICARET ANONIM SIRKETI,,hosting
+2a03:3f00:183::/48,Turkiye,TR,Asia,AS,AS21245,MEDIANOVA INTERNET HIZMETLERI VE TICARET ANONIM SIRKETI,,hosting
+2a02:ac80:10::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:20::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:30::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:40::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:50::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:60::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:6a::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:70::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:90::/46,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:96::/47,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:99::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:a0::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:b0::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:c0::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:d0::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:e0::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:f0::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:100::/46,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:104::/47,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:117::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:127::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:200::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:300::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:400::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:500::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:600::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:700::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:a00::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:b00::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:c00::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:d00::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:e00::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:f00::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:1000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:2000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:3000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:4000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:5000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:6000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:7000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:7370::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:a000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:b000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:c000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:d000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:e000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac80:f000::/48,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac81::/32,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac82::/31,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a02:ac84::/30,Turkiye,TR,Asia,AS,AS25145,Teknotel Telekomunikasyon Sanayi Ve Ticaret A.S.,,isp
+2a03:5d00::/29,Turkiye,TR,Asia,AS,AS29399,Ramtek Telekomunikasyon Hizmetleri Sanayi Ve Ticaret Limited Sirketi,,isp
+2a00:9940::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a01:188::/46,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0::/34,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:4000::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:4e00::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:5000::/36,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:6000::/35,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:8000::/36,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9000::/38,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9400::/39,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9600::/45,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:960e::/47,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9610::/47,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9616::/47,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9618::/47,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:961e::/47,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9620::/46,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9628::/46,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:962c::/47,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9633::/48,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9634::/46,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9638::/45,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9640::/44,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9650::/45,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9658::/47,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:965a::/48,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:965d::/48,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:965e::/47,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9660::/48,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9700::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9800::/38,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:9c00::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:a300::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:a400::/39,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:a600::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:ab00::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:ac00::/39,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:ae00::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:b300::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:b400::/38,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:b800::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:bd00::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:be00::/39,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:c000::/39,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:c200::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:c700::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:c800::/37,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:d000::/36,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:e000::/37,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:e800::/38,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:ec00::/39,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:ee00::/40,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:e0:f000::/46,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a04:e880::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a05:d740::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a06:4b80::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a06:8540::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a06:9dc0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a06:e900::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a07:35c0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a07:4a04::/30,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a07:9180::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a09:2340::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0a:37c0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0a:6cc0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0a:cfc0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0b:9800::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0b:a280::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0b:a300::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0c:52c0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0c:7440::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0c:74c0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0c:7540::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0d:2cc0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0d:8180::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0d:88c0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0d:c500::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0d:fd80::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0e:3dc0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0e:7fc0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:1180::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:2380::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:3380::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:4580::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:4680::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:5580::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:7100::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:7300::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:7c80::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:9fc0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:a140::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:a1c0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:a500::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:a700::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:c780::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a0f:f9c0::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a10:c80::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a10:5480::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a10:7b80::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a11:3f40::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a14:2b80::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a14:4080::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a14:4380::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a14:4480::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a14:4980::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a14:4a80::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a14:5c80::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a14:6580::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a14:7080::/29,Turkiye,TR,Asia,AS,AS34984,Superonline Iletisim Hizmetleri A.S.,,isp
+2a02:4300::/29,Turkiye,TR,Asia,AS,AS39582,Vaultr Veri Merkezi Hizmetleri Anonim Sirketi,,hosting
+2a0d:8e80:2659::/48,Turkiye,TR,Asia,AS,AS41155,Orbit Telekom Sanayi ve Ticaret Limited Sirketi,,isp
+2a10:9440::/47,Turkiye,TR,Asia,AS,AS42216,Netviser Bilisim Teknolojileri San. Ve Tic. Ltd. Sti.,,hosting
+2a14:e180:4::/48,Turkiye,TR,Asia,AS,AS42216,Netviser Bilisim Teknolojileri San. Ve Tic. Ltd. Sti.,,hosting
+2a06:41c0::/47,Turkiye,TR,Asia,AS,AS42846,GNET Internet Telekomunikasyon A.S.,,hosting
+2a02:26b0:8000::/48,Turkiye,TR,Asia,AS,AS42910,PremierDC Veri Merkezi Anonim Sirketi,,hosting
+2a02:26b0:800e::/48,Turkiye,TR,Asia,AS,AS42910,PremierDC Veri Merkezi Anonim Sirketi,,hosting
+2a05:3040::/29,Turkiye,TR,Asia,AS,AS42910,PremierDC Veri Merkezi Anonim Sirketi,,hosting
+2a0d:ae00::/29,Turkiye,TR,Asia,AS,AS42910,PremierDC Veri Merkezi Anonim Sirketi,,hosting
+2a0b:5f40::/29,Turkiye,TR,Asia,AS,AS42926,Radore Veri Merkezi Hizmetleri A.S.,,hosting
+2a0a:1900::/29,Turkiye,TR,Asia,AS,AS43242,ARINET SECURITY & INTERNET CONSULTANCY LTD,,isp
+2a04:4280::/48,Turkiye,TR,Asia,AS,AS43260,DGN TEKNOLOJI A.S.,,hosting
+2a04:4280:100::/48,Turkiye,TR,Asia,AS,AS43260,DGN TEKNOLOJI A.S.,,hosting
+2a07:cd00::/48,Turkiye,TR,Asia,AS,AS43260,DGN TEKNOLOJI A.S.,,hosting
+2a0d:2bc0::/48,Turkiye,TR,Asia,AS,AS43260,DGN TEKNOLOJI A.S.,,hosting
+2a02:cb00::/29,Turkiye,TR,Asia,AS,AS43352,Teletek Bulut Bilisim ve Iletisim Hizmetleri A.S.,,hosting
+2a01:aac0::/32,Turkiye,TR,Asia,AS,AS43391,NETDIREKT BILISIM DANISMANLIK ILETISIM HIZMETLERI SANAYI VE TICARET AS,,isp
+2a0a:be80::/29,Turkiye,TR,Asia,AS,AS43391,NETDIREKT BILISIM DANISMANLIK ILETISIM HIZMETLERI SANAYI VE TICARET AS,,isp
+2a07:7580::/29,Turkiye,TR,Asia,AS,AS44558,Netonline Bilisim Sirketi LTD,,isp
+2a04:c0::/29,Turkiye,TR,Asia,AS,AS47123,TI Sparkle Turkey Telekomunukasyon A.S,,isp
+2a00:dc00::/32,Turkiye,TR,Asia,AS,AS47288,FIXNET Telekomunikasyon Limited Sirketi,,isp
+2a00:1d32:400::/44,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:410::/46,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:418::/45,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:420::/43,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:440::/44,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:450::/45,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:458::/46,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:460::/43,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:480::/44,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:490::/45,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:498::/46,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:4a0::/44,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:4b0::/45,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:4c0::/42,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:500::/42,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:540::/45,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:580::/43,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:5a0::/44,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:5b0::/46,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:5c0::/43,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:5e0::/44,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:600::/42,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:640::/43,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:680::/43,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:6a0::/44,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:6c0::/43,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:6e0::/46,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:700::/43,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:720::/45,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:72c::/46,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:734::/46,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d32:740::/46,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34::/36,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:1000::/38,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:1800::/37,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:2000::/35,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:4000::/36,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:5000::/37,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:5800::/38,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:6000::/35,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:8000::/36,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:9000::/37,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:9800::/38,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:a000::/36,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:b000::/37,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d34:c000::/34,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d35::/34,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d35:4000::/37,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d35:8000::/35,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d35:a000::/36,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d35:b000::/38,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d35:c000::/35,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d35:e000::/36,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d36::/34,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d36:4000::/35,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d36:8000::/35,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d36:a000::/36,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d36:c000::/35,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d36:e000::/38,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d37::/35,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d37:2000::/37,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d37:2c00::/38,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d37:3400::/38,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d37:4000::/38,Turkiye,TR,Asia,AS,AS47331,TTNet A.S.,,business
+2a00:1d58::/33,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:8000::/35,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:a000::/37,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:ac00::/38,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:b000::/38,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:b900::/40,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:ba00::/39,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:bc00::/40,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:bf00::/40,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:c000::/39,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:c200::/40,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:c480::/41,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:c500::/40,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:c600::/39,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:c800::/39,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:ca00::/40,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:cb80::/41,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:cc00::/38,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:d000::/39,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:e000::/36,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f000::/44,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f010::/46,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f015::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f016::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f018::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f01a::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f01c::/46,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f021::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f022::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f024::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f102::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f111::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f800::/46,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f804::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f806::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f808::/46,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f80c::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f80e::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f810::/46,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f815::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f816::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f818::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f81a::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f81c::/46,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f821::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f822::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:f824::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa00::/46,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa04::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa06::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa08::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa0a::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa0c::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa0e::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa10::/46,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa15::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa16::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa18::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa1a::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa1c::/46,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa21::/48,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa22::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:fa24::/47,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d58:ff00::/44,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d59::/32,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d5a::/31,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d5c::/31,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d5e::/32,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a00:1d5f:1000::/36,Turkiye,TR,Asia,AS,AS47524,Turksat Uydu Haberlesme Kablo TV ve Isletme A.S.,,business
+2a0c:6600:1::/48,Turkiye,TR,Asia,AS,AS48011,Turunc Smart Bilgisayar Teknoloji Ve Dis Ticaret Limited Sirketi,,hosting
+2a0c:6600:3::/48,Turkiye,TR,Asia,AS,AS48011,Turunc Smart Bilgisayar Teknoloji Ve Dis Ticaret Limited Sirketi,,hosting
+2a0c:6600:4::/47,Turkiye,TR,Asia,AS,AS48011,Turunc Smart Bilgisayar Teknoloji Ve Dis Ticaret Limited Sirketi,,hosting
+2a0c:6600:6::/48,Turkiye,TR,Asia,AS,AS48011,Turunc Smart Bilgisayar Teknoloji Ve Dis Ticaret Limited Sirketi,,hosting
+2a0c:6600:10::/48,Turkiye,TR,Asia,AS,AS48011,Turunc Smart Bilgisayar Teknoloji Ve Dis Ticaret Limited Sirketi,,hosting
+2a0c:6600:12::/48,Turkiye,TR,Asia,AS,AS48011,Turunc Smart Bilgisayar Teknoloji Ve Dis Ticaret Limited Sirketi,,hosting
+2a0c:6600:1000::/48,Turkiye,TR,Asia,AS,AS48011,Turunc Smart Bilgisayar Teknoloji Ve Dis Ticaret Limited Sirketi,,hosting
+2a0c:6600:2000::/48,Turkiye,TR,Asia,AS,AS48011,Turunc Smart Bilgisayar Teknoloji Ve Dis Ticaret Limited Sirketi,,hosting
+2a0c:6600:6000::/48,Turkiye,TR,Asia,AS,AS48011,Turunc Smart Bilgisayar Teknoloji Ve Dis Ticaret Limited Sirketi,,hosting
+2a0c:6600:6600::/48,Turkiye,TR,Asia,AS,AS48011,Turunc Smart Bilgisayar Teknoloji Ve Dis Ticaret Limited Sirketi,,hosting
+2a0c:6d40::/29,Turkiye,TR,Asia,AS,AS48678,Pentech Bilisim Teknolojileri Sanayi Ve Ticaret Limited Sirketi,,hosting
+2a02:dc40::/48,Turkiye,TR,Asia,AS,AS48737,Dorabase Veri Merkezi Hizmetleri A.S.,,isp
+2a03:2100::/43,Turkiye,TR,Asia,AS,AS51559,Netinternet Bilisim Teknolojileri AS,,isp
+2a03:2100:20::/44,Turkiye,TR,Asia,AS,AS51559,Netinternet Bilisim Teknolojileri AS,,isp
+2a03:2100:30::/48,Turkiye,TR,Asia,AS,AS51559,Netinternet Bilisim Teknolojileri AS,,isp
+2a03:2100:32::/47,Turkiye,TR,Asia,AS,AS51559,Netinternet Bilisim Teknolojileri AS,,isp
+2a03:2100:34::/46,Turkiye,TR,Asia,AS,AS51559,Netinternet Bilisim Teknolojileri AS,,isp
+2a03:2100:38::/45,Turkiye,TR,Asia,AS,AS51559,Netinternet Bilisim Teknolojileri AS,,isp
+2a03:2100:40::/42,Turkiye,TR,Asia,AS,AS51559,Netinternet Bilisim Teknolojileri AS,,isp
+2a03:2100:80::/41,Turkiye,TR,Asia,AS,AS51559,Netinternet Bilisim Teknolojileri AS,,isp
+2a03:2100:100::/40,Turkiye,TR,Asia,AS,AS51559,Netinternet Bilisim Teknolojileri AS,,isp
+2a03:2102:1::/48,Turkiye,TR,Asia,AS,AS51559,Netinternet Bilisim Teknolojileri AS,,isp
+2a0b:8100::/44,Turkiye,TR,Asia,AS,AS51559,Netinternet Bilisim Teknolojileri AS,,isp
+2a0f:ea43:100::/48,Turkiye,TR,Asia,AS,AS51559,Netinternet Bilisim Teknolojileri AS,,isp
+2a00:5740::/29,Turkiye,TR,Asia,AS,AS56582,Netfactor Telekominikasyon ve Teknoloji Hizmetleri San. ve Tic. A.S.,,isp
+2a04:3880::/30,Turkiye,TR,Asia,AS,AS60721,Bursabil Teknoloji A.S.,,hosting
+2a05:100::/29,Turkiye,TR,Asia,AS,AS60721,Bursabil Teknoloji A.S.,,hosting
+2a06:c380::/29,Turkiye,TR,Asia,AS,AS60721,Bursabil Teknoloji A.S.,,hosting
+2a0b:6000::/29,Turkiye,TR,Asia,AS,AS60721,Bursabil Teknoloji A.S.,,hosting
+2a0d:a2c0::/29,Turkiye,TR,Asia,AS,AS60721,Bursabil Teknoloji A.S.,,hosting
+2a0d:c480::/29,Turkiye,TR,Asia,AS,AS60721,Bursabil Teknoloji A.S.,,hosting
+2a01:ad80::/32,Turkiye,TR,Asia,AS,AS196733,Eskisehir Bilisim Iletisim San. ve Tic. A.S.,,isp
+2a12:e681::/32,Turkiye,TR,Asia,AS,AS197450,Sunucun Bilgi Iletisim Teknolojileri ve Ticaret Ltd. Sti.,,isp
+2a10:3ec0:32::/48,Turkiye,TR,Asia,AS,AS198417,DSM Grup Danismanlik Iletisim ve Satis Ticaret Anonim Sirketi,,isp
+2a05:8a00::/29,Turkiye,TR,Asia,AS,AS201178,Euronet Telekomunikasyon A.S.,,isp
+2a05:2a40::/48,Turkiye,TR,Asia,AS,AS201411,GOKNET iletisim A.S.,,isp
+2a05:2a44:601::/48,Turkiye,TR,Asia,AS,AS201411,GOKNET iletisim A.S.,,isp
+2a05:2a44:602::/48,Turkiye,TR,Asia,AS,AS201411,GOKNET iletisim A.S.,,isp
+2a0b:dac0::/29,Turkiye,TR,Asia,AS,AS205424,Ulunet Internet ve Iletisim Hizmetleri San. ve Tic. Ltd. Sti.,,isp
+2a05:b700::/29,Turkiye,TR,Asia,AS,AS206119,Veganet Teknolojileri ve Hizmetleri LTD STI,,isp
+2a05:f740::/29,Turkiye,TR,Asia,AS,AS206119,Veganet Teknolojileri ve Hizmetleri LTD STI,,isp
+2a06:af40::/29,Turkiye,TR,Asia,AS,AS206119,Veganet Teknolojileri ve Hizmetleri LTD STI,,isp
+2a0a:fa40::/29,Turkiye,TR,Asia,AS,AS206119,Veganet Teknolojileri ve Hizmetleri LTD STI,,isp
+2a0c:580::/29,Turkiye,TR,Asia,AS,AS206119,Veganet Teknolojileri ve Hizmetleri LTD STI,,isp
+2a0c:4a40::/29,Turkiye,TR,Asia,AS,AS206119,Veganet Teknolojileri ve Hizmetleri LTD STI,,isp
+2a0d:d380::/29,Turkiye,TR,Asia,AS,AS206119,Veganet Teknolojileri ve Hizmetleri LTD STI,,isp
+2a0f:c940::/29,Turkiye,TR,Asia,AS,AS206119,Veganet Teknolojileri ve Hizmetleri LTD STI,,isp
+2a10:4b40::/29,Turkiye,TR,Asia,AS,AS206119,Veganet Teknolojileri ve Hizmetleri LTD STI,,isp
+2a0b:bf40::/47,Turkiye,TR,Asia,AS,AS206375,NETSPEED INTERNET A.S.,,isp
+2a0b:bf40:2::/48,Turkiye,TR,Asia,AS,AS206375,NETSPEED INTERNET A.S.,,isp
+2a0b:bf40:4::/46,Turkiye,TR,Asia,AS,AS206375,NETSPEED INTERNET A.S.,,isp
+2a0b:bf40:8::/45,Turkiye,TR,Asia,AS,AS206375,NETSPEED INTERNET A.S.,,isp
+2a0b:bf40:10::/45,Turkiye,TR,Asia,AS,AS206375,NETSPEED INTERNET A.S.,,isp
+2a0b:bf40:18::/47,Turkiye,TR,Asia,AS,AS206375,NETSPEED INTERNET A.S.,,isp
+2a0b:bf40:f800::/38,Turkiye,TR,Asia,AS,AS206375,NETSPEED INTERNET A.S.,,isp
+2600:3500:c21::/48,Turkiye,TR,Asia,AS,AS208972,GIBIRNET ILETISIM HIZMETLERI SANAYI VE TICARET LIMITED SIRKETI,,isp
+2a0a:4940::/29,Turkiye,TR,Asia,AS,AS208972,GIBIRNET ILETISIM HIZMETLERI SANAYI VE TICARET LIMITED SIRKETI,,isp
+2a0f:6580:108::/48,Turkiye,TR,Asia,AS,AS209474,EKIPHOST BILISIM TEKNOLOJILERI TICARET VE SANAYI LIMITED SIRKETI,,hosting
+2a05:f7c0::/32,Turkiye,TR,Asia,AS,AS209604,2E TELEKOMUNIKASYON LTD STI,,isp
+2a09:8780::/29,Turkiye,TR,Asia,AS,AS209737,Meric Internet Teknolojileri A.S.,,isp
+2a0f:b700::/29,Turkiye,TR,Asia,AS,AS209737,Meric Internet Teknolojileri A.S.,,isp
+2a0f:e900::/29,Turkiye,TR,Asia,AS,AS209737,Meric Internet Teknolojileri A.S.,,isp
+2a0f:eb00::/29,Turkiye,TR,Asia,AS,AS209737,Meric Internet Teknolojileri A.S.,,isp
+2a0f:ed00::/29,Turkiye,TR,Asia,AS,AS209737,Meric Internet Teknolojileri A.S.,,isp
+2a0f:f900::/29,Turkiye,TR,Asia,AS,AS209737,Meric Internet Teknolojileri A.S.,,isp
+2a13:a440:7::/48,Turkiye,TR,Asia,AS,AS209737,Meric Internet Teknolojileri A.S.,,isp
+2a13:a441::/32,Turkiye,TR,Asia,AS,AS209737,Meric Internet Teknolojileri A.S.,,isp
+2a13:a442::/31,Turkiye,TR,Asia,AS,AS209737,Meric Internet Teknolojileri A.S.,,isp
+2a13:a444::/30,Turkiye,TR,Asia,AS,AS209737,Meric Internet Teknolojileri A.S.,,isp
+2a13:9500:1a4::/48,Turkiye,TR,Asia,AS,AS210538,KEYUBU Internet ve Bilisim Tic. Ltd. Sti.,,isp
+2a07:6300::/29,Turkiye,TR,Asia,AS,AS214941,UPCELL TELEKOMUNIKASYON LIMITED SIRKETI,,isp
+2a0f:85c1:b77::/48,Turkiye,TR,Asia,AS,AS215238,IRFAN TUGRA ONEM,,hosting
+2a13:9500:171::/48,Turkiye,TR,Asia,AS,AS215238,IRFAN TUGRA ONEM,,hosting
+2a01:6480:6::/47,Azerbaijan,AZ,Asia,AS,AS29049,Delta Telecom Ltd,,isp
+2a01:6480:8::/47,Azerbaijan,AZ,Asia,AS,AS29049,Delta Telecom Ltd,,isp
+2a01:6480:b::/48,Azerbaijan,AZ,Asia,AS,AS29049,Delta Telecom Ltd,,isp
+2a01:6480:e::/48,Azerbaijan,AZ,Asia,AS,AS29049,Delta Telecom Ltd,,isp
+2a01:6480:10::/48,Azerbaijan,AZ,Asia,AS,AS29049,Delta Telecom Ltd,,isp
+2a01:6480:17::/48,Azerbaijan,AZ,Asia,AS,AS29049,Delta Telecom Ltd,,isp
+2a01:6480:18::/48,Azerbaijan,AZ,Asia,AS,AS29049,Delta Telecom Ltd,,isp
+2a01:6480:1c::/48,Azerbaijan,AZ,Asia,AS,AS29049,Delta Telecom Ltd,,isp
+2a01:6480:20::/48,Azerbaijan,AZ,Asia,AS,AS29049,Delta Telecom Ltd,,isp
+2a01:6480:30::/48,Azerbaijan,AZ,Asia,AS,AS29049,Delta Telecom Ltd,,isp
+2a01:6480:43::/48,Azerbaijan,AZ,Asia,AS,AS29049,Delta Telecom Ltd,,isp
+2a03:7740::/32,Azerbaijan,AZ,Asia,AS,AS39232,Uninet LLC,,isp
+2a04:4b80::/29,Azerbaijan,AZ,Asia,AS,AS39397,Metronet LLC,,isp
+2a04:8380::/29,Azerbaijan,AZ,Asia,AS,AS39397,Metronet LLC,,isp
+2a00:9100::/32,Azerbaijan,AZ,Asia,AS,AS196925,Azertelecom LLC,,isp
+2a01:49e0::/32,Azerbaijan,AZ,Asia,AS,AS201167,Caspian Telecom LLC,,isp
+2a0f:7040::/32,Azerbaijan,AZ,Asia,AS,AS203622,GSP LLC,,isp
+2a06:91c0::/29,Azerbaijan,AZ,Asia,AS,AS203971,AzFiberNet LLC,,hosting
+2a10:d880::/29,Azerbaijan,AZ,Asia,AS,AS211995,A2Z Technologies CJSC,,isp
+2a01:6480:40::/47,Azerbaijan,AZ,Asia,AS,AS215148,Delta Telecom Ltd,,isp
+2a00:cc40:1::/48,Armenia,AM,Asia,AS,AS8932,Ucom CJSC,,hosting
+2a00:cc40:2::/48,Armenia,AM,Asia,AS,AS8932,Ucom CJSC,,hosting
+2a00:f38::/29,Armenia,AM,Asia,AS,AS12297,Telecom Armenia OJSC,,isp
+2a01:4000::/32,Armenia,AM,Asia,AS,AS33852,Viva Armenia CJSC,,hosting
+2a00:1f28::/32,Armenia,AM,Asia,AS,AS43733,Viva Armenia CJSC,,isp
+2a00:cc40::/29,Armenia,AM,Asia,AS,AS44395,Ucom CJSC,,isp
+2a01:4a00::/32,Armenia,AM,Asia,AS,AS44395,Ucom CJSC,,isp
+2a03:1080::/32,Armenia,AM,Asia,AS,AS44395,Ucom CJSC,,isp
+2a02:2a50::/29,Armenia,AM,Asia,AS,AS49800,GNC-Alfa CJSC,,hosting
+2a03:6947:200::/40,Armenia,AM,Asia,AS,AS49800,GNC-Alfa CJSC,,hosting
+2a02:5960::/32,Armenia,AM,Asia,AS,AS201986,Arpinet LLC,,hosting
+2001:a98:100::/48,Turkiye,TR,Asia,AS,AS5474,TOBB Economics and Technology University,,education
+2a0a:9f40::/29,Turkiye,TR,Asia,AS,AS7768,Nuh Ahmet Firat trading as TEKNET YAZILIM VE BILGISAYAR TEKNOLOJILERI,,business
+2a02:50::/48,Turkiye,TR,Asia,AS,AS15464,Ihlas Net A.S.,,business
+2a00:7300::/32,Turkiye,TR,Asia,AS,AS15755,Veriteknik Bilisim Basin Ve Yayin Limited Sirketi,,business
+2a06:9140::/29,Turkiye,TR,Asia,AS,AS31486,Veriteknik Bilisim Basin Ve Yayin Limited Sirketi,,business
+2a04:6600::/29,Turkiye,TR,Asia,AS,AS33856,Turkiye Cumhuriyet Merkez Bankasi Anonim Sirketi,,business
+2001:67c:2410::/48,Turkiye,TR,Asia,AS,AS34755,Turkiye Odalar ve Borsalar Birligi,,business
+2a0b:5540::/33,Turkiye,TR,Asia,AS,AS34828,DH Bulut Bilisim Anonim Sirketi,,business
+2a09:d8c7::/48,Turkiye,TR,Asia,AS,AS35185,Kuveyt Turk Katilim Bankasi A.S.,,business
+2a03:c6c0::/48,Turkiye,TR,Asia,AS,AS42421,Turkiye Finans Katilim Bankasi A.S,,business
+2a0a:b240::/29,Turkiye,TR,Asia,AS,AS42584,NGN Bilgi Teknolojileri Veri Merkezi ve Danismanlik Hizmetleri A.S.,,business
+2a01:f900:1::/48,Turkiye,TR,Asia,AS,AS44620,Netlen Internet Hizmetleri Ltd. Sti.,,hosting
+2a01:f900:5::/48,Turkiye,TR,Asia,AS,AS44620,Netlen Internet Hizmetleri Ltd. Sti.,,hosting
+2a01:f900:7::/48,Turkiye,TR,Asia,AS,AS44620,Netlen Internet Hizmetleri Ltd. Sti.,,hosting
+2a01:f900:10::/45,Turkiye,TR,Asia,AS,AS44620,Netlen Internet Hizmetleri Ltd. Sti.,,hosting
+2a01:f900:18::/47,Turkiye,TR,Asia,AS,AS44620,Netlen Internet Hizmetleri Ltd. Sti.,,hosting
+2a01:f900:20::/47,Turkiye,TR,Asia,AS,AS44620,Netlen Internet Hizmetleri Ltd. Sti.,,hosting
+2a01:f900:203::/48,Turkiye,TR,Asia,AS,AS44620,Netlen Internet Hizmetleri Ltd. Sti.,,hosting
+2a01:f900:2a01::/48,Turkiye,TR,Asia,AS,AS44620,Netlen Internet Hizmetleri Ltd. Sti.,,hosting
+2a01:f900:f900::/48,Turkiye,TR,Asia,AS,AS44620,Netlen Internet Hizmetleri Ltd. Sti.,,hosting
+2a01:f900:202::/48,Turkiye,TR,Asia,AS,AS47930,BRANDEFENSE BILISIM DANISMANLIK SANAYI VE TICARET ANONIM SIRKETI,,government
+2a0a:c4c0::/47,Turkiye,TR,Asia,AS,AS47952,ICT BULUT BILISIM A.S.,,business
+2a05:dfc1:700::/40,Turkiye,TR,Asia,AS,AS48215,Duhan Berk Bal,,hosting
+2a02:26b0:8003::/48,Turkiye,TR,Asia,AS,AS49334,SH ONLINE ILETISIM ANONIM SIRKETI,,isp
+2a07:9d40::/48,Turkiye,TR,Asia,AS,AS51683,Protahub Telekomunikasyon ve Bilisim Teknolojileri AS,,isp
+2a03:f7c0::/29,Turkiye,TR,Asia,AS,AS51722,PIXOOF TEKNOLOJI ANONIM SIRKETI,,hosting
+2a06:ddc0::/29,Turkiye,TR,Asia,AS,AS51722,PIXOOF TEKNOLOJI ANONIM SIRKETI,,hosting
+2a0b:7780::/29,Turkiye,TR,Asia,AS,AS51722,PIXOOF TEKNOLOJI ANONIM SIRKETI,,hosting
+2a0b:da00::/29,Turkiye,TR,Asia,AS,AS51722,PIXOOF TEKNOLOJI ANONIM SIRKETI,,hosting
+2a0b:e9c0::/29,Turkiye,TR,Asia,AS,AS51722,PIXOOF TEKNOLOJI ANONIM SIRKETI,,hosting
+2a0c:5c0::/29,Turkiye,TR,Asia,AS,AS51722,PIXOOF TEKNOLOJI ANONIM SIRKETI,,hosting
+2a0c:77c0::/29,Turkiye,TR,Asia,AS,AS51722,PIXOOF TEKNOLOJI ANONIM SIRKETI,,hosting
+2a0c:aa40::/29,Turkiye,TR,Asia,AS,AS51722,PIXOOF TEKNOLOJI ANONIM SIRKETI,,hosting
+2a0d:2dc0::/29,Turkiye,TR,Asia,AS,AS51722,PIXOOF TEKNOLOJI ANONIM SIRKETI,,hosting
+2a0d:3880::/29,Turkiye,TR,Asia,AS,AS51722,PIXOOF TEKNOLOJI ANONIM SIRKETI,,hosting
+2a0e:36c6:2000::/48,Turkiye,TR,Asia,AS,AS51722,PIXOOF TEKNOLOJI ANONIM SIRKETI,,hosting
+2a11:1fc0::/32,Turkiye,TR,Asia,AS,AS51791,Crestu Teknoloji Dijital Hizmetler Limited Sirketi,,isp
+2a11:1fc2::/32,Turkiye,TR,Asia,AS,AS51791,Crestu Teknoloji Dijital Hizmetler Limited Sirketi,,isp
+2a11:85c0::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a11:9fc0::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a11:acc0::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a11:c440::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a11:c540::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a11:e7c0::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a11:fec0::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a12:4500::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a12:4c00::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a12:5580::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a12:7980::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a12:8800::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a12:9700::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2a12:c180::/29,Turkiye,TR,Asia,AS,AS56325,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,hosting
+2001:67c:ac8::/48,Turkiye,TR,Asia,AS,AS56841,Ozkan TOPAL,,business
+2001:67c:acc::/48,Turkiye,TR,Asia,AS,AS56841,Ozkan TOPAL,,business
+2001:67c:ad0::/48,Turkiye,TR,Asia,AS,AS56841,Ozkan TOPAL,,business
+2001:67c:2788::/48,Turkiye,TR,Asia,AS,AS56841,Ozkan TOPAL,,business
+2a0a:4100::/47,Turkiye,TR,Asia,AS,AS57935,Nrp Teknoloji Limited Sirketi,,business
+2a07:a5c0::/36,Turkiye,TR,Asia,AS,AS58293,ALFA ILETISIM HIZMETLERI PAZARLAMA TICARET A.S.,,isp
+2a0b:a280::/32,Turkiye,TR,Asia,AS,AS60707,Kapteyan Bilisim Teknolojileri Sanayi ve Ticaret A.S,,business
+2a03:3140:fffe::/47,Turkiye,TR,Asia,AS,AS61345,FLYTOM NETWORKS LTD,,business
+2a02:ed40::/48,Turkiye,TR,Asia,AS,AS62095,DT Iletisim Hizmetleri A.S.,,isp
+2a05:600::/29,Turkiye,TR,Asia,AS,AS62425,Mailbox Internet Hizmetleri Ltd. Sti.,,isp
+2a11:1fc0:10::/48,Turkiye,TR,Asia,AS,AS197261,Omer Can Kucergun,,hosting
+2a06:9801:2f1::/48,Turkiye,TR,Asia,AS,AS197871,MOBILIN TEKNOLOJI VE BILISIM LIMITED SIRKETI,,hosting
+2a10:fa80::/47,Turkiye,TR,Asia,AS,AS197871,MOBILIN TEKNOLOJI VE BILISIM LIMITED SIRKETI,,hosting
+2a0d:2500::/32,Turkiye,TR,Asia,AS,AS198120,Smart Host Teknoloji Ithalat Ihracat Limited Sirketi,,business
+2a10:ccc1:10a::/48,Turkiye,TR,Asia,AS,AS198234,SOLFIKS INTERNET Hizmetleri ve Danismanlik Tic. Ltd. Sti.,,hosting
+2a10:f6c0::/29,Turkiye,TR,Asia,AS,AS198236,BILYONER INTERAKTIF HIZMETLER ANONIM SIRKETI,,business
+2001:3640::/29,Turkiye,TR,Asia,AS,AS198733,Helikon Teknoloji ve Medya Ticaret Limited Sirketi,,business
+2a13:a440:1::/48,Turkiye,TR,Asia,AS,AS199019,Enes Tabanli,,hosting
+2a13:a440:2::/48,Turkiye,TR,Asia,AS,AS199019,Enes Tabanli,,hosting
+2a13:a440::/48,Turkiye,TR,Asia,AS,AS199099,ERLION BILISIM LIMITED SIRKETI,,business
+2a03:df40::/48,Turkiye,TR,Asia,AS,AS199419,LIMON BILGI TEKNOLOJILERI ANONIM SIRKETI,,business
+2a0d:9841::/48,Turkiye,TR,Asia,AS,AS199531,Desem Turizm ve Ticaret Limited Sirketi,,business
+2a03:48c0::/32,Turkiye,TR,Asia,AS,AS199608,Birbir Internet Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a01:63a0::/32,Turkiye,TR,Asia,AS,AS199907,RADE Bilisim Anonim Sirketi,,business
+2a13:a440:6::/48,Turkiye,TR,Asia,AS,AS199972,NURHAN AKYUZ trading as AKYUZNET,,hosting
+2a14:9401:8000::/36,Turkiye,TR,Asia,AS,AS200010,Olfe Veri Merkezi Anonim Sirketi,,isp
+2a06:9801:7dd::/48,Turkiye,TR,Asia,AS,AS200193,ITM Yazilim Bilgisayar Sistemleri ve Danismanlik Tic. Ltd. Sti,,business
+2602:feda:b8c::/47,Turkiye,TR,Asia,AS,AS200334,Alptekin Sunnetci,,education
+2a0c:f587:fffe::/47,Turkiye,TR,Asia,AS,AS200334,Alptekin Sunnetci,,education
+2a0f:6580:104::/48,Turkiye,TR,Asia,AS,AS200334,Alptekin Sunnetci,,education
+2a05:e5c0::/29,Turkiye,TR,Asia,AS,AS200977,Sunucuyeri Internet Bilgisayar Turizm Sanayi Ve Dis Ticaret Limited Sirketi,,business
+2a05:3040::/29,Turkiye,TR,Asia,AS,AS201364,Teknoboss Teknoloji Ve Danismanlik Hizmetleri Limited Sirketi,,business
+2a05:5ec0:1::/48,Turkiye,TR,Asia,AS,AS201364,Teknoboss Teknoloji Ve Danismanlik Hizmetleri Limited Sirketi,,business
+2a05:5ec1::/32,Turkiye,TR,Asia,AS,AS201364,Teknoboss Teknoloji Ve Danismanlik Hizmetleri Limited Sirketi,,business
+2a05:5ec2::/31,Turkiye,TR,Asia,AS,AS201364,Teknoboss Teknoloji Ve Danismanlik Hizmetleri Limited Sirketi,,business
+2a05:5ec4::/30,Turkiye,TR,Asia,AS,AS201364,Teknoboss Teknoloji Ve Danismanlik Hizmetleri Limited Sirketi,,business
+2a09:5980::/29,Turkiye,TR,Asia,AS,AS201364,Teknoboss Teknoloji Ve Danismanlik Hizmetleri Limited Sirketi,,business
+2a09:f340::/29,Turkiye,TR,Asia,AS,AS201364,Teknoboss Teknoloji Ve Danismanlik Hizmetleri Limited Sirketi,,business
+2a0d:8040::/29,Turkiye,TR,Asia,AS,AS201364,Teknoboss Teknoloji Ve Danismanlik Hizmetleri Limited Sirketi,,business
+2a11:1800::/29,Turkiye,TR,Asia,AS,AS201364,Teknoboss Teknoloji Ve Danismanlik Hizmetleri Limited Sirketi,,business
+2a14:c780::/29,Turkiye,TR,Asia,AS,AS201760,Bulls Yatirim Menkul Degerler A.S.,,business
+2a0a:37c0::/29,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:8888::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:8ace::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:8bad::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:8bee::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:8dad::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:9111::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:9ace::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:9bad::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:9bee::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:9dad::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:a0a0::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:a1a1::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:a2a2::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:a5a5::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:b00b::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:b0b0::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:b111::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:ba5e::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:babe::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:bada::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6280:beef::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0f:6284:8::/48,Turkiye,TR,Asia,AS,AS202294,Netlojik Bilgi Teknolojileri Sanayi ve Ticaret Limited Sirketi,,business
+2a0c:da04:10::/47,Turkiye,TR,Asia,AS,AS202365,Omer GOLGELI,,hosting
+2a0c:da04:12::/48,Turkiye,TR,Asia,AS,AS202365,Omer GOLGELI,,hosting
+2a0c:da04:15::/48,Turkiye,TR,Asia,AS,AS202365,Omer GOLGELI,,hosting
+2a0c:da04:19::/48,Turkiye,TR,Asia,AS,AS202365,Omer GOLGELI,,hosting
+2a10:f9c0::/29,Turkiye,TR,Asia,AS,AS202365,Omer GOLGELI,,hosting
+2a0c:13c0::/29,Turkiye,TR,Asia,AS,AS202561,High Speed Telekomunikasyon ve Hab. Hiz. Ltd. Sti.,,isp
+2a07:3300::/48,Turkiye,TR,Asia,AS,AS203216,Sonet Internet Erisim Hizmetleri San. ve Tic. LTD. STI,,business
+2a0a:7580::/44,Turkiye,TR,Asia,AS,AS203248,BNET BULUT Bilisim Hizmetleri Tic. Ltd. Sti.,,business
+2a0a:7580:10::/48,Turkiye,TR,Asia,AS,AS203248,BNET BULUT Bilisim Hizmetleri Tic. Ltd. Sti.,,business
+2a0f:bf01::/48,Turkiye,TR,Asia,AS,AS203545,Savas Anac,,hosting
+2a0f:9340::/32,Turkiye,TR,Asia,AS,AS203678,ISTANIFY TEKNOLOJI ANONIM SIRKETI,,business
+2600:3500:c23::/48,Turkiye,TR,Asia,AS,AS204240,REXE Teknoloji A.S,,business
+2a04:b800::/29,Turkiye,TR,Asia,AS,AS204348,Rekornet Telekomunikasyon Ve Bilisim Hizmetleri Ltd. Sirketi,,isp
+2a0e:e7c0::/29,Turkiye,TR,Asia,AS,AS204348,Rekornet Telekomunikasyon Ve Bilisim Hizmetleri Ltd. Sirketi,,isp
+2a0d:2c80::/29,Turkiye,TR,Asia,AS,AS204647,MIXNET TELEKOMUNIKASYON HIZMETLERI AS,,isp
+2a09:8b80::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a0a:bbc0::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a0e:6740::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a0e:8840::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a0e:c440::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a0f:c00::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a0f:72c0::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a0f:da80::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a11:1840::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a11:2d80::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a11:3f00::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a11:41c0::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a12:1a40::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a12:35c0::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a12:3cc0::/29,Turkiye,TR,Asia,AS,AS204843,STERLY VERI MERKEZI YAZILIM VE SIBER GUVENLIK HIZMETLERI A.S.,,business
+2a0c:f587:fffd::/48,Turkiye,TR,Asia,AS,AS205381,Mitues Global Teknolojiler Ltd. Sti.,,hosting
+2a0b:8b40::/29,Turkiye,TR,Asia,AS,AS205570,SIBANET TELEKOM LIMITED SIRKETI,,isp
+2a0a:e240::/32,Turkiye,TR,Asia,AS,AS205893,Wifi Telekom Bilisim Sanayi ve Ticaret A.S,,isp
+2a0b:24c1::/33,Turkiye,TR,Asia,AS,AS205961,EREEY GRUP BILISIM TEKNOLOJILERI TIC. LTD. STI.,,business
+2a0a:8840::/29,Turkiye,TR,Asia,AS,AS206008,Basefiks Bilisim Teknolojileri Ithalat Ihracat Taahhut Ticaret Limited Sirketi,,business
+2a14:7581:3a00::/40,Turkiye,TR,Asia,AS,AS206115,Mehmet UGURLU,,hosting
+2a14:7581:3d00::/40,Turkiye,TR,Asia,AS,AS206115,Mehmet UGURLU,,hosting
+2a0a:86c0::/45,Turkiye,TR,Asia,AS,AS206163,TBTNET TELEKOM LTD. STI.,,isp
+2a0a:86c0:8::/47,Turkiye,TR,Asia,AS,AS206163,TBTNET TELEKOM LTD. STI.,,isp
+2a0a:86c0:10::/48,Turkiye,TR,Asia,AS,AS206163,TBTNET TELEKOM LTD. STI.,,isp
+2a0a:86c0:1000::/45,Turkiye,TR,Asia,AS,AS206163,TBTNET TELEKOM LTD. STI.,,isp
+2a0a:86c0:1008::/47,Turkiye,TR,Asia,AS,AS206163,TBTNET TELEKOM LTD. STI.,,isp
+2a0a:86c0:1010::/46,Turkiye,TR,Asia,AS,AS206163,TBTNET TELEKOM LTD. STI.,,isp
+2a0a:86c0:1014::/47,Turkiye,TR,Asia,AS,AS206163,TBTNET TELEKOM LTD. STI.,,isp
+2001:67c:be4::/48,Turkiye,TR,Asia,AS,AS206271,Fatih Unlu,,hosting
+2a07:4a00::/32,Turkiye,TR,Asia,AS,AS206938,Nesildc Bilisim Cozumleri Sanayi Ve Ticaret Limited Sirketi,,business
+2a09:f1c0::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a0e:4780::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a0e:7340::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a0e:b1c0::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a0e:ffc0::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a0f:4340::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a0f:bb00::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a11:e540::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a12:10c0::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a12:15c0::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a12:1940::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a12:25c0::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a12:2c40::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a12:34c0::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a12:3ac0::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a12:4240::/29,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a12:aac0::/44,Turkiye,TR,Asia,AS,AS207279,Markahost Telekomunikasyon Ve Ticaret Limited Sirketi,,isp
+2a09:f9c0::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a0a:c380::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a0e:36c0::/31,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a0e:36c3::/32,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a0e:36c4::/30,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a0e:4bc0::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a0e:5640::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a0e:5900::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a0e:5cc0::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a0e:ccc0::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a11:1640::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a11:3340::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a11:4640::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a11:5880::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a11:65c0::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a11:be80::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a11:c700::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a12:1140::/29,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a13:9500:c0::/48,Turkiye,TR,Asia,AS,AS207459,TEKNOSOS BILISIM HIZMETLERI VE TIC. LTD. STI.,,business
+2a0e:36c6:1000::/48,Turkiye,TR,Asia,AS,AS207483,Netvia Bilisim Yazilim Dan. Tic. Ltd. Sti.,,isp
+2a13:a440:9::/48,Turkiye,TR,Asia,AS,AS207483,Netvia Bilisim Yazilim Dan. Tic. Ltd. Sti.,,isp
+2a07:a700::/29,Turkiye,TR,Asia,AS,AS207582,Emre Mert Delidere trading as Buuldy Bilisim,,business
+2a0e:5e46::/32,Turkiye,TR,Asia,AS,AS207983,Codit Teknoloji Tic. Ltd. Sti.,,isp
+2a0a:283::/32,Turkiye,TR,Asia,AS,AS208022,Mehmet Ali Kilic,,hosting
+2a0a:284::/31,Turkiye,TR,Asia,AS,AS208022,Mehmet Ali Kilic,,hosting
+2a0a:286::/32,Turkiye,TR,Asia,AS,AS208022,Mehmet Ali Kilic,,hosting
+2a12:ef40::/32,Turkiye,TR,Asia,AS,AS208022,Mehmet Ali Kilic,,hosting
+2a12:ef42::/31,Turkiye,TR,Asia,AS,AS208022,Mehmet Ali Kilic,,hosting
+2a12:ef44::/30,Turkiye,TR,Asia,AS,AS208022,Mehmet Ali Kilic,,hosting
+2a0a:79c0:c00::/44,Turkiye,TR,Asia,AS,AS208487,HASAN CAGRI AKSU,,hosting
+2a0c:9a46:c00::/40,Turkiye,TR,Asia,AS,AS208487,HASAN CAGRI AKSU,,hosting
+2a0e:8f02:f075::/48,Turkiye,TR,Asia,AS,AS208487,HASAN CAGRI AKSU,,hosting
+2a0e:2ec0:3::/48,Turkiye,TR,Asia,AS,AS208594,Netbone Telekomunikasyon A.S.,,isp
+2a0e:8e80::/29,Turkiye,TR,Asia,AS,AS208821,DURU INTERNET VE BILISIM TEKNOLOJILERI SANAYI TICARET LIMITED SIRKETI,,business
+2602:f86f:20::/43,Turkiye,TR,Asia,AS,AS208913,Kitsune Bilisim Sistemleri Bilgi Teknolojileri Yazilim ve Danismanlik Ticaret Limited Sirketi,,hosting
+2602:f86f:40::/44,Turkiye,TR,Asia,AS,AS208913,Kitsune Bilisim Sistemleri Bilgi Teknolojileri Yazilim ve Danismanlik Ticaret Limited Sirketi,,hosting
+2a05:dfc3:fd30::/44,Turkiye,TR,Asia,AS,AS208913,Kitsune Bilisim Sistemleri Bilgi Teknolojileri Yazilim ve Danismanlik Ticaret Limited Sirketi,,hosting
+2a03:2100:31::/48,Turkiye,TR,Asia,AS,AS209127,BULUTFON TELEKOMUNIKASYON SAN ve TIC AS,,isp
+2a11:1fc7::/32,Turkiye,TR,Asia,AS,AS209658,MEOHOST VERI MERKEZI ve YAZILIM TICARET LIMITED SIRKETI,,business
+2a00:7544::/32,Turkiye,TR,Asia,AS,AS209828,Genc BT Bilisim Teknolojileri Limited Sirketi,,business
+2a0c:ae80::/29,Turkiye,TR,Asia,AS,AS209828,Genc BT Bilisim Teknolojileri Limited Sirketi,,business
+2a10:7cc0::/29,Turkiye,TR,Asia,AS,AS209828,Genc BT Bilisim Teknolojileri Limited Sirketi,,business
+2a11:940::/29,Turkiye,TR,Asia,AS,AS209828,Genc BT Bilisim Teknolojileri Limited Sirketi,,business
+2a11:1ec0::/29,Turkiye,TR,Asia,AS,AS209828,Genc BT Bilisim Teknolojileri Limited Sirketi,,business
+2a0f:85c1:8f3::/48,Turkiye,TR,Asia,AS,AS210331,FIRAT SENEM,,business
+2a0f:85c1:bfc::/48,Turkiye,TR,Asia,AS,AS210880,Arda Daglioglu,,hosting
+2a13:e300::/31,Turkiye,TR,Asia,AS,AS211335,BINBIR NET INTERNET BILISIM VE HABERLESME TEKNOLOJI SANAYI TICARET LIMITED SIRKETI,,business
+2a02:6b8:215::/48,Turkiye,TR,Asia,AS,AS212066,Buyuk Reklam Cozumleri LLC,,business
+2a14:48c6::/48,Turkiye,TR,Asia,AS,AS212066,Buyuk Reklam Cozumleri LLC,,business
+2a10:9f80:34::/48,Turkiye,TR,Asia,AS,AS212193,VIVA INTERNET LIMITED SIRKETI,,business
+2a10:fa80:1000::/36,Turkiye,TR,Asia,AS,AS212513,Osnet Telekomunikasyon Dis Ticaret Limited Sirketi,,isp
+2a0f:a440::/29,Turkiye,TR,Asia,AS,AS212598,SFCTEK Bilisim Yazilim ve Telekomunikasyon Hiz. San. ve Tic. LTD. STI.,,isp
+2a12:1dc7:fffd::/48,Turkiye,TR,Asia,AS,AS212598,SFCTEK Bilisim Yazilim ve Telekomunikasyon Hiz. San. ve Tic. LTD. STI.,,isp
+2a12:8540::/29,Turkiye,TR,Asia,AS,AS212598,SFCTEK Bilisim Yazilim ve Telekomunikasyon Hiz. San. ve Tic. LTD. STI.,,isp
+2a12:4740::/29,Turkiye,TR,Asia,AS,AS212805,SAMSUN YURT SAVUNMA SANAYI VE TICARET ANONIM SIRKETI,,business
+2a06:a001:a0d0::/44,Turkiye,TR,Asia,AS,AS213234,Hasan Berkay Cagir,,hosting
+2a0f:9400:802c::/48,Turkiye,TR,Asia,AS,AS213234,Hasan Berkay Cagir,,hosting
+2a06:9801:52::/48,Turkiye,TR,Asia,AS,AS213282,Ada Yuksek Teknoloji Limited Sirketi,,business
+2a0f:85c1:ba0::/48,Turkiye,TR,Asia,AS,AS213407,Adem Celik trading as Uzmansoft Bilisim Web Yazilim Hizmetleri,,business
+2a0f:85c1:8ce::/48,Turkiye,TR,Asia,AS,AS213865,Nurullah Ates,,hosting
+2a13:a440:8::/48,Turkiye,TR,Asia,AS,AS214382,Bulent Aydin trading as Hostlayici,,business
+2a14:7340::/29,Turkiye,TR,Asia,AS,AS214588,ICS Bilisim Teknolojileri Danismanlik Hizmetleri A.S.,,hosting
+2a11:5dc0:50::/48,Turkiye,TR,Asia,AS,AS214803,Baran Cirak,,business
+2a0f:85c1:366::/48,Turkiye,TR,Asia,AS,AS215516,Sebnem Kilinc,,hosting
+2a0f:85c1:380::/44,Turkiye,TR,Asia,AS,AS215516,Sebnem Kilinc,,hosting
+2a13:1144::/30,Turkiye,TR,Asia,AS,AS215559,GETIR TEKNOLOJIK HIZMETLER A.S.,,business
+2a0f:85c1:7f5::/48,Turkiye,TR,Asia,AS,AS215761,Muhammed Fatih ASAN,,hosting
+2a12:bec4:1c00::/48,Turkiye,TR,Asia,AS,AS215761,Muhammed Fatih ASAN,,hosting
+2a0a:280:3700::/44,Turkiye,TR,Asia,AS,AS216132,Yahya Murat Turgut,,hosting
+2a13:e940::/29,Turkiye,TR,Asia,AS,AS216146,NESNET INTERNET HIZMETLERI TICARET ANONIM SIRKETI,,business
+2a05:abc0::/45,Turkiye,TR,Asia,AS,AS216244,Omur Akgun trading as Data TR Bilisim Teknoloji Hizmetleri,,business
+2a05:abc0:8::/47,Turkiye,TR,Asia,AS,AS216244,Omur Akgun trading as Data TR Bilisim Teknoloji Hizmetleri,,business
+2a0a:280::/36,Turkiye,TR,Asia,AS,AS216343,Mertcan Gokgoz,,hosting
+2a0a:280:1000::/40,Turkiye,TR,Asia,AS,AS216343,Mertcan Gokgoz,,hosting
+2a06:de06:382::/48,Turkiye,TR,Asia,AS,AS216385,Dijital Bilisim Teknoloji Hizmetleri San. Tic. Ltd. Sti.,,business
+2a06:c400::/29,Turkiye,TR,Asia,AS,AS219450,VOYAR VERIMERKEZI TEKNOLOJILERI LTD. STI,,business
+2a06:9801:798::/48,Turkiye,TR,Asia,AS,AS219479,Mehmet Eren Gunes,,hosting
+2a02:ff0:301::/48,Turkiye,TR,Asia,AS,AS219537,VORGAN SIBER GUVENLIK VE YAZILIM TEKNOLOJILERI ANONIM SIRKETI,,hosting
+2a00:7da0::/32,Azerbaijan,AZ,Asia,AS,AS15815,INTRA Network Systems Ltd,,business
+2a03:ba40::/32,Azerbaijan,AZ,Asia,AS,AS39280,Ultel LLC,,business
+2a02:4380::/32,Azerbaijan,AZ,Asia,AS,AS42779,Azerfon LLC,,business
+2a07:4900::/29,Azerbaijan,AZ,Asia,AS,AS50959,BEEONLINE OJSC,,business
+2a0f:1300::/29,Azerbaijan,AZ,Asia,AS,AS57675,Seabak LLC,,business
+2a04:c840::/29,Azerbaijan,AZ,Asia,AS,AS197830,BAKCELL LLC,,business
+2a01:4ba0::/29,Azerbaijan,AZ,Asia,AS,AS199987,Flexnet LLC,,business
+2a00:c0a0::/32,Azerbaijan,AZ,Asia,AS,AS200154,IZONE LLC,,isp
+2a13:9c80::/29,Azerbaijan,AZ,Asia,AS,AS203680,Araz Tech LLC,,business
+2a05:9b40::/29,Azerbaijan,AZ,Asia,AS,AS207922,AZETEL LLC,,isp
+2a0f:4a40::/29,Azerbaijan,AZ,Asia,AS,AS207922,AZETEL LLC,,isp
+2a0d:2700::/29,Azerbaijan,AZ,Asia,AS,AS209360,Bulud Telecom LLC,,isp
+2a05:dfc3:fd20::/44,Azerbaijan,AZ,Asia,AS,AS211780,Cavansir Ramazanov,,isp
+2a0f:6280:1000::/40,Azerbaijan,AZ,Asia,AS,AS211780,Cavansir Ramazanov,,isp
+2a0b:f5c0::/29,Azerbaijan,AZ,Asia,AS,AS214682,Epro.io LLC,,business
+2a0b:4e07:3d::/48,Azerbaijan,AZ,Asia,AS,AS214946,EMIRASLAN EMIRASLANOV,,hosting
+2a0b:4e07:1400::/44,Azerbaijan,AZ,Asia,AS,AS215017,EMIRASLAN EMIRASLANOV,,hosting
+2a0b:4e07:1414::/48,Azerbaijan,AZ,Asia,AS,AS215017,EMIRASLAN EMIRASLANOV,,hosting
+2a0b:4e07:1433::/48,Azerbaijan,AZ,Asia,AS,AS215017,EMIRASLAN EMIRASLANOV,,hosting
+2a0b:4e07:1438::/48,Azerbaijan,AZ,Asia,AS,AS215017,EMIRASLAN EMIRASLANOV,,hosting
+2a0b:4e07:1441::/48,Azerbaijan,AZ,Asia,AS,AS215017,EMIRASLAN EMIRASLANOV,,hosting
+2a0b:4e07:14e4::/48,Azerbaijan,AZ,Asia,AS,AS215017,EMIRASLAN EMIRASLANOV,,hosting
+2a0b:4e07:14ea::/48,Azerbaijan,AZ,Asia,AS,AS215017,EMIRASLAN EMIRASLANOV,,hosting
+2a0b:4e07:14ff::/48,Azerbaijan,AZ,Asia,AS,AS215017,EMIRASLAN EMIRASLANOV,,hosting
+2a0b:4e07:1667::/48,Azerbaijan,AZ,Asia,AS,AS215017,EMIRASLAN EMIRASLANOV,,hosting
+2a0b:4e07:1700::/40,Azerbaijan,AZ,Asia,AS,AS215017,EMIRASLAN EMIRASLANOV,,hosting
+2a0f:85c1:d50::/44,Azerbaijan,AZ,Asia,AS,AS215017,EMIRASLAN EMIRASLANOV,,hosting
+2a14:7580:ff9d::/48,Azerbaijan,AZ,Asia,AS,AS219310,EMIRASLAN EMIRASLANOV,,hosting
+2001:67c:21c::/48,Armenia,AM,Asia,AS,AS51090,Internet Society Public Organisation,,business
+2a03:5620::/32,Armenia,AM,Asia,AS,AS51090,Internet Society Public Organisation,,business
+2001:7f8:94::/48,Armenia,AM,Asia,AS,AS51225,Armenian internet traffic exchange 'Armix' foundation,,hosting
+2001:7f9:8::/48,Armenia,AM,Asia,AS,AS51354,Internet Society Public Organisation,,business
+2a09:3f00:3300::/45,Armenia,AM,Asia,AS,AS199180,LAGOM PRODUCTS LLC,,isp
+2a09:3f00:3308::/48,Armenia,AM,Asia,AS,AS199180,LAGOM PRODUCTS LLC,,isp
+2a0d:d940:140::/46,Armenia,AM,Asia,AS,AS199180,LAGOM PRODUCTS LLC,,isp
+2a0d:d940:144::/47,Armenia,AM,Asia,AS,AS199180,LAGOM PRODUCTS LLC,,isp
+2a0d:d940:147::/48,Armenia,AM,Asia,AS,AS199180,LAGOM PRODUCTS LLC,,isp
+2a0d:d940:148::/48,Armenia,AM,Asia,AS,AS199180,LAGOM PRODUCTS LLC,,isp
+2a13:1ec0::/44,Armenia,AM,Asia,AS,AS201589,EDGEAM LLC,,isp
+2a13:1ec0:100::/43,Armenia,AM,Asia,AS,AS201589,EDGEAM LLC,,isp
+2a13:1ec0:200::/44,Armenia,AM,Asia,AS,AS201589,EDGEAM LLC,,isp
+2a13:1ec0:1000::/43,Armenia,AM,Asia,AS,AS201589,EDGEAM LLC,,isp
+2a0e:b084::/30,Armenia,AM,Asia,AS,AS202269,BitCommand LLC,,isp
+2a14:7980::/32,Armenia,AM,Asia,AS,AS202269,BitCommand LLC,,isp
+2a02:29f8::/32,Armenia,AM,Asia,AS,AS205368,Fnet LLC,,isp
+2a0b:a3c0::/29,Armenia,AM,Asia,AS,AS205368,Fnet LLC,,isp
+2a0b:ff80::/29,Armenia,AM,Asia,AS,AS207980,TINS LLC,,business
+2a0a:9c0::/29,Armenia,AM,Asia,AS,AS207991,ACHON LLC,,business
+2001:67c:924::/48,Armenia,AM,Asia,AS,AS212183,House Net LLC,,business
+2a14:7981:467::/48,Armenia,AM,Asia,AS,AS212552,BitCommand LLC,,business
+2a14:7981:470::/46,Armenia,AM,Asia,AS,AS212552,BitCommand LLC,,business
+2a14:7981:2002::/48,Armenia,AM,Asia,AS,AS212552,BitCommand LLC,,business
+2a14:7981:3008::/48,Armenia,AM,Asia,AS,AS212552,BitCommand LLC,,business
+2a00:8740:f002::/48,Armenia,AM,Asia,AS,AS214729,Prostie Reshenia LLC,,business
+2a14:4800::/29,Armenia,AM,Asia,AS,AS214977,Artsakhbank CJSC,,business

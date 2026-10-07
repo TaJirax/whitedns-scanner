@@ -2,20 +2,34 @@ package engine
 
 import (
 	"bufio"
+	"context"
 	"fmt"
-	"net"
-	"os"
 	"math/big"
+	"net"
+	"net/url"
+	"os"
+	"strconv"
 	"strings"
 )
 
 // Target represents a single scan end-point with an explicit port and scheme.
 type Target struct {
-	Label  string
-	URL    string
-	Host   string // Original hostname/domain (used for SNI / Host header spoofing)
-	Port   int    // Explicit port to probe
-	Scheme string // "https" or "http"
+	Label          string
+	URL            string
+	Host           string // Original hostname/domain (used for SNI / Host header spoofing)
+	Port           int    // Explicit port to probe
+	Scheme         string // https, http, or socks5
+	ExplicitScheme bool
+	ExplicitPort   bool
+	Username       string
+	Password       string
+}
+
+// Key identifies the endpoint a target probes, so "https://1.2.3.4" from the
+// input and "https://1.2.3.4:443" from the cache of passes are one target.
+// Every dedupe uses it.
+func (t Target) Key() string {
+	return t.Scheme + "://" + net.JoinHostPort(t.Host, strconv.Itoa(t.Port)) + "|" + t.Username + "|" + t.Password
 }
 
 // ParseTargets reads domains.txt or Cache and parses them into Target slices.
@@ -39,60 +53,11 @@ func ParseTargets(filePath string, scanAllPorts bool, customPorts []int, dnsMode
 			continue
 		}
 
-		lbl := ""
-		val := line
-
-		if idx := strings.Index(line, "|"); idx != -1 {
-			lbl = strings.TrimSpace(line[:idx])
-			val = strings.TrimSpace(line[idx+1:])
+		parsed, err := parseBaseTargetsFromLine(line)
+		if err != nil {
+			return nil, err
 		}
-
-		val = strings.Trim(val, "'\"")
-
-		// Handle CIDR blocks (e.g. 104.18.2.0/24)
-		if strings.Contains(val, "/") && !strings.HasPrefix(val, "http") {
-			ip, ipnet, err := net.ParseCIDR(val)
-			if err != nil {
-				return nil, fmt.Errorf("invalid CIDR %q: %w", val, err)
-			}
-			if cidrTargets := buildCIDRTargetsFromNet(lbl, ip, ipnet); len(cidrTargets) > 0 {
-				rawTargets = append(rawTargets, cidrTargets...)
-				continue
-			}
-		}
-
-		// Standard domain or single IP
-		var host, scheme string
-		if strings.HasPrefix(val, "http://") {
-			scheme = "http"
-			host = strings.TrimPrefix(val, "http://")
-			host = strings.SplitN(host, "/", 2)[0]
-		} else if strings.HasPrefix(val, "https://") {
-			scheme = "https"
-			host = strings.TrimPrefix(val, "https://")
-			host = strings.SplitN(host, "/", 2)[0]
-		} else {
-			scheme = "https"
-			host = val
-		}
-
-		finalLbl := lbl
-		if finalLbl == "" {
-			finalLbl = host
-		}
-
-		port := 443
-		if scheme == "http" {
-			port = 80
-		}
-
-		rawTargets = append(rawTargets, Target{
-			Label:  finalLbl,
-			URL:    scheme + "://" + host,
-			Host:   host,
-			Port:   port,
-			Scheme: scheme,
-		})
+		rawTargets = append(rawTargets, parsed...)
 	}
 
 	if err := scanner.Err(); err != nil {
@@ -104,12 +69,27 @@ func ParseTargets(filePath string, scanAllPorts bool, customPorts []int, dnsMode
 		return expandAllPorts(rawTargets), nil
 	}
 
-	// If custom ports are provided, expand using those ports.
-	if len(customPorts) > 0 && !dnsMode {
-		return expandCustomPorts(rawTargets, customPorts), nil
+	if ports := portsFor(customPorts, dnsMode); ports != nil {
+		return expandCustomPorts(rawTargets, ports), nil
 	}
 
 	return rawTargets, nil
+}
+
+// DefaultPorts are what "Default Ports (443/80)" scans when no ports are set:
+// HTTPS on 443 and plain HTTP on 80 for every target without its own port.
+var DefaultPorts = []int{443, 80}
+
+// portsFor is the port list targets expand across: the custom ports, or
+// DefaultPorts. DNS modes expand ports inside each resolver probe instead.
+func portsFor(customPorts []int, dnsMode bool) []int {
+	switch {
+	case dnsMode:
+		return nil
+	case len(customPorts) > 0:
+		return customPorts
+	}
+	return DefaultPorts
 }
 
 // StreamTargets returns a channel that will produce Target items parsed from
@@ -117,6 +97,10 @@ func ParseTargets(filePath string, scanAllPorts bool, customPorts []int, dnsMode
 // parsed targets to the channel. The returned `count` is an estimated total
 // when it can be determined cheaply; otherwise it is -1.
 func StreamTargets(filePath string, scanAllPorts bool, customPorts []int, countTotal bool, dnsMode bool) (<-chan Target, int, error) {
+	return streamTargetsContext(context.Background(), filePath, scanAllPorts, customPorts, countTotal, dnsMode)
+}
+
+func streamTargetsContext(ctx context.Context, filePath string, scanAllPorts bool, customPorts []int, countTotal bool, dnsMode bool) (<-chan Target, int, error) {
 	total := -1
 	if countTotal {
 		if estimated, err := CountUniqueScannableTargets(filePath, scanAllPorts, customPorts, dnsMode); err == nil {
@@ -144,75 +128,22 @@ func StreamTargets(filePath string, scanAllPorts bool, customPorts []int, countT
 				continue
 			}
 
-			lbl := ""
-			val := line
-
-			if idx := strings.Index(line, "|"); idx != -1 {
-				lbl = strings.TrimSpace(line[:idx])
-				val = strings.TrimSpace(line[idx+1:])
+			parsed, err := parseBaseTargetsFromLine(line)
+			if err != nil {
+				continue
 			}
-
-			val = strings.Trim(val, "'\"")
-
-			// Handle CIDR blocks (e.g. 104.18.2.0/24)
-			if strings.Contains(val, "/") && !strings.HasPrefix(val, "http") {
-				ip, ipnet, err := net.ParseCIDR(val)
-				if err != nil {
-					continue
-				}
-				if cidrTargets := buildCIDRTargetsFromNet(lbl, ip, ipnet); len(cidrTargets) > 0 {
-					for _, target := range cidrTargets {
-						out <- target
+			for _, base := range parsed {
+				for _, target := range expandForMode(base, scanAllPorts, customPorts, dnsMode) {
+					if ctx.Err() != nil {
+						return
 					}
-					continue
+					select {
+					case out <- target:
+					case <-ctx.Done():
+						return
+					}
 				}
 			}
-
-			// Standard domain or single IP
-			var host, scheme string
-			if strings.HasPrefix(val, "http://") {
-				scheme = "http"
-				host = strings.TrimPrefix(val, "http://")
-				host = strings.SplitN(host, "/", 2)[0]
-			} else if strings.HasPrefix(val, "https://") {
-				scheme = "https"
-				host = strings.TrimPrefix(val, "https://")
-				host = strings.SplitN(host, "/", 2)[0]
-			} else {
-				scheme = "https"
-				host = val
-			}
-
-			finalLbl := lbl
-			if finalLbl == "" {
-				finalLbl = host
-			}
-
-			port := 443
-			if scheme == "http" {
-				port = 80
-			}
-
-			// If scanAllPorts or customPorts are set, expand per-host here
-			if scanAllPorts {
-				for _, p := range CFHTTPSPorts {
-					out <- Target{Label: fmt.Sprintf("%s:%d", finalLbl, p), URL: fmt.Sprintf("https://%s:%d", host, p), Host: host, Port: p, Scheme: "https"}
-				}
-				for _, p := range CFHTTPPorts {
-					out <- Target{Label: fmt.Sprintf("%s:%d", finalLbl, p), URL: fmt.Sprintf("http://%s:%d", host, p), Host: host, Port: p, Scheme: "http"}
-				}
-				continue
-			}
-
-			if len(customPorts) > 0 && !dnsMode {
-				for _, p := range customPorts {
-					schemeUse := schemeForPort(p, scheme)
-					out <- Target{Label: fmt.Sprintf("%s:%d", finalLbl, p), URL: fmt.Sprintf("%s://%s:%d", schemeUse, host, p), Host: host, Port: p, Scheme: schemeUse}
-				}
-				continue
-			}
-
-			out <- Target{Label: finalLbl, URL: scheme + "://" + host, Host: host, Port: port, Scheme: scheme}
 		}
 	}()
 
@@ -318,7 +249,7 @@ func CountUniqueScannableTargetsWithSeed(filePath string, seed []Target, scanAll
 	seen := make(map[string]struct{})
 	for _, seeded := range seed {
 		for _, emitted := range expandForMode(seeded, scanAllPorts, customPorts, dnsMode) {
-			seen[emitted.URL] = struct{}{}
+			seen[emitted.Key()] = struct{}{}
 		}
 	}
 	count := 0
@@ -336,10 +267,10 @@ func CountUniqueScannableTargetsWithSeed(filePath string, seed []Target, scanAll
 
 		for _, base := range baseTargets {
 			for _, emitted := range expandForMode(base, scanAllPorts, customPorts, dnsMode) {
-				if _, ok := seen[emitted.URL]; ok {
+				if _, ok := seen[emitted.Key()]; ok {
 					continue
 				}
-				seen[emitted.URL] = struct{}{}
+				seen[emitted.Key()] = struct{}{}
 				count++
 			}
 		}
@@ -351,63 +282,72 @@ func CountUniqueScannableTargetsWithSeed(filePath string, seed []Target, scanAll
 }
 
 func parseBaseTargetsFromLine(line string) ([]Target, error) {
-	lbl := ""
-	val := line
-
-	if idx := strings.Index(line, "|"); idx != -1 {
-		lbl = strings.TrimSpace(line[:idx])
-		val = strings.TrimSpace(line[idx+1:])
+	label, value := "", strings.TrimSpace(line)
+	if left, right, ok := strings.Cut(value, "|"); ok {
+		label, value = strings.TrimSpace(left), strings.TrimSpace(right)
 	}
-
-	val = strings.Trim(val, "'\"")
-
-	if strings.Contains(val, "/") && !strings.HasPrefix(val, "http") {
-		ip, ipnet, err := net.ParseCIDR(val)
+	value = strings.Trim(value, "'\"")
+	if strings.Contains(value, "/") && !strings.Contains(value, "://") {
+		ip, network, err := net.ParseCIDR(value)
 		if err != nil {
-			return nil, fmt.Errorf("invalid CIDR %q: %w", val, err)
+			return nil, fmt.Errorf("invalid CIDR %q: %w", value, err)
 		}
-		return buildCIDRTargetsFromNet(lbl, ip, ipnet), nil
+		return buildCIDRTargetsFromNet(label, ip, network), nil
 	}
-
-	var host, scheme string
-	if strings.HasPrefix(val, "http://") {
-		scheme = "http"
-		host = strings.TrimPrefix(val, "http://")
-		host = strings.SplitN(host, "/", 2)[0]
-	} else if strings.HasPrefix(val, "https://") {
-		scheme = "https"
-		host = strings.TrimPrefix(val, "https://")
-		host = strings.SplitN(host, "/", 2)[0]
-	} else {
-		scheme = "https"
-		host = val
+	explicitScheme := strings.Contains(value, "://")
+	endpoint := value
+	if !strings.Contains(endpoint, "://") {
+		if net.ParseIP(endpoint) != nil && strings.Contains(endpoint, ":") {
+			endpoint = "[" + endpoint + "]"
+		}
+		endpoint = "https://" + endpoint
 	}
-
-	finalLbl := lbl
-	if finalLbl == "" {
-		finalLbl = host
+	u, err := url.Parse(endpoint)
+	if err != nil || u.Hostname() == "" || strings.ContainsAny(u.Hostname(), " \t\n") {
+		return nil, fmt.Errorf("invalid endpoint %q", value)
 	}
-
+	switch u.Scheme {
+	case "http", "https", "socks5", "socks5h", "dns", "dns-txt", "udp", "tcp":
+	default:
+		return nil, fmt.Errorf("unsupported endpoint scheme %q", u.Scheme)
+	}
+	if strings.HasSuffix(u.Host, ":") {
+		return nil, fmt.Errorf("missing endpoint port in %q", value)
+	}
 	port := 443
-	if scheme == "http" {
+	if u.Scheme == "http" {
 		port = 80
 	}
-
-	return []Target{{
-		Label:  finalLbl,
-		URL:    scheme + "://" + host,
-		Host:   host,
-		Port:   port,
-		Scheme: scheme,
-	}}, nil
+	if u.Scheme == "dns" || u.Scheme == "dns-txt" || u.Scheme == "udp" || u.Scheme == "tcp" {
+		port = 53
+	}
+	if strings.HasPrefix(u.Scheme, "socks") {
+		port = 1080
+	}
+	explicit := u.Port() != "" || explicitScheme
+	if u.Port() != "" {
+		port, err = strconv.Atoi(u.Port())
+		if err != nil || port < 1 || port > 65535 {
+			return nil, fmt.Errorf("invalid endpoint port in %q", value)
+		}
+	}
+	if label == "" {
+		label = u.Host
+	}
+	target := Target{Label: label, URL: u.Scheme + "://" + u.Host, Host: u.Hostname(), Port: port, Scheme: u.Scheme, ExplicitScheme: explicitScheme, ExplicitPort: explicit}
+	if u.User != nil {
+		target.Username = u.User.Username()
+		target.Password, _ = u.User.Password()
+	}
+	return []Target{target}, nil
 }
 
 func expandForMode(base Target, scanAllPorts bool, customPorts []int, dnsMode bool) []Target {
 	if scanAllPorts {
 		return expandAllPorts([]Target{base})
 	}
-	if len(customPorts) > 0 && !dnsMode {
-		return expandCustomPorts([]Target{base}, customPorts)
+	if ports := portsFor(customPorts, dnsMode); ports != nil {
+		return expandCustomPorts([]Target{base}, ports)
 	}
 	return []Target{base}
 }
@@ -416,10 +356,7 @@ func expansionFactor(scanAllPorts bool, customPorts []int, dnsMode bool) int {
 	if scanAllPorts {
 		return len(CFHTTPSPorts) + len(CFHTTPPorts)
 	}
-	if len(customPorts) > 0 && !dnsMode {
-		return len(customPorts)
-	}
-	return 1
+	return max(len(portsFor(customPorts, dnsMode)), 1)
 }
 
 func countCIDRTargets(ipnet *net.IPNet) int {
@@ -441,6 +378,9 @@ func countCIDRTargets(ipnet *net.IPNet) int {
 	hostBits := 128 - prefix
 	if hostBits <= 0 {
 		return 1
+	}
+	if ipv6Sampled(ipnet) {
+		return len(sampleIPv6CIDR(ipnet, maxIPv6PerCIDR))
 	}
 	total := new(big.Int).Lsh(big.NewInt(1), uint(hostBits))
 	maxInt := int(^uint(0) >> 1)
@@ -473,8 +413,39 @@ func broadcastIPv4(ipnet *net.IPNet) net.IP {
 // buildCIDRTargetsFromNet expands an IPv4 or IPv6 CIDR into individual scan targets.
 // For IPv4 networks smaller than /31 it skips the network and broadcast addresses.
 func buildCIDRTargetsFromNet(lbl string, ip net.IP, ipnet *net.IPNet) []Target {
+	if ipv6Sampled(ipnet) {
+		targets := make([]Target, 0, maxIPv6PerCIDR)
+		for _, ipStr := range sampleIPv6CIDR(ipnet, maxIPv6PerCIDR) {
+			tLbl := ipStr
+			if lbl != "" {
+				tLbl = lbl + " " + ipStr
+			}
+			targets = append(targets, Target{Label: tLbl, URL: "https://[" + ipStr + "]", Host: ipStr, Port: 443, Scheme: "https"})
+		}
+		return targets
+	}
 	prefix, bits := ipnet.Mask.Size()
 	skipEdges := bits == 32 && prefix < 31
+	if v4 := ipnet.IP.To4(); v4 != nil && bits == 32 {
+		// Integer sweep: one string per address ("https://a.b.c.d", Host is a
+		// slice of it) instead of String()/compare/Sprintf on every step.
+		first, last := ipv4Bounds(ipnet)
+		if skipEdges {
+			first, last = first+1, last-1 // network and broadcast addresses
+		}
+		targets := make([]Target, 0, last-first+1)
+		buf := append(make([]byte, 0, len("https://255.255.255.255")), "https://"...)
+		for u := first; u <= last; u++ {
+			url := string(appendIPv4(buf, uint32(u)))
+			host := url[len("https://"):]
+			label := host
+			if lbl != "" {
+				label = lbl + " " + host
+			}
+			targets = append(targets, Target{Label: label, URL: url, Host: host, Port: 443, Scheme: "https"})
+		}
+		return targets
+	}
 	broadcast := broadcastIPv4(ipnet)
 	targets := make([]Target, 0)
 
@@ -495,7 +466,7 @@ func buildCIDRTargetsFromNet(lbl string, ip net.IP, ipnet *net.IPNet) []Target {
 		}
 		targets = append(targets, Target{
 			Label:  strings.TrimSpace(tLbl),
-			URL:    "https://" + ipStr,
+			URL:    "https://" + bracketIPv6(ipStr),
 			Host:   ipStr,
 			Port:   443,
 			Scheme: "https",
@@ -512,15 +483,15 @@ func expandAllPorts(rawTargets []Target) []Target {
 	seen := make(map[string]struct{}) // track host to avoid double-expanding
 
 	for _, t := range rawTargets {
-		if _, exists := seen[t.Host]; exists {
+		if _, exists := seen[targetExpansionKey(t)]; exists {
 			continue
 		}
-		seen[t.Host] = struct{}{}
+		seen[targetExpansionKey(t)] = struct{}{}
 
 		for _, port := range CFHTTPSPorts {
 			expanded = append(expanded, Target{
 				Label:  fmt.Sprintf("%s:%d", t.Label, port),
-				URL:    fmt.Sprintf("https://%s:%d", t.Host, port),
+				URL:    "https://" + net.JoinHostPort(t.Host, strconv.Itoa(port)),
 				Host:   t.Host,
 				Port:   port,
 				Scheme: "https",
@@ -529,7 +500,7 @@ func expandAllPorts(rawTargets []Target) []Target {
 		for _, port := range CFHTTPPorts {
 			expanded = append(expanded, Target{
 				Label:  fmt.Sprintf("%s:%d", t.Label, port),
-				URL:    fmt.Sprintf("http://%s:%d", t.Host, port),
+				URL:    "http://" + net.JoinHostPort(t.Host, strconv.Itoa(port)),
 				Host:   t.Host,
 				Port:   port,
 				Scheme: "http",
@@ -541,6 +512,14 @@ func expandAllPorts(rawTargets []Target) []Target {
 }
 
 // expandCustomPorts expands each unique host into targets using the provided ports.
+func targetExpansionKey(t Target) string {
+	key := t.Host + "|" + t.Username + "|" + t.Password
+	if t.ExplicitPort {
+		key += "|" + strconv.Itoa(t.Port) + "|" + t.Scheme
+	}
+	return key
+}
+
 func expandCustomPorts(rawTargets []Target, ports []int) []Target {
 	var expanded []Target
 	seen := make(map[string]struct{})
@@ -548,16 +527,21 @@ func expandCustomPorts(rawTargets []Target, ports []int) []Target {
 		if _, exists := seen[t.Host]; exists {
 			continue
 		}
-		seen[t.Host] = struct{}{}
+		seen[targetExpansionKey(t)] = struct{}{}
 
+		if t.ExplicitPort {
+			expanded = append(expanded, t)
+			continue
+		}
 		for _, p := range ports {
 			scheme := schemeForPort(p, t.Scheme)
 			expanded = append(expanded, Target{
-				Label:  fmt.Sprintf("%s:%d", t.Label, p),
-				URL:    fmt.Sprintf("%s://%s:%d", scheme, t.Host, p),
-				Host:   t.Host,
-				Port:   p,
-				Scheme: scheme,
+				Label:    fmt.Sprintf("%s:%d", t.Label, p),
+				URL:      scheme + "://" + net.JoinHostPort(t.Host, strconv.Itoa(p)),
+				Host:     t.Host,
+				Port:     p,
+				Scheme:   scheme,
+				Username: t.Username, Password: t.Password,
 			})
 		}
 	}
@@ -586,15 +570,15 @@ func DeduplicateTargets(prioritized []Target, main []Target) []Target {
 	var result []Target
 
 	for _, t := range prioritized {
-		if _, exists := seen[t.URL]; !exists {
-			seen[t.URL] = struct{}{}
+		if _, exists := seen[t.Key()]; !exists {
+			seen[t.Key()] = struct{}{}
 			result = append(result, t)
 		}
 	}
 
 	for _, t := range main {
-		if _, exists := seen[t.URL]; !exists {
-			seen[t.URL] = struct{}{}
+		if _, exists := seen[t.Key()]; !exists {
+			seen[t.Key()] = struct{}{}
 			result = append(result, t)
 		}
 	}
@@ -603,6 +587,14 @@ func DeduplicateTargets(prioritized []Target, main []Target) []Target {
 }
 
 // incIP increments an IP address.
+// bracketIPv6 wraps an IPv6 literal for use in a URL host.
+func bracketIPv6(host string) string {
+	if strings.Contains(host, ":") {
+		return "[" + host + "]"
+	}
+	return host
+}
+
 func incIP(ip net.IP) {
 	for j := len(ip) - 1; j >= 0; j-- {
 		ip[j]++

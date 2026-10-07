@@ -68,3 +68,89 @@ The interactive menu asks for the rate after you pick a DNS or TXT mode. A probe
 - The scanner performs active network probing, so only use it on targets you are authorized to test.
 - Some build outputs are intentionally ignored by git, but the two packaged executables are kept trackable in the repository root.
 are we there yet ?
+## Desktop GUI scan modes
+
+The desktop and terminal menus share the same mode names. Clean IP scans include Default Ports (443/80 only), All Cloudflare Ports (13 ports), and Custom ports. Dedicated modes provide SNI scan, HTTP proxy, SOCKS proxy, DNS Resolver Discovery, DNS UDP/TCP only, and TXT Resolver Probe.
+
+Forged SNI applies only to SNI scan. Clean IP and proxy scans do not use that setting. Proxy probes fetch a configurable test URL through the selected proxy; SOCKS5 supports username/password authentication and proxy-side DNS resolution.
+
+Each mode keeps its own pasted targets, input file, port list, cache and reports. Inputs accept domains, IPv4/IPv6, CIDRs, explicit `host:port` endpoints, `[IPv6]:port`, and full URLs. Explicit endpoints and URLs keep their selected/default port; bare hosts expand over the mode's port list. Proxy credentials can be supplied as `http://user:pass@host:port` or `socks5://user:pass@host:port`. DNS/TXT probes support custom resolver ports.
+
+To measure download performance, open Results and use the speed action on a successful IP or proxy row. Speed test lets you set a direct download URL, time limit and size limit, and shows Mbps, bytes received and response latency. Traffic stays pinned to the selected IP or proxy; redirects are rejected. DNS rows cannot be used as HTTP download endpoints.
+
+Appearance settings include Taro purple, Teal tea and Milk tea palettes. Dark mode uses quiet surfaces without the left-side glow.
+
+Streaming scans no longer block on an expanded-target counting pass. Exact counting is optional background work; progress stays indeterminate until the total is known. Automatic concurrency reacts to local socket exhaustion within your minimum/maximum; manual concurrency stays fixed. Original probes, retry rules, timeouts and service/DNS validation are retained.
+
+IP and proxy pages include optional **Anti-DPI / fragment ClientHello**, disabled by default. Configure 1–1024 bytes per fragment and 0–20 ms between writes (defaults: 64 bytes, 1 ms). It preserves TLS bytes and original hostname policy; it does not affect SNI or DNS modes. TCP writes may be coalesced by the operating system, so circumvention depends on the network. CLI equivalents: `-anti-dpi -dpi-fragment-size 64 -dpi-fragment-delay-ms 1`.
+
+The native `WhiteDNS-Android` app keeps its tunnel scan and adds the same nine-mode scanner under **Scan → IP, proxy & DNS**. It includes provider-specific profiles, custom inputs/ports, concurrency, Anti-DPI, paged result details, selected-result download tests, saved-result review, report export and bubble-tea palettes. Its Gradle build regenerates the AAR from a sibling `whitedns-scanner` checkout. Standalone bindings can be built with `scripts/build-android-engine.ps1` or `.sh`; use JDK 17+, Go, Android SDK and NDK 29.
+
+CLI examples from `go/`:
+
+```powershell
+go run ./cmd/scanner -mode sni -input targets.txt -sni example.com -ports 443,8443
+go run ./cmd/scanner -mode http-proxy -input proxies.txt -ports 8080,3128 -proxy-test-url https://example.com/
+go run ./cmd/scanner -mode socks-proxy -input proxies.txt -ports 1080 -proxy-test-url https://example.com/
+```
+Choose **Clean IP finder** in the menu for IPs/CIDRs, or **Edge domains** for hostnames and domain URLs. Each choice keeps its own target text, file and ports; passed-target caches are separated by `ip-` and `domain-` filename prefixes. The backend checks that the input matches the chosen type, and live results and saved reports retain that choice. Existing mixed pasted lists are split into separate drafts when the GUI loads them.
+### Edge domains and preserved service checks
+
+Navigation groups scans into Clean IP finder, Edge domains, SNI scan, Proxy scan and DNS scan. Choose provider and scan variant inside the page; narrow windows use a single navigation dropdown.
+
+The original Cloudflare service set is preserved exactly: `workers.dev`, `pages.dev`, `gemini.google.com`, `notebooklm.google.com`, `instagram.com`, `chatgpt.com`, `web.telegram.org`, `reddit.com`, and `claude.ai`. Cloudflare stays the default. Other providers replace the Workers/Pages slots with their platform domains while retaining the seven common service checks. Per-domain requests stay pinned to the selected candidate IP; normal domain Host/TLS names are used, and forged SNI remains confined to SNI scan. Results and CSV reports retain passed domains and per-domain outcomes.
+
+Provider seed/probe mappings are reused from the existing `WhiteDNS-cleanip-finder/internal/config/edge.go`: Cloudflare, Cloudflare Pages, Render, Fly.io, Railway, Vercel, Netlify, Koyeb and Glitch. Fastly, Akamai and a custom profile are also available. Each provider and scan option retains independent targets, ports and request settings. For a non-Cloudflare provider, a shared-service success alone cannot qualify the endpoint as serving that platform.
+
+Only Cloudflare profiles offer the 13-port Cloudflare strategy. Standard HTTP/HTTPS and custom ports are available for the other profiles. These profiles select tests and configuration; provider labels are not automatic ownership claims.
+
+### Concurrency
+
+Every scan page has **Automatic / Manual** concurrency controls. Select **Manual** and enter **Concurrent workers** to use your own limit, just as in the TUI. The limit is shared across scan modes and saved between launches. Automatic mode uses CPU-based sizing between the selected minimum and maximum. Its minimum does not restrict manual mode: a manual limit of 7 remains valid when the automatic minimum is 200. Small input lists use only as many workers as needed. Changes apply to the next scan.
+
+### Windows, macOS and Linux GUI builds
+
+Build on the target OS with Go 1.26 or newer and the matching Wails CLI:
+
+```sh
+go install github.com/wailsapp/wails/v2/cmd/wails@v2.12.0
+```
+
+Run from the repository root:
+
+| Platform | Command | Package |
+|---|---|---|
+| Windows x64 | `pwsh -File scripts/build-gui.ps1` | ZIP containing `WhiteDNS-Scanner.exe` |
+| macOS Intel + Apple Silicon | `bash scripts/build-gui.sh darwin/universal` | ZIP containing `WhiteDNS Scanner.app` |
+| Linux x64 | `bash scripts/build-gui.sh linux/amd64` | `.tar.gz` containing `WhiteDNS-Scanner` |
+| Linux ARM64 | `bash scripts/build-gui.sh linux/arm64` | `.tar.gz` containing `WhiteDNS-Scanner` |
+
+Scripts run the Go tests and vet checks before building, then put packages and SHA-256 checksums in `build/gui/<platform>/`. macOS needs Xcode Command Line Tools (`xcode-select --install`). Windows needs WebView2. Linux builds need GCC, pkg-config, GTK3 and WebKitGTK development packages; Ubuntu 24.04 uses:
+
+```sh
+sudo apt-get install build-essential pkg-config libgtk-3-dev libwebkit2gtk-4.1-dev
+```
+
+The Linux script detects WebKitGTK 4.1 and applies `webkit2_41`; 4.0 is also supported when available. The resulting Linux app needs the matching GTK/WebKit runtime libraries and `xdg-utils` for opening report folders. Run it in a graphical desktop session. macOS packages are unsigned; signing and notarization require the distributor's Apple credentials.
+
+The **Desktop GUI builds** GitHub Actions workflow builds all four packages on native runners for pushes, pull requests, or manual runs. Download the packages from the run's Artifacts section. The workflow uploads build artifacts without publishing a release.
+
+### UI audit fixes and verification
+
+The desktop UI keeps live result actions stable while users focus, hover or inspect a row. Updates resume when the interaction ends. Result categories are keyboard-operable filter buttons, validation errors are linked to their inputs, and light-mode text remains readable in all three palettes. Coarse-pointer controls use at least 44 px hit areas. Results display 50, 100 or 250 rows per page; CSV export includes every matching result.
+
+The nine initial audit findings and their resolution evidence are recorded in [UI_AUDIT.md](UI_AUDIT.md). Run the frontend regression checks from the repository root:
+
+```sh
+npm ci --prefix scripts/gui-qa
+npm test --prefix scripts/gui-qa
+```
+
+The checks exercise the embedded UI against controlled Wails backend responses. They cover live-focus races, error descriptions, semantics, contrast, rendering limits, responsive layouts and synthesized touch. On Windows they use installed Edge automatically. On other systems, install the test browser first:
+
+```sh
+cd scripts/gui-qa
+npx playwright install chromium
+```
+
+Set `WHITEDNS_BROWSER` to a browser executable path to choose another Chromium-based browser. Measurements and screenshots are written under the ignored `build/gui/audit-fixed/` folder. The test dependencies are development tools and are not included in the desktop application.

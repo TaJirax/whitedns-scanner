@@ -1,10 +1,14 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
+	"io"
 	"os"
 	"os/exec"
+	"path/filepath"
+	"runtime"
 	"sort"
 	"strconv"
 	"strings"
@@ -14,6 +18,8 @@ import (
 )
 
 func main() {
+	var scanMode, proxyTestURL string
+	var sniMode bool
 	var input string
 	var outDir string
 	var concurrent int
@@ -36,7 +42,12 @@ func main() {
 	var countTotal bool
 	var dnsRate, dnsRatePerResolver, dnsJitter float64
 	var dnsBurst int
+	var antiDPI bool
+	var fragmentSize, fragmentDelay int
 
+	flag.StringVar(&scanMode, "mode", "", "Scan type: http, http-all, custom, sni, http-proxy, socks-proxy, dns, dns-udptcp, txt")
+	flag.BoolVar(&sniMode, "sni-scan", false, "Enable the dedicated forged SNI scan")
+	flag.StringVar(&proxyTestURL, "proxy-test-url", "https://example.com/", "URL fetched through each proxy")
 	flag.StringVar(&input, "input", "domains.txt", "Path to target list")
 	flag.StringVar(&outDir, "out", ".", "Directory to output reports and cache")
 	flag.IntVar(&concurrent, "concurrent", -1, "Worker pool size (<=0 for auto)")
@@ -61,9 +72,14 @@ func main() {
 	flag.Float64Var(&dnsRatePerResolver, "dns-rate-per-resolver", 0, "Max DNS queries per second to any one resolver (0 = unlimited)")
 	flag.IntVar(&dnsBurst, "dns-burst", 1, "DNS queries allowed back-to-back before spacing applies")
 	flag.Float64Var(&dnsJitter, "dns-jitter", 0, "Timing mask 0..1: randomly lengthen gaps between DNS queries")
+	ipFamily := flag.String("ip-family", "", "Scan only ipv4 or ipv6 IP targets (default both; hostnames are kept)")
+	flag.BoolVar(&antiDPI, "anti-dpi", false, "Fragment TLS ClientHello in IP and proxy scans (does not affect DNS/SNI modes)")
+	flag.IntVar(&fragmentSize, "dpi-fragment-size", 64, "ClientHello TCP fragment size, 1–1024 bytes")
+	flag.IntVar(&fragmentDelay, "dpi-fragment-delay-ms", 1, "Delay between fragments, 0–20 ms")
 	flag.Parse()
 
 	cfg := engine.DefaultConfig()
+	cfg.AntiDPI, cfg.DPIFragmentSize, cfg.DPIFragmentDelayMs = antiDPI, fragmentSize, fragmentDelay
 	cfg.InputFile = input
 	cfg.OutputDir = outDir
 	cfg.AutoConcurrency = autoConcurrency
@@ -94,10 +110,20 @@ func main() {
 	cfg.DnsTxtDomain = txtDomain
 	cfg.DnsTxtResolversRaw = txtResolversRaw
 	cfg.SpoofedSNI = spoofSNI
+	cfg.SNIScan = sniMode
+	cfg.ProxyTestURL = proxyTestURL
+	if scanMode != "" {
+		if err := configureScanMode(cfg, scanMode); err != nil {
+			fmt.Printf("Error: %v\n", err)
+			os.Exit(1)
+		}
+	}
+
 	cfg.DnsRateLimitPerSecond = dnsRate
 	cfg.DnsRateLimitPerResolverPerSecond = dnsRatePerResolver
 	cfg.DnsRateLimitBurst = dnsBurst
 	cfg.DnsTimingJitter = dnsJitter
+	cfg.IPFamily = *ipFamily
 
 	interactive := len(os.Args) == 1
 
@@ -122,6 +148,9 @@ func main() {
 			model := tui.NewModel(cfg)
 			if err := model.Run(cfg); err != nil {
 				fmt.Printf("Error running scanner: %v\n", err)
+				if !interactive {
+					os.Exit(1)
+				}
 			}
 		}
 
@@ -138,7 +167,9 @@ func main() {
 
 			var choice string
 			// We use fmt.Scanln to read the single option
-			fmt.Scanln(&choice)
+			if _, err := fmt.Scanln(&choice); errors.Is(err, io.EOF) {
+				return
+			}
 			choice = strings.TrimSpace(choice)
 
 			if choice == "1" {
@@ -184,32 +215,18 @@ func runInteractiveSetup(cfg *engine.ScanConfig) {
 		}
 	}
 
-	// Prompt for Spoofed SNI
-	fmt.Printf("  Enter Spoofed SNI for DPI Bypass (Default: %s): ", cfg.SpoofedSNI)
-	var sniInput string
-	fmt.Scanln(&sniInput)
-	sniInput = strings.TrimSpace(sniInput)
-	if sniInput != "" {
-		cfg.SpoofedSNI = sniInput
-	}
-
 	// Prompt for scanning mode
 	fmt.Println()
 	fmt.Println("  Scanning Mode:")
-	fmt.Println("    [1] Default Ports (443/80 only) — Fast")
-	fmt.Println("    [2] All Cloudflare Ports (13 ports) — Deep Scan")
-	fmt.Println("    [3] DNS Resolver Discovery — Probe resolvers (UDP/TCP/DoT/DoH)")
-	fmt.Println("    [4] DNS UDP/TCP only — faster, no DoT/DoH")
-	fmt.Println("    [5] Custom ports — enter a list or ranges (e.g. 80,443,8000-8010)")
-	fmt.Println("    [6] TXT Resolver Probe — query TXT on a user domain")
+	for i, mode := range engine.ScanModes() {
+		fmt.Printf("    [%d] %s — %s\n", i+1, mode.Name, mode.Hint)
+	}
 
 	defaultMode := "1"
-	if cfg.DnsDiscoveryMode {
-		defaultMode = "3"
-	} else if cfg.DnsTxtMode {
-		defaultMode = "6"
-	} else if cfg.ScanAllPorts {
-		defaultMode = "2"
+	for i, mode := range engine.ScanModes() {
+		if mode.ID == cfg.ModeID() {
+			defaultMode = strconv.Itoa(i + 1)
+		}
 	}
 	fmt.Printf("  Select mode (Default: %s): ", defaultMode)
 
@@ -220,6 +237,8 @@ func runInteractiveSetup(cfg *engine.ScanConfig) {
 		modeInput = defaultMode
 	}
 
+	cfg.SNIScan = false
+	cfg.ProxyMode = ""
 	switch modeInput {
 	case "1":
 		cfg.ScanAllPorts = false
@@ -264,6 +283,9 @@ func runInteractiveSetup(cfg *engine.ScanConfig) {
 			cfg.TargetDomain = domainInput2
 		}
 	case "5":
+		cfg.ScanAllPorts = false
+		cfg.DnsDiscoveryMode = false
+		cfg.DnsUdpTcpOnly = false
 		cfg.DnsTxtMode = false
 		cfg.DnsTxtResolversRaw = ""
 		// Custom ports - apply to non-DNS scans. If DNS mode is wanted, user should
@@ -313,6 +335,44 @@ func runInteractiveSetup(cfg *engine.ScanConfig) {
 		} else {
 			cfg.DnsTxtResolversRaw = ""
 		}
+	case "7", "8", "9":
+		cfg.ScanAllPorts, cfg.DnsDiscoveryMode, cfg.DnsTxtMode, cfg.DnsUdpTcpOnly = false, false, false, false
+		cfg.DnsTxtResolversRaw = ""
+		cfg.CustomPorts = nil
+		if modeInput == "7" {
+			cfg.SNIScan = true
+			fmt.Printf("  Forged SNI hostname (Default: %s): ", cfg.SpoofedSNI)
+			var name string
+			fmt.Scanln(&name)
+			if strings.TrimSpace(name) != "" {
+				cfg.SpoofedSNI = strings.TrimSpace(name)
+			}
+			cfg.CustomPorts = []int{443}
+		} else {
+			cfg.ProxyMode = "http"
+			cfg.CustomPorts = []int{8080, 3128, 80}
+			if modeInput == "9" {
+				cfg.ProxyMode = "socks5"
+				cfg.CustomPorts = []int{1080, 1081, 9050}
+			}
+			fmt.Printf("  Proxy test URL (Default: %s): ", cfg.ProxyTestURL)
+			var testURL string
+			fmt.Scanln(&testURL)
+			if strings.TrimSpace(testURL) != "" {
+				cfg.ProxyTestURL = strings.TrimSpace(testURL)
+			}
+		}
+		fmt.Printf("  Custom ports (blank keeps defaults): ")
+		var custom string
+		fmt.Scanln(&custom)
+		if strings.TrimSpace(custom) != "" {
+			if ports, err := parsePortsString(custom); err == nil {
+				cfg.CustomPorts = ports
+			} else {
+				fmt.Printf("  Error: %v\n", err)
+			}
+		}
+
 	}
 
 	if cfg.DnsDiscoveryMode || cfg.DnsTxtMode {
@@ -320,15 +380,7 @@ func runInteractiveSetup(cfg *engine.ScanConfig) {
 	}
 
 	fmt.Println()
-	if cfg.DnsTxtMode {
-		fmt.Printf("  ⚡ Mode: TXT RESOLVER PROBE (domain: %s)\n", cfg.DnsTxtDomain)
-	} else if cfg.DnsDiscoveryMode {
-		fmt.Printf("  ⚡ Mode: DNS RESOLVER DISCOVERY (domain: %s)\n", cfg.TargetDomain)
-	} else if cfg.ScanAllPorts {
-		fmt.Println("  ⚡ Mode: ALL CLOUDFLARE PORTS (13 per host)")
-	} else {
-		fmt.Println("  ⚡ Mode: DEFAULT PORTS (443/80)")
-	}
+	fmt.Printf("  Mode: %s\n", cfg.ModeName())
 	fmt.Println()
 }
 
@@ -360,13 +412,29 @@ func openDir(dir string) {
 	if dir == "." || dir == "" {
 		dir = "."
 	}
-	// For Windows Explorer
-	cmd := exec.Command("explorer", dir)
+	absolute, err := filepath.Abs(dir)
+	if err != nil {
+		fmt.Printf("  [!] Failed to resolve directory: %v\n", err)
+		return
+	}
+	cmd := outputDirCommand(absolute)
 	if err := cmd.Start(); err != nil {
 		fmt.Printf("  [!] Failed to open directory: %v\n", err)
 	} else {
+		go func() { _ = cmd.Wait() }()
 		fmt.Println("  [+] Opened output directory.")
 	}
+}
+
+func outputDirCommand(dir string) *exec.Cmd {
+	program := "explorer"
+	switch runtime.GOOS {
+	case "darwin":
+		program = "open"
+	case "linux":
+		program = "xdg-open"
+	}
+	return exec.Command(program, dir)
 }
 
 // parsePortsString accepts comma-separated ports and ranges like 8000-8010.

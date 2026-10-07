@@ -4,12 +4,9 @@ import (
 	"context"
 	"crypto/tls"
 	"encoding/binary"
-	"encoding/json"
 	"fmt"
-	"io"
 	"net"
 	"net/http"
-	"strings"
 	"time"
 )
 
@@ -23,22 +20,38 @@ func DnsProbeTXT(ctx context.Context, resolverIP string, domain string, timeout 
 
 	if len(customPorts) > 0 {
 		for _, port := range customPorts {
-			add(func() DnsProbeResult { return DnsProbeTXTUDPWithDialer(ctx, resolverIP, queryName, timeout, dialer, port) })
-			add(func() DnsProbeResult { return DnsProbeTXTTCPWithDialer(ctx, resolverIP, queryName, timeout, dialer, port) })
+			add(func() DnsProbeResult {
+				return DnsProbeTXTUDPWithDialer(ctx, resolverIP, queryName, timeout, dialer, port)
+			})
+			add(func() DnsProbeResult {
+				return DnsProbeTXTTCPWithDialer(ctx, resolverIP, queryName, timeout, dialer, port)
+			})
 			if port == 853 {
-				add(func() DnsProbeResult { return DnsProbeTXTDoTWithDialer(ctx, resolverIP, queryName, timeout, dialer, port) })
+				add(func() DnsProbeResult {
+					return DnsProbeTXTDoTWithDialer(ctx, resolverIP, queryName, timeout, dialer, port)
+				})
 			}
 			if port == 443 {
-				add(func() DnsProbeResult { return DnsProbeTXTDoHWithClient(ctx, resolverIP, queryName, timeout, dohClient, port) })
+				add(func() DnsProbeResult {
+					return DnsProbeTXTDoHWithClient(ctx, resolverIP, queryName, timeout, dohClient, port)
+				})
 			}
 		}
 		return runProbesConcurrently(probes)
 	}
 
-	add(func() DnsProbeResult { return DnsProbeTXTUDPWithDialer(ctx, resolverIP, queryName, timeout, dialer, 53) })
-	add(func() DnsProbeResult { return DnsProbeTXTTCPWithDialer(ctx, resolverIP, queryName, timeout, dialer, 53) })
-	add(func() DnsProbeResult { return DnsProbeTXTDoTWithDialer(ctx, resolverIP, queryName, timeout, dialer, 853) })
-	add(func() DnsProbeResult { return DnsProbeTXTDoHWithClient(ctx, resolverIP, queryName, timeout, dohClient, 443) })
+	add(func() DnsProbeResult {
+		return DnsProbeTXTUDPWithDialer(ctx, resolverIP, queryName, timeout, dialer, 53)
+	})
+	add(func() DnsProbeResult {
+		return DnsProbeTXTTCPWithDialer(ctx, resolverIP, queryName, timeout, dialer, 53)
+	})
+	add(func() DnsProbeResult {
+		return DnsProbeTXTDoTWithDialer(ctx, resolverIP, queryName, timeout, dialer, 853)
+	})
+	add(func() DnsProbeResult {
+		return DnsProbeTXTDoHWithClient(ctx, resolverIP, queryName, timeout, dohClient, 443)
+	})
 	return runProbesConcurrently(probes)
 }
 
@@ -71,16 +84,14 @@ func DnsProbeTXTTCPWithDialer(ctx context.Context, resolverIP string, queryName 
 	query, txid := buildDnsQuery(queryName, 16, true)
 
 	addr := net.JoinHostPort(resolverIP, fmt.Sprintf("%d", port))
-	if dialer == nil {
-		dialer = &net.Dialer{Timeout: timeout}
-	}
-
-	conn, err := dialer.DialContext(ctx, "tcp", addr)
+	conn, err := probeDialer(dialer, timeout).DialContext(ctx, "tcp", addr)
 	if err != nil {
 		result.Error = "TCP_DIAL: " + truncErr(err)
 		return result
 	}
 	defer conn.Close()
+	stopCancel := context.AfterFunc(ctx, func() { _ = conn.Close() })
+	defer stopCancel()
 
 	conn.SetDeadline(time.Now().Add(timeout))
 	tcpMsg := make([]byte, 2+len(query))
@@ -124,16 +135,15 @@ func DnsProbeTXTDoTWithDialer(ctx context.Context, resolverIP string, queryName 
 	query, txid := buildDnsQuery(queryName, 16, true)
 
 	addr := net.JoinHostPort(resolverIP, fmt.Sprintf("%d", port))
-	if dialer == nil {
-		dialer = &net.Dialer{Timeout: timeout}
-	}
-
-	tlsConn, err := tls.DialWithDialer(dialer, "tcp", addr, &tls.Config{InsecureSkipVerify: true})
+	tlsDialer := &tls.Dialer{NetDialer: probeDialer(dialer, timeout), Config: &tls.Config{InsecureSkipVerify: true}}
+	tlsConn, err := tlsDialer.DialContext(ctx, "tcp", addr)
 	if err != nil {
 		result.Error = "DoT_TLS: " + truncErr(err)
 		return result
 	}
 	defer tlsConn.Close()
+	stopCancel := context.AfterFunc(ctx, func() { _ = tlsConn.Close() })
+	defer stopCancel()
 
 	tlsConn.SetDeadline(time.Now().Add(timeout))
 	tcpMsg := make([]byte, 2+len(query))
@@ -174,65 +184,15 @@ func DnsProbeTXTDoHWithClient(ctx context.Context, resolverIP string, queryName 
 		result.Error = "CANCELED"
 		return result
 	}
-	url := fmt.Sprintf("https://%s:%d/dns-query?name=%s&type=TXT", resolverIP, port, queryName)
-
-	if client == nil {
-		client = &http.Client{Timeout: timeout}
-	}
-
-	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
+	hdr, txts, edns, ttfb, err := dohExchange(ctx, client, resolverIP, port, queryName, 16, timeout)
+	result.TTFB = ttfb
 	if err != nil {
-		result.Error = "DoH_REQ: " + truncErr(err)
+		result.Error = "DoH_" + err.Error()
+		result.Header, result.HeaderOK = hdr, hdr.QR
 		return result
 	}
-	req.Header.Set("Accept", "application/dns-json")
-
-	start := time.Now()
-	resp, err := client.Do(req)
-	result.TTFB = time.Since(start)
-	if err != nil {
-		result.Error = "DoH_HTTP: " + truncErr(err)
-		return result
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != 200 {
-		result.Error = fmt.Sprintf("DoH_STATUS: %d", resp.StatusCode)
-		return result
-	}
-
-	body, err := io.ReadAll(io.LimitReader(resp.Body, 8192))
-	if err != nil {
-		result.Error = "DoH_READ: " + truncErr(err)
-		return result
-	}
-
-	var dohResp dohJSONResponse
-	if err := json.Unmarshal(body, &dohResp); err != nil {
-		result.Error = "DoH_JSON: " + truncErr(err)
-		return result
-	}
-
-	if dohResp.Status != 0 {
-		result.Error = fmt.Sprintf("DoH_RCODE: %d", dohResp.Status)
-		return result
-	}
-
-	var txts []string
-	for _, ans := range dohResp.Answer {
-		if ans.Type == 16 {
-			// DoH JSON wraps TXT strings in quotes; strip them for parity with
-			// the wire probes so passthrough comparisons line up.
-			txts = append(txts, strings.Trim(ans.Data, "\""))
-		}
-	}
-	if len(txts) == 0 {
-		result.Error = "DoH_NO_TXT"
-		return result
-	}
-
 	result.Responded = true
 	result.AnswerTXT = txts
-	result.Header, result.HeaderOK = dohHeader(dohResp), true
+	result.Header, result.HeaderOK, result.EDNS = hdr, true, edns
 	return result
 }

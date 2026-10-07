@@ -3,77 +3,93 @@ package engine
 import (
 	"context"
 	"crypto/tls"
+	"errors"
 	"fmt"
+	"io"
 	"net"
 	"net/http"
+	"strings"
 	"sync"
+	"syscall"
 	"time"
 )
 
 // ProbeResult holds the outcome of the pre-flight layer checks.
 type ProbeResult struct {
-	Status     string // "PASSED", "DNS_FAILED", "TCP_FAILED", "TLS_FAILED", etc.
-	ResolvedIP string // The IP we actually connected to
+	Status          string // "PASSED", "DNS_FAILED", "TCP_FAILED", "TLS_FAILED", etc.
+	ResolvedIP      string // The IP we actually connected to
+	ResourceLimited bool   // scheduling signal; the result status is unchanged
+	Detail          string // why TCP or TLS failed, for the report
 }
 
 // PreFlightLayerCheck performs DNS resolution, TCP SYN, and TLS checks.
 // Critically: it resolves the domain to an IP first, then dials the *IP directly*,
 // spoofing the SNI/ServerName to the chosen clean domain. This is the core DPI bypass mechanism.
 func PreFlightLayerCheck(ctx context.Context, host string, port int, scheme string, timeout time.Duration, spoofedSNI string) ProbeResult {
+	result, conn := preFlightConn(ctx, host, port, scheme, timeout, spoofedSNI, nil)
+	if conn != nil {
+		conn.Close()
+	}
+	return result
+}
+
+// preFlightConn resolves host, connects to the resolved IP and, for https,
+// completes TLS with the given SNI. On PASSED it returns the open connection
+// (TLS when https) for the caller's request, so a target costs one handshake.
+func preFlightConn(ctx context.Context, host string, port int, scheme string, timeout time.Duration, sni string, cfg *ScanConfig) (ProbeResult, net.Conn) {
 	if host == "" {
-		return ProbeResult{Status: "PARSE_ERR"}
+		return ProbeResult{Status: "PARSE_ERR"}, nil
 	}
 
-	portStr := fmt.Sprintf("%d", port)
-
-	// ──────────────────────────────────────────────
-	// 1. DNS Resolution — resolve domain to IP
-	// ──────────────────────────────────────────────
+	// 1. DNS resolution (IP targets skip it)
 	var resolvedIP string
-
-	// Check if the host is already an IP address
 	if ip := net.ParseIP(host); ip != nil {
 		resolvedIP = ip.String()
 	} else {
 		dnsCtx, dnsCancel := context.WithTimeout(ctx, timeout)
-		defer dnsCancel()
 		ips, err := net.DefaultResolver.LookupHost(dnsCtx, host)
+		dnsCancel()
 		if err != nil || len(ips) == 0 {
-			return ProbeResult{Status: "DNS_FAILED"}
+			return ProbeResult{Status: "DNS_FAILED"}, nil
 		}
-		resolvedIP = ips[0] // Use the first resolved IP
+		resolvedIP = ips[0]
 	}
 
-	// ──────────────────────────────────────────────
-	// 2. TCP SYN Probe — dial the RESOLVED IP, not the domain
-	// ──────────────────────────────────────────────
-	tcpAddr := net.JoinHostPort(resolvedIP, portStr)
-	dialer := &net.Dialer{Timeout: timeout}
-	conn, err := dialer.DialContext(ctx, "tcp", tcpAddr)
+	// 2. TCP to the resolved IP, not the name
+	conn, err := (&net.Dialer{Timeout: timeout}).DialContext(ctx, "tcp", net.JoinHostPort(resolvedIP, fmt.Sprint(port)))
 	if err != nil {
-		return ProbeResult{Status: "TCP_FAILED", ResolvedIP: resolvedIP}
+		return ProbeResult{Status: "TCP_FAILED", ResolvedIP: resolvedIP, ResourceLimited: isSocketExhaustion(err), Detail: truncErr(err)}, nil
 	}
-	defer conn.Close()
+	if scheme != "https" {
+		return ProbeResult{Status: "PASSED", ResolvedIP: resolvedIP}, conn
+	}
 
-	// ──────────────────────────────────────────────
-	// 3. TLS Handshake — on the same connection, spoofing SNI to a safe domain
-	// ──────────────────────────────────────────────
-	if scheme == "https" {
-		_ = conn.SetDeadline(time.Now().Add(timeout))
-		tlsConn := tls.Client(conn, &tls.Config{
-			ServerName:         spoofedSNI, // SNI spoofing: send the clean domain in ClientHello
-			InsecureSkipVerify: true,
-		})
-		if err := tlsConn.HandshakeContext(ctx); err != nil {
-			// Differentiate between TLS protocol errors and connection errors
-			if isSocketExhaustion(err) {
-				return ProbeResult{Status: "FATAL_ERR", ResolvedIP: resolvedIP}
-			}
-			return ProbeResult{Status: "TLS_FAILED", ResolvedIP: resolvedIP}
+	// 3. TLS on the same connection
+	conn = wrapAntiDPI(ctx, conn, cfg)
+	_ = conn.SetDeadline(time.Now().Add(timeout))
+	tlsConn := tls.Client(conn, &tls.Config{ServerName: sni, InsecureSkipVerify: true})
+	if err := tlsConn.HandshakeContext(ctx); err != nil {
+		conn.Close()
+		if isSocketExhaustion(err) {
+			return ProbeResult{Status: "FATAL_ERR", ResolvedIP: resolvedIP, ResourceLimited: true}, nil
 		}
+		return ProbeResult{Status: "TLS_FAILED", ResolvedIP: resolvedIP, Detail: tlsFailure(err)}, nil
 	}
+	_ = conn.SetDeadline(time.Time{})
+	return ProbeResult{Status: "PASSED", ResolvedIP: resolvedIP}, tlsConn
+}
 
-	return ProbeResult{Status: "PASSED", ResolvedIP: resolvedIP}
+// tlsFailure names how a handshake failed: a timeout or reset usually means
+// the ClientHello was filtered; an alert means the server itself refused it.
+func tlsFailure(err error) string {
+	var ne net.Error
+	switch {
+	case errors.As(err, &ne) && ne.Timeout():
+		return "timeout"
+	case errors.Is(err, io.EOF), errors.Is(err, syscall.ECONNRESET), strings.Contains(err.Error(), "forcibly closed"), strings.Contains(err.Error(), "connection reset"):
+		return "reset"
+	}
+	return truncErr(err)
 }
 
 // isSocketExhaustion checks if an error is caused by OS resource limits (EMFILE, ENFILE, etc.)
@@ -144,14 +160,22 @@ func DnsProbe(ctx context.Context, resolverIP string, domain string, truth *Trut
 
 	if len(customPorts) > 0 {
 		for _, p := range customPorts {
-			add(func() DnsProbeResult { return DnsProbeUDPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, p) })
-			add(func() DnsProbeResult { return DnsProbeTCPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, p) })
+			add(func() DnsProbeResult {
+				return DnsProbeUDPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, p)
+			})
+			add(func() DnsProbeResult {
+				return DnsProbeTCPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, p)
+			})
 			if !dnsUdpTcpOnly {
 				if p == 853 {
-					add(func() DnsProbeResult { return DnsProbeDoTWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, p) })
+					add(func() DnsProbeResult {
+						return DnsProbeDoTWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, p)
+					})
 				}
 				if p == 443 {
-					add(func() DnsProbeResult { return DnsProbeDoHWithClient(ctx, resolverIP, domain, truth, timeout, dohClient, p) })
+					add(func() DnsProbeResult {
+						return DnsProbeDoHWithClient(ctx, resolverIP, domain, truth, timeout, dohClient, p)
+					})
 				}
 			}
 		}
@@ -159,11 +183,19 @@ func DnsProbe(ctx context.Context, resolverIP string, domain string, truth *Trut
 	}
 
 	// Default behaviour
-	add(func() DnsProbeResult { return DnsProbeUDPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, 53) })
-	add(func() DnsProbeResult { return DnsProbeTCPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, 53) })
+	add(func() DnsProbeResult {
+		return DnsProbeUDPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, 53)
+	})
+	add(func() DnsProbeResult {
+		return DnsProbeTCPWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, 53)
+	})
 	if !dnsUdpTcpOnly {
-		add(func() DnsProbeResult { return DnsProbeDoTWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, 853) })
-		add(func() DnsProbeResult { return DnsProbeDoHWithClient(ctx, resolverIP, domain, truth, timeout, dohClient, 443) })
+		add(func() DnsProbeResult {
+			return DnsProbeDoTWithDialer(ctx, resolverIP, domain, truth, timeout, dialer, 853)
+		})
+		add(func() DnsProbeResult {
+			return DnsProbeDoHWithClient(ctx, resolverIP, domain, truth, timeout, dohClient, 443)
+		})
 	}
 	return runProbesConcurrently(probes)
 }
